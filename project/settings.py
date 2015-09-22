@@ -42,10 +42,13 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration',
+    'case',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -130,7 +133,8 @@ else:
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'pt-br'
+LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
@@ -163,3 +167,9 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, 'templates'),
 )
+
+#registration
+ACCOUNT_ACTIVATION_DAYS=7
+REGISTRATION_DEFAULT_FROM_EMAIL='sun@bluepage.me'
+REGISTRATION_EMAIL_HTML=True
+REGISTRATION_AUTO_LOGIN=True
