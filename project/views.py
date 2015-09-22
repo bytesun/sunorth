@@ -1,5 +1,5 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def home(request):
-	return HttpResponse('Hello world from django 1.8 on Open Shift')
+	return render(request,'home.html',{})
