@@ -1,15 +1,10 @@
 from setuptools import setup
-import os
 
-required_packages = [
-    'Django>=1.7'
-]
-
-setup(name='',
-      version='1.0',
-      description='',
-      author='',
-      author_email='',
-      url='http://www.python.org/sigs/distutils-sig/',
-      install_requires=required_packages,
+setup(name='Bluepage',
+    version='0.1',
+    description='Consulting HUB',
+    author='Sun',
+    author_email='sun@bluepage.me',
+    url='ssh://560187680c1e66b1170000d9@bluepage-bluepage.rhcloud.com/~/git/bluepage.git/',
+    install_requires=['Django==1.8.2',],
 )

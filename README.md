@@ -1,100 +1,56 @@
-Python 3 + Django 1.7 with Openshift
-====================================
+This tutoral was based on  https://github.com/Gpzim98/Django-OpenShift-1.8.git
 
-This repository is an enabler to run Django (1.7) applications with Python 3.x on [OpenShift](https://openshift.redhat.com/).
+add :
+    registration
+    crispy
+    mysqlclient
 
-Prerequisites
--------------
+# Django-OpenShift-1.8
 
-You need to have an OpenShift account: if not, [create a new one](https://www.openshift.com/app/account/new).
-
-Secondly, you need to install and configure `rhc` tools on your computer:
-
-    gem install rhc
-    rhc setup
-
-Thirdly, you need to create a new OpenShift application with Python 3.x cartridge: 
-
-By **web interface**: [new python 3.3 app](https://openshift.redhat.com/app/console/application_type/cart!python-3.3) + git clone
-
-By **command line**:
-
-    mynewapp="newappname"
-    rhc app create -a $mynewapp -t python-3.3
-
-Add django enabler
-------------------
-
-Run the following commands to add the current project to the app repository:
-
-    cd $mynewapp
-    git remote add upstream -m master git://github.com/lrivallain/openshift-django1.7-py3.git
-    git pull -s recursive -X theirs upstream master
-
-Configuration
--------------
-
-Django "secret key" is already set for localhost usage. For production/OpenShift cartridge, you'll have to set a new secret one.
-
-### Generate a new secret key
-
-Django "secret key" is already set for localhost usage. For production/OpenShift cartridge, you'll have to set a new secret one.
-
-You can use a web service like: [Django Secret Key Generator](http://www.miniwebtool.com/django-secret-key-generator/)
-Or by using python command line:  
-
-    import random
-    print(''.join([random.choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for n in range(60)]))
-
-### Push key to the cartridge
-
-When key is generated, you need to set an environment variables on the OpenShift cartridge:
-
-    rhc set-env DJANGO_SETTINGS_SECRET_KEY="your-secret-key" -a $mynewapp
-
-### Database backend
-
-In `$mynewapp/openshift/settings.py`, MySQL backend is configured. If you whant to use one, you'll need to have a database cartridge to your app. Examples:
-
-MySQL:
-
-    rhc cartridge-add mysql-5.5 -app $mynewapp
-    rhc cartridge-add phpmyadmin-4 --app $mynewapp
-
-PostgreSQL:
-
-    rhc cartridge-add postgresql-9.2 --app $mynewapp
-
-...
-
-Then you may have to adapt settings according to your database backend (with the help of OpenShift ['Using Environment Variables' documentation](https://developers.openshift.com/en/managing-environment-variables.html)):
-
+###How to use this repository
+- Create an account at https://www.openshift.com
+- Install the RHC client tools if you have not already done so.
 ```
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-if ON_OPENSHIFT: # production settings
-    DATABASES = {
-         'default': { # you can change the backend to any django supported
-            'ENGINE':   'django.db.backends.mysql',
-            'NAME':     os.environ['OPENSHIFT_APP_NAME'],
-            'USER':     os.environ['OPENSHIFT_MYSQL_DB_USERNAME'],
-            'PASSWORD': os.environ['OPENSHIFT_MYSQL_DB_PASSWORD'],
-            'HOST':     os.environ['OPENSHIFT_MYSQL_DB_HOST'],
-            'PORT':     os.environ['OPENSHIFT_MYSQL_DB_PORT'],
-         }
-    }
-...
+sudo gem install rhc
+rhc setup
 ```
+- Create a Python 3.3 application
+```
+rhc app create django python-3.3
+```
+- Add the database cartridge (choose one)
+```
+rhc add-cartridge postgresql-9.2 --app django
 
-### First push
-Simply:
+OR
 
-    git push
+rhc add-cartridge mysql-5.5 --app django 
+```
+- Add this upstream repo
+```
+cd django
+git remote add upstream -m master https://github.com/bytesun/openshift-django1.8.git
+git pull -s recursive -X theirs upstream master
+```
+- set the WSGI application to django's built in WSGI application (stored in the wsgi folder).
+```
+rhc env set OPENSHIFT_PYTHON_WSGI_APPLICATION=wsgi/wsgi.py --app django
+```
+- Push the repo upstream
+```
+git push
+```
+- SSH into the application to create a django superuser.
+```
+python app-root/repo/manage.py createsuperuser
+```
+- Now use your browser to connect to the Admin site.
 
-Django super user
------------------
-After first push, your application do not have a super user (admin). You have to create one:
 
-    rhc ssh $mynewapp
-    source $OPENSHIFT_HOMEDIR/python/virtenv/venv/bin/activate
-    python "$OPENSHIFT_REPO_DIR"wsgi/manage.py createsuperuser
+If your deploy can't install django, you will may log in your app by ssh and make:
+'''
+pip install django
+'''
+For log in your app, access your account on OpenShift, select your app and find the url of ssh for your app.
+
+www.bluepage.me
