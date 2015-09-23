@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
 
-  {% block jumbotron %}
+{% block jumbotron %}
       <!-- Main component for a primary marketing message or call to action -->
       
       <div class="jumbotron">
@@ -14,9 +14,9 @@
         </p>
       </div>  
       </div>
-   {% endblock %}
+{% endblock %}
   
-   {% block content %}
+{% block content %}
    <div class="row">
        <div class="col-md-4">
          <form method="POST" action="">
@@ -26,4 +26,4 @@
          </form>
        </div>
     </div>   
-   {% endblock %}
+{% endblock %}
