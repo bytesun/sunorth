@@ -7,12 +7,24 @@
       
       <div class="jumbotron">
       <div class="container">
+        <div class="row">  
+        <div class="col-md-8">
         <h1>Think to change</h1>
         <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
         <p>To see the difference between static and fixed top navbars, just scroll.</p>
-        <p>
-          
-        </p>
+        </div>
+        <div class="col-md-4">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- p8ecm_sidebar-right-1_AdSense1_250x250_as -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:250px;height:250px"
+     data-ad-client="ca-pub-1018407477199873"
+     data-ad-slot="8096162942"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+        </div>
       </div>  
       </div>
 {% endblock %}
@@ -20,11 +32,7 @@
 {% block content %}
    <div class="row">
        <div class="col-md-4 pull-right">
-         <form method="POST" action="">
-           {% csrf_token %}
-           {{ form|crispy }}
-           <input class="btn btn-primary" type="submit" name="Submit" value="Submit"/>
-         </form>
+
        </div>
     </div>   
 {% endblock %}

@@ -5,19 +5,9 @@ from django.conf import settings
 from case.forms import *
 
 def home(request):
-    # if request.method == 'POST':
-        # print request.POST
-    
-    form = CaseForm(request.POST or None)
-    if form.is_valid():
-        instance = form.save(commit=False)
-        instance.save()
     title='Hello'
-    if request.user.is_authenticated():
-        title = "hello %s" %(request.user)  
     context = {
             "title" : title,
-            "form" : form,
         }
     return render(request, 'home.html', context)
     
