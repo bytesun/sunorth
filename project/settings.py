@@ -36,11 +36,7 @@ if ON_PAAS and DEBUG:
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['localhost','bluepage-bluepage.rhcloud.com','www.bluepage.me','bluepage.me']
-EMAIL_HOST = 'smtp.zoho.com'
-EMAIL_HOST_USER = 'admin@bluepage.me'
-EMAIL_HOST_PASSWORD = 'bpadmin12'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+
 
 # Application definition
 
