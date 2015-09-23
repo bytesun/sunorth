@@ -1,4 +1,9 @@
-This tuto was based on https://github.com/jfmatth/openshift-django17, Thanks jfmatth
+This tutoral was based on  https://github.com/Gpzim98/Django-OpenShift-1.8.git
+
+add :
+    registration
+    crispy
+    mysqlclient
 
 # Django-OpenShift-1.8
 
@@ -24,7 +29,7 @@ rhc add-cartridge mysql-5.5 --app django
 - Add this upstream repo
 ```
 cd django
-git remote add upstream -m master https://github.com/Gpzim98/Django-OpenShift-1.8.git
+git remote add upstream -m master https://github.com/bytesun/tourop.git
 git pull -s recursive -X theirs upstream master
 ```
 - set the WSGI application to django's built in WSGI application (stored in the wsgi folder).
@@ -48,5 +53,4 @@ pip install django
 '''
 For log in your app, access your account on OpenShift, select your app and find the url of ssh for your app.
 
-More details on my blog:
-blog.gregorypacheco.com.br    
+www.bluepage.me
