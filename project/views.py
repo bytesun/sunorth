@@ -12,7 +12,7 @@ def home(request):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
-
+    title='Hello'
     if request.user.is_authenticated():
         title = "hello %s" %(request.user)  
     context = {
