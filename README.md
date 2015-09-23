@@ -1,16 +1,3 @@
-This tutoral was based on  https://github.com/Gpzim98/Django-OpenShift-1.8.git
-
-add :
-    registration
-    crispy
-    mysqlclient
-
-# Django-OpenShift-1.8
-
-###How to use this repository
-- Create an account at https://www.openshift.com
-- Install the RHC client tools if you have not already done so.
-```
 sudo gem install rhc
 rhc setup
 ```
@@ -44,13 +31,4 @@ git push
 ```
 python app-root/repo/manage.py createsuperuser
 ```
-- Now use your browser to connect to the Admin site.
 
-
-If your deploy can't install django, you will may log in your app by ssh and make:
-'''
-pip install django
-'''
-For log in your app, access your account on OpenShift, select your app and find the url of ssh for your app.
-
-www.bluepage.me
