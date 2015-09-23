@@ -7,3 +7,7 @@ class CaseForm(forms.ModelForm):
         model = Case
         fields = ['subject','description','tags']
         
+class ContactForm(forms.Form):
+    full_name = forms.CharField()
+    email = forms.EmailField()
+    message = forms.CharField()

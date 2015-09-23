@@ -36,6 +36,11 @@ if ON_PAAS and DEBUG:
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_HOST_USER = 'sun@bluepage.me'
+EMAIL_HOST_PASSWORD = 'sunadmin1'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Application definition
 
@@ -48,6 +53,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'registration',
+    'crispy_forms',
     'case',
 )
 
@@ -173,3 +179,7 @@ ACCOUNT_ACTIVATION_DAYS=7
 REGISTRATION_DEFAULT_FROM_EMAIL='sun@bluepage.me'
 REGISTRATION_EMAIL_HTML=True
 REGISTRATION_AUTO_LOGIN=True
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+SITE_ID=1
