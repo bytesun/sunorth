@@ -50,8 +50,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'registration',
     'crispy_forms',
-    'case',
-    'user',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -71,7 +70,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
-                 os.path.join(BASE_DIR, 'templates/user'),
+
         ],
         'APP_DIRS': True,
         'OPTIONS': {
