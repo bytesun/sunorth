@@ -36,11 +36,11 @@ if ON_PAAS and DEBUG:
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-EMAIL_HOST = 'smtp.zoho.com'
-EMAIL_HOST_USER = 'sun@bluepage.me'
-EMAIL_HOST_PASSWORD = 'sunadmin1'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.zoho.com'
+# EMAIL_HOST_USER = 'sun@bluepage.me'
+# EMAIL_HOST_PASSWORD = 'sunadmin1'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
 
 # Application definition
 
