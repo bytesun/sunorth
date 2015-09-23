@@ -35,7 +35,7 @@ if ON_PAAS and DEBUG:
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','bluepage-bluepage.rhcloud.com','www.bluepage.me','bluepage.me']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

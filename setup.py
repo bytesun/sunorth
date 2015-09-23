@@ -1,10 +1,10 @@
 from setuptools import setup
 
-setup(name='Bluepage',
+setup(name='TourOP',
     version='0.1',
-    description='Consulting HUB',
+    description='Tour operation system',
     author='Sun',
     author_email='sun@bluepage.me',
-    url='ssh://560187680c1e66b1170000d9@bluepage-bluepage.rhcloud.com/~/git/bluepage.git/',
+    url='',
     install_requires=['Django==1.8.2',],
 )
