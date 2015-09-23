@@ -29,7 +29,7 @@ rhc add-cartridge mysql-5.5 --app django
 - Add this upstream repo
 ```
 cd django
-git remote add upstream -m master https://github.com/bytesun/tourop.git
+git remote add upstream -m master https://github.com/bytesun/openshift-django1.8.git
 git pull -s recursive -X theirs upstream master
 ```
 - set the WSGI application to django's built in WSGI application (stored in the wsgi folder).
