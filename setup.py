@@ -1,8 +1,8 @@
 from setuptools import setup
 
-setup(name='TourOP',
+setup(name='Sunny',
     version='0.1',
-    description='Tour operation system',
+    description='my outdoor space',
     author='Sun',
     author_email='sun@bluepage.me',
     url='',
