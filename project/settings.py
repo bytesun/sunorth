@@ -33,10 +33,14 @@ DEBUG = DEBUG or os.getenv("debug","false").lower() == "true"
 if ON_PAAS and DEBUG:
     print("*** Warning - Debug mode is on ***")
 
-TEMPLATE_DEBUG = True
+
 
 ALLOWED_HOSTS = ['*']
-
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_HOST_USER = 'sun@sunorth.org'
+EMAIL_HOST_PASSWORD = 'sunadmin1'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Application definition
 
@@ -50,6 +54,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'registration',
     'crispy_forms',
+    'event',
 
 )
 
@@ -160,16 +165,10 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR,"static"),
 )
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'templates'),
-)
 
 #registration
 ACCOUNT_ACTIVATION_DAYS=7
-REGISTRATION_DEFAULT_FROM_EMAIL='sun@bluepage.me'
+REGISTRATION_DEFAULT_FROM_EMAIL='sun@sunorth.org'
 REGISTRATION_EMAIL_HTML=True
 REGISTRATION_AUTO_LOGIN=True
 

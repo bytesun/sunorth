@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+
+{% block content %}
+   <div class="row">
+       <div class="col-md-9">
+           <h1>{{event.subject}}</h1>
+            <table class="table">
+                
+                <tr><td>Time</td><td>{{event.do_time|date:'Y-m-d H:i'}}</td></tr>
+                <tr><td>Description</td><td>{{event.description|safe}}</td></tr>
+                
+                
+            </table>   
+
+       </div>
+       <!-- button -->
+       
+       <div class="col-md-3">
+           <div class="row">
+         <!-- Button trigger modal -->
+         <br>
+
+
+         <br>
+         
+         <!-- event Modal -->
+         <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+           <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <h4 class="modal-title" id="myModalLabel">Edit</h4>
+               </div>
+               <div class="modal-body">
+                  <form method="POST" action="{% url 'event_edit' id=event.id %}">
+                    {% csrf_token %}
+                    {{ event_form|crispy }}
+                    <input class="btn btn-primary" type="submit" name="Submit" value="Save"/>
+                  </form>
+               </div>
+             </div>
+           </div>
+         </div>          
+
+         
+         
+         
+         </div>
+         
+ 
+                
+  
+        </div>  
+        </div>    
+       </div>       
+       
+     
+    </div>   
+{% endblock %}

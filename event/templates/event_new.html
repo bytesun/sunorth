@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block content %}
+   <div class="row">
+       <div class="col-md-8 col-md-offset-2">
+          <br>
+           {% if request.user.is_authenticated %}          
+              <h1>Create a new event</h1>
+             <form method="POST" action="{% url 'event_new' %}">
+               {% csrf_token %}
+               {{ form|crispy }}
+               <input class="btn btn-success" type="submit" name="Submit" value="Save"/>
+             </form>
+           {% else %}
+               <p>{% trans "Not login? " %}  <a href="{% url 'auth_login' %}">{% trans "Login" %} </a> </p>
+               <p>{% trans "Not a member?" %} <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>.</p>
+           {% endif %}         
+       </div>
+    </div>   
+{% endblock %}
