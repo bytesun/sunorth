@@ -5,33 +5,37 @@
 {% block jumbotron %}
       <!-- Main component for a primary marketing message or call to action -->
       
-      <div class="jumbotron">
-      <div class="container">
-        <div class="row">  
-        <div class="col-md-8">
-        <h1>Hello! Vancouver</h1>
+      <!--<div class="jumbotron">-->
+      <!--<div class="container">-->
+      <!--  <div class="row">  -->
+      <!--  <div class="col-md-8">-->
+
         
-        </div>
-        <div class="col-md-4">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- p8ecm_sidebar-right-1_AdSense1_250x250_as -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:250px;height:250px"
-                 data-ad-client="ca-pub-1018407477199873"
-                 data-ad-slot="8096162942"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        </div>
-      </div>  
-      </div>
+      <!--  </div>-->
+
+      <!--  </div>-->
+      <!--</div>  -->
+      <!--</div>-->
 {% endblock %}
   
 {% block content %}
    <div class="row">
-       <div class="col-md-4 pull-right">
-
-       </div>
+       <div class="col-md-9">
+           {% if blogs %}
+           {% for blog in blogs %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h2><a href="{% url 'blog_info' id=blog.id %}">{{blog.subject}}</a></h2>
+                    <span class="label label-success">{{blog.tags}}</span> {{blog.createtime|date:'Y-m-d H:i'}} {{blog.owner}}<br><br>
+                      {{blog.content|safe|slice:"0:300"}}                    
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+       </div><!-- BLOG LIST -->
+       
+       <div class="col-md-3">
+            <a class="btn btn-success btn-block" href="{% url 'blog_new' %}" >Post my story</a>
+       </div>       
     </div>   
 {% endblock %}

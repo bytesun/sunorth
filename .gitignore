@@ -2,3 +2,4 @@
 vpython27
 db.sqlite3
 event/migrations/*
+blog/migrations/*
