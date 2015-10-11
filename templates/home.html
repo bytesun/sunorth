@@ -18,7 +18,7 @@
                 <div class="col-md-12">
                     <h2> <a href="{% url 'blog_info' id=blog.id %}"> {{blog.subject}}</a></h2>
                     <span class="label label-success">{{blog.tags}}</span>{{blog.createtime|date:'Y-m-d'}}  {{blog.owner}}<br><br>
-                      {{blog.content|safe|slice:"0:100"}}<h3>...</h3>
+                      {{blog.content|safe|slice:"0:20"}}<h3>...</h3>
                       
                 </div>
             </div>
