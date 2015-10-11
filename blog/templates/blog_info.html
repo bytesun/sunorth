@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+
+{% block content %}
+   <div class="row">
+       <div class="col-md-9">
+           <h1>{{blog.subject}}</h1>
+           <hr>    
+              <span class="label label-success">{{blog.tags}}</span> {{blog.createtime|date:'Y-m-d H:i'}}<br><br>
+              {{blog.content|safe}}
+    
+
+       </div>
+       <!-- button -->
+       
+       <div class="col-md-3">
+           <div class="row">
+         <!-- Button trigger modal -->
+         <br>
+
+
+         <br>
+         
+         <!-- event Modal -->
+         <div class="modal fade" id="blogModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+           <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <h4 class="modal-title" id="myModalLabel">Edit</h4>
+               </div>
+               <div class="modal-body">
+                  <form method="POST" action="{% url 'blog_edit' id=blog.id %}">
+                    {% csrf_token %}
+                    {{ event_form|crispy }}
+                    <input class="btn btn-primary" type="submit" name="Submit" value="Save"/>
+                  </form>
+               </div>
+             </div>
+           </div>
+         </div>          
+
+         
+         
+         
+         </div>
+         
+ 
+                
+  
+        </div>  
+        </div>    
+       </div>       
+       
+     
+    </div>   
+{% endblock %}
