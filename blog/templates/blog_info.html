@@ -7,12 +7,16 @@
    <div class="row">
        <div class="col-md-9">
            <h1>{{blog.subject}}
-                        {% if owner.id == request.user.id %}
-                         <small><a href="#" data-toggle="modal" data-target="#blogModal"><i class="fa fa-pencil"></i></a></small>
-                         {% endif %}            
+
+            {% if blog.owner == request.user.id %}
+             <small>
+             <a href="#" data-toggle="modal" data-target="#blogModal"><i class="fa fa-pencil"></i></a>
+             </small>
+             {% endif %}   
+                               
            </h1>
            <hr>    
-              <span class="label label-success">{{blog.tags}}</span> {{blog.createtime|date:'Y-m-d H:i'}}<br><br>
+              <span class="label label-success">{{blog.tags}}</span> {{blog.createtime|date:'Y-m-d H:i'}}  {{blog.owner}}<br><br>
               {{blog.content|safe}}
             
             <!-- comments -->
