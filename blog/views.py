@@ -10,7 +10,7 @@ from .forms import BlogForm,CommentForm
 
 def blog_info(request,id):
     blog = Blog.objects.get(pk=id)
-    comments = Comment.objects.filter(blog=id).order_by('create_time')
+    comments = Comment.objects.filter(blog=id).order_by('-create_time')
     context = {
         'blog': model_to_dict(blog),
         'comments':comments,
