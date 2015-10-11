@@ -23,6 +23,11 @@
 
 .jumbotron{
     background : #33CC33;
+    background-image: url(../img/jumbotronbackground.png);    
     color: white;
 }
 
+div .comment_form {
+    display: none; 
+    
+}

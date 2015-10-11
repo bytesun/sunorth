@@ -6,11 +6,48 @@
 {% block content %}
    <div class="row">
        <div class="col-md-9">
-           <h1>{{blog.subject}}</h1>
+           <h1>{{blog.subject}}
+                        {% if owner.id == request.user.id %}
+                         <small><a href="#" data-toggle="modal" data-target="#blogModal"><i class="fa fa-pencil"></i></a></small>
+                         {% endif %}            
+           </h1>
            <hr>    
               <span class="label label-success">{{blog.tags}}</span> {{blog.createtime|date:'Y-m-d H:i'}}<br><br>
               {{blog.content|safe}}
-    
+            
+            <!-- comments -->
+                <div class="row">
+                    <div class="col-md-11 col-md-offset-1">
+                        <div>
+                        {% if comments %}
+                            {% for comment in comments %}
+                            <hr>
+                                <p>{{comment.comment|safe}}</p>
+                                <br>
+                                <div class="pull-right">
+                                    {{comment.create_time}} {{comment.owner}}    
+                                </div>    
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                        
+                        {% if request.user.is_authenticated %}
+                        <div><br>
+                        <hr>    
+                        <span id="span_a_suggest"><a id="a_suggest" href="#"><i class="fa fa-commenting"></i> Comment</a></span>
+                        <div class="comment_form">
+                          <form method="POST" action="{% url 'comment_new'  blog.id %}">
+                            {% csrf_token %}
+                            {{ comment_form|crispy }}
+                            <input class="btn btn-success pull-right" type="submit" name="Submit" value="Save"/>
+                          </form>      
+                        </div>
+                        </div>
+                        {% endif %}<!-- end of user authentication -->
+                    </div>    
+                  </div>
+                  
+                </div>      
 
        </div>
        <!-- button -->
@@ -34,8 +71,8 @@
                <div class="modal-body">
                   <form method="POST" action="{% url 'blog_edit' id=blog.id %}">
                     {% csrf_token %}
-                    {{ event_form|crispy }}
-                    <input class="btn btn-primary" type="submit" name="Submit" value="Save"/>
+                    {{ blog_form|crispy }}
+                    <input class="btn btn-success" type="submit" name="Submit" value="Save"/>
                   </form>
                </div>
              </div>
@@ -56,4 +93,17 @@
        
      
     </div>   
+{% endblock %}
+
+{% block script%}
+{{ block.super }}
+<script>
+$(document).ready(function(){
+    $("#a_suggest").click(function(e){
+        e.preventDefault();
+        $(".comment_form").show();
+        $("#span_a_suggest").hide();
+    });
+});
+</script>  
 {% endblock %}

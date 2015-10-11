@@ -3,19 +3,10 @@
 {% load i18n %}
 
 {% block jumbotron %}
-      <!-- Main component for a primary marketing message or call to action -->
-      
-      <div class="jumbotron">
-      <div class="container">
-        <div class="row">  
-        <div class="col-md-9">
+  
+      <!--<div class="jumbotron">-->
 
-            户外情怀
-        </div>
-
-        </div>
-      </div>  
-      </div>
+      <!--</div>-->
 {% endblock %}
   
 {% block content %}
@@ -27,7 +18,8 @@
                 <div class="col-md-12">
                     <h2><a href="{% url 'blog_info' id=blog.id %}">{{blog.subject}}</a></h2>
                     <span class="label label-success">{{blog.tags}}</span> {{blog.createtime|date:'Y-m-d H:i'}} {{blog.owner}}<br><br>
-                      {{blog.content|safe|slice:"0:300"}}                    
+                      {{blog.content|safe|slice:"0:100"}} 
+                      <h3>...</h3>
                 </div>
             </div>
             {% endfor %}
@@ -35,7 +27,7 @@
        </div><!-- BLOG LIST -->
        
        <div class="col-md-3">
-            <a class="btn btn-success btn-block" href="{% url 'blog_new' %}" >Post my story</a>
+            <a class="btn btn-success btn-block" href="{% url 'blog_new' %}" >Post</a>
        </div>       
     </div>   
 {% endblock %}
