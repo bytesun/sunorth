@@ -4,6 +4,7 @@
 
 
 {% block content %}
+
    <div class="row">
        <div class="col-md-9">
            <h1>{{blog.subject}}
@@ -84,26 +85,21 @@
              </div>
            </div>
          </div>          
-
-         
-         
-         
+        <script>
+        CKEDITOR.replace( 'ta_blog' );       
+        </script> 
          </div>
-         
- 
-                
-  
         </div>  
         </div>    
        </div>       
-       
-     
+    
     </div>   
 {% endblock %}
 
 {% block script%}
 {{ block.super }}
 <script>
+
 $(document).ready(function(){
     $("#a_suggest").click(function(e){
         e.preventDefault();
@@ -111,5 +107,6 @@ $(document).ready(function(){
         $("#span_a_suggest").hide();
     });
 });
+
 </script>  
 {% endblock %}

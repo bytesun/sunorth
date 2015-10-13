@@ -8,7 +8,7 @@ class BlogForm(forms.ModelForm):
         fields = ['subject','content','tags']
         # exclude = ["owner","create_time"]
         widgets = {
-            'content': Textarea(attrs={'class': 'richarea','rows': 20}),
+            'content': Textarea(attrs={'id':'ta_blog','class': 'richarea','rows': 20}),
         }             
         
 class CommentForm(forms.ModelForm):
