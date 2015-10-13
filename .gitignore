@@ -1,5 +1,6 @@
 *.pyc
 vpython27
 db.sqlite3
+media/*
 event/migrations/*
 blog/migrations/*

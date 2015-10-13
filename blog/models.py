@@ -3,6 +3,8 @@ from django.core.urlresolvers import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+from ckeditor.fields import RichTextField
+
 # Create your models here.
 class Blog(models.Model):
     subject =  models.CharField(max_length=500)
@@ -22,3 +24,5 @@ class Comment(models.Model):
     create_time = models.DateTimeField(default=timezone.now,editable=True)
     owner = models.ForeignKey(User)
     blog = models.ForeignKey(Blog)    
+
+

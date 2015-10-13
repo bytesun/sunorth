@@ -1,0 +1,33 @@
+.navbar-static-top{
+    margin-bottom : 19px !important;
+    background: #fff;
+    border-color:#33CC33;
+    color : #33CC33;
+}
+
+.navbar-default .navbar-brand{
+    color : #33CC33;
+}
+
+.navbar-default .navbar-brand:hover{
+    color : #33CC33;
+}
+.navbar-default .navbar-nav>li>a{
+    color : #000;
+}
+
+.navbar-default .navbar-nav>li>a:hover{
+    color : #33CC33;
+}
+
+
+.jumbotron{
+    background : #33CC33;
+    background-image: url(../img/jumbotronbackground.png);    
+    color: white;
+}
+
+div .comment_form {
+    display: none; 
+    
+}

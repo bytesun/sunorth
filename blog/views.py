@@ -15,6 +15,7 @@ def blog_info(request,id):
         'blog': model_to_dict(blog),
         'comments':comments,
         'comment_form': CommentForm,
+
          }
     # if blog.owner == request.user:
     context['blog_form'] = BlogForm(model_to_dict(blog))         

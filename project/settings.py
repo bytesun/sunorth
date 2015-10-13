@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'registration',
     'crispy_forms',
+    'ckeditor',
     'blog',
     'event',
 
@@ -177,3 +178,22 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 SITE_ID=1
 LOGIN_REDIRECT_URL = '/'
+
+if ON_PAAS:
+    MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
+    MEDIA_URL = '/static/media/'
+else: 
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    MEDIA_URL = '/media/'
+
+CKEDITOR_UPLOAD_PATH='uploads/'
+CKEDITOR_IMAGE_BACKEND='pillow'
+CKEDITOR_CONFIGS = {
+    'default': {
+    'toolbar': 'Full',
+    'height': 300,
+    'width': 500,  
+    "removePlugins": "stylesheetparser",
+     },
+}
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'

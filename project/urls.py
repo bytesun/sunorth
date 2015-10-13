@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^event/', include('event.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^ckeditor/', include('ckeditor.urls')),
 ]
