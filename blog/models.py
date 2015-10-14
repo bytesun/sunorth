@@ -3,13 +3,13 @@ from django.core.urlresolvers import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-from ckeditor_uploader.fields import RichTextUploadingField
+# from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 class Blog(models.Model):
     subject =  models.CharField(max_length=500)
     tags = models.CharField(max_length=500)
-    content = RichTextUploadingField()
+    content = models.TextField()
     createtime = models.DateTimeField(default=timezone.now,editable=True)
     owner = models.ForeignKey(User, null=True)
     

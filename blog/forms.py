@@ -1,5 +1,5 @@
 from django import forms
-from ckeditor.widgets import CKEditorWidget
+from  ckeditor.widgets import CKEditorWidget
 from django.forms import ModelForm, Textarea
 from .models import Blog,Comment
 
