@@ -10,6 +10,7 @@ class BlogForm(forms.ModelForm):
         # exclude = ["owner","create_time"]
         widgets = {
             'content' : CKEditorWidget(),
+            
             # 'content': Textarea(attrs={'id':'ta_blog','class': 'richarea','rows': 20}),
         } 
 
