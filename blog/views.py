@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.forms.models import model_to_dict
+
 from django.conf import settings
 from .models import Blog,Comment
 from .forms import BlogForm,CommentForm

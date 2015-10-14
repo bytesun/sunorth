@@ -195,14 +195,13 @@ CKEDITOR_CONFIGS = {
         'width':'100%',
         'toolbar': 'sun',
         'toolbar_sun': [
-            
-            {'name': 'basicstyles',
+              {'name': 'basicstyles',
              'items': ['Bold', 'Italic', 'Underline', 'Strike']},
             {'name': 'paragraph',
-             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote',  '-',
                        'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl',
                        'Language']},
-            {'name': 'links', 'items': ['Link']},
+            {'name': 'links', 'items': ['Link', 'Unlink']},
             {'name': 'insert',
              'items': ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak']},
             '/',

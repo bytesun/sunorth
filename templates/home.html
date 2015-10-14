@@ -12,17 +12,36 @@
 {% block content %}
    <div class="row">
        <div class="col-md-9">
+
            {% if blogs %}
-           {% for blog in blogs %}
-            <div class="row">
-                <div class="col-md-12">
+
+           <table class="table">
+               {% for blog in blogs %}
+              <tr><td>
                     <h2> <a href="{% url 'blog_info' id=blog.id %}"> {{blog.subject}}</a></h2>
                     <span class="label label-success">{{blog.tags}}</span>{{blog.createtime|date:'Y-m-d'}}  {{blog.owner}}<br><br>
-                      {{blog.content|safe|slice:"0:20"}}<h3>...</h3>
-                      
-                </div>
-            </div>
-            {% endfor %}
+                      {{blog.content|safe|slice:"0:20"}}<h3>...</h3>               
+            </td></tr>  
+                {% endfor %}
+            <tr><td>
+                <nav>
+                  <ul class="pager">
+                    {% if blogs.has_previous %}
+                        <li class="previous">
+                            <a href="?page={{ blogs.previous_page_number }}"><span aria-hidden="true">&larr;</span> Older</a>
+                        </li>                    
+                    {% endif %}                  
+                        <li class="current">{{ blogs.number }} of {{ blogs.paginator.num_pages }}</li>                                                
+                    {% if blogs.has_next %}
+                        <li class="next"><a href="?page={{ blogs.next_page_number }}">Newer <span aria-hidden="true">&rarr;</span></a></li>                    
+                    {% endif %}
+                    
+                  </ul>
+                </nav>                       
+            </td>
+            </tr>
+           </table>            
+
             {% endif %}
        </div><!-- BLOG LIST -->
        
