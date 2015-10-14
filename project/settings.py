@@ -193,7 +193,21 @@ CKEDITOR_CONFIGS = {
     'default': {
         'height':'300',
         'width':'100%',
-        'toolbar': 'Full',
-        
+        'toolbar': 'sun',
+        'toolbar_sun': [
+            
+            {'name': 'basicstyles',
+             'items': ['Bold', 'Italic', 'Underline', 'Strike']},
+            {'name': 'paragraph',
+             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+                       'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl',
+                       'Language']},
+            {'name': 'links', 'items': ['Link']},
+            {'name': 'insert',
+             'items': ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak']},
+            '/',
+            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+        ],        
      },
 }
