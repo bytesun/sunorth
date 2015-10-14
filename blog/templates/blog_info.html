@@ -48,6 +48,7 @@
                         <div class="comment_form">
                           <form method="POST" action="{% url 'comment_new'  blog.id %}">
                             {% csrf_token %}
+                            
                             {{ comment_form|crispy }}
                             <input class="btn btn-success pull-right" type="submit" name="Submit" value="Save"/>
                           </form>      
@@ -67,7 +68,7 @@
 
          <br>
          
-         <!-- event Modal -->
+         <!-- blog Modal -->
          <div class="modal fade" id="blogModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
            <div class="modal-dialog" role="document">
              <div class="modal-content">
@@ -85,9 +86,7 @@
              </div>
            </div>
          </div>          
-        <script>
-        CKEDITOR.replace( 'ta_blog' );       
-        </script> 
+
          </div>
         </div>  
         </div>    
