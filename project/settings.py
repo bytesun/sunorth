@@ -194,7 +194,6 @@ CKEDITOR_CONFIGS = {
         'height':'300',
         'width':'100%',
         'toolbar': 'Full',
-
      },
 }
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
