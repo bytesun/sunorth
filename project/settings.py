@@ -35,7 +35,7 @@ if ON_PAAS and DEBUG:
 
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.sunorth.org','localhost','sun-python-bytesun.c9.io']
 EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_HOST_USER = 'sun@sunorth.org'
 EMAIL_HOST_PASSWORD = 'sunadmin1'
@@ -56,8 +56,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'ckeditor',
     'ckeditor_uploader',
-    # 'social.apps.django_app.default',
-
+    
     'blog',
     # 'event',
 
@@ -72,7 +71,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    # 'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 
 )
 
