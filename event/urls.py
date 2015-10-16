@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^list/$', views.event_list, name='event_list'),
     url(r'^new/$', views.event_new, name='event_new'),
     url(r'^edit/(?P<id>\d+)/$', views.event_edit, name='event_edit'),
+    url(r'^comment/(?P<eventid>\d+)/$', views.comment_new, name='comment_new'),
 ]

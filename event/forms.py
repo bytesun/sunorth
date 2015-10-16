@@ -1,6 +1,6 @@
 from django import forms
 from  ckeditor.widgets import CKEditorWidget
-from .models import Event
+from .models import Event,Comment
 
 class EventForm(forms.ModelForm):
     class Meta:
@@ -16,3 +16,10 @@ class EventForm(forms.ModelForm):
             'do_time' : forms.TextInput(attrs={'type': 'date'}),
             # 'content': Textarea(attrs={'id':'ta_blog','class': 'richarea','rows': 20}),
         } 
+        
+        
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['comment']          
+                
