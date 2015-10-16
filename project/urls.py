@@ -25,6 +25,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    # url(r"^soc/", include("social.apps.django_app.urls", namespace="social")),
-    
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
