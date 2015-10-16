@@ -20,7 +20,7 @@
               <tr><td>
                     <h2> <a href="{% url 'blog_info' id=blog.id %}"> {{blog.subject}}</a></h2>
                     <span class="label label-success">{{blog.tags}}</span>{{blog.createtime|date:'Y-m-d'}}  {{blog.owner}}<br><br>
-                     <div> {{blog.content|safe|slice:"0:100"}}<h3>...</h3></div>               
+                     <p> {{blog.content|safe|slice:"0:100"}}<h3>...</h3></p>               
             </td></tr>  
                 {% endfor %}
             <tr><td>
