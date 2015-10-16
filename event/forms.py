@@ -13,7 +13,8 @@ class EventForm(forms.ModelForm):
         }
         widgets = {
             'description' : CKEditorWidget(),
-            'do_time' : forms.TextInput(attrs={'type': 'date'}),
+            'do_time' : forms.DateInput(attrs={'type': 'date'},format=('%d-%m-%Y')),
+
             # 'content': Textarea(attrs={'id':'ta_blog','class': 'richarea','rows': 20}),
         } 
         

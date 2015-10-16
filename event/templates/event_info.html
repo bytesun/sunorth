@@ -81,7 +81,9 @@
                <div class="modal-body">
                   <form method="POST" action="{% url 'event_edit' id=event.id %}">
                     {% csrf_token %}
+                    
                     {{ event_form|crispy }}
+                    
                     <input class="btn btn-primary" type="submit" name="Submit" value="Save"/>
                   </form>
                </div>

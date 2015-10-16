@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.forms.models import model_to_dict
+from datetime import date
 from django.conf import settings
 from .models import Event,Comment
 from .forms import EventForm,CommentForm
@@ -8,7 +9,7 @@ from .forms import EventForm,CommentForm
 def event_list(request):
     context = {
             'media_url' : settings.MEDIA_URL,
-            'events' : Event.objects.all()
+            'events' : Event.objects.filter(do_time__lt=date.today()).order_by('do_time')
         }
     return render(request, 'event_list.html', context)
     

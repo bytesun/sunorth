@@ -1,7 +1,7 @@
 from django.core.mail import send_mail
 from django.shortcuts import render
 from django.shortcuts import redirect
-
+from datetime import date
 from django.conf import settings
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from blog.models import Blog
@@ -22,7 +22,7 @@ def home(request):
         blogs = paginator.page(paginator.num_pages)  
     context = {
             'blogs' : blogs,
-            'events' : Event.objects.all()
+            'events' : Event.objects.filter(do_time__gte=date.today()).order_by('do_time')
 
         }
     return render(request, 'home.html', context)
