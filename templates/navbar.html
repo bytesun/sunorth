@@ -17,11 +17,7 @@
           </ul>
          
 
-       {% if not request.user.is_authenticated %}
-          <ul class="nav navbar-nav navbar-right">
-             <li><a href="{% url 'registration_register' %}">Register</a></li>            
-          </ul>
-        {% endif %}          
+       
       {% if request.user.is_authenticated %}         
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -34,21 +30,7 @@
         </li>
       </ul>   
       {% endif %}        
-          {% if not request.user.is_authenticated and not '/accounts/login' in request.get_full_path %}
-          
-    
-           <form class='navbar-form navbar-right' action='{% url "auth_login" %}' method='POST'>{% csrf_token %}
-            <div class="form-group">
-              <input type="text" class="form-control" name="username" placeholder="User name">
-              
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" name="password" placeholder="Password">
-              
-            </div>
-            <button class="btn btn-default" type="submit" >Login</button>
-          </form> 
-          {% endif %}
+
          
         </div><!--/.nav-collapse -->
       </div>

@@ -13,7 +13,8 @@ def blog_info(request,id):
     blog = Blog.objects.get(pk=id)
     comments = Comment.objects.filter(blog=id).order_by('create_time')
     context = {
-        'blog': model_to_dict(blog),
+        'blog': blog,
+        # 'owner':blog.owner,
         'comments':comments,
         'comment_form': CommentForm,
 
