@@ -24,12 +24,16 @@
             <!-- comments -->
             {% if comments %}
                 {% for comment in comments %}  
-                <hr>
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-10 col-md-offset-2">
+                        <hr>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="col-md-1 col-md-offset-2">
                         {{comment.owner}}
                     </div>    
-                    <div class="col-md-10">
+                    <div class="col-md-8">
                                 <p>{{comment.comment|safe}}</p>
                                 <br>
                                 <div class="pull-right">
@@ -47,7 +51,7 @@
                         <hr>    
                         <span id="span_a_suggest"><a id="a_suggest" href="#"><i class="fa fa-commenting"></i> Comment</a></span>
                         <div class="comment_form">
-                          <form method="POST" action="{% url 'comment_new'  blog.id %}">
+                          <form method="POST" action="{% url 'blog_comment_new'  blog.id %}">
                             {% csrf_token %}
                             
                             {{ comment_form|crispy }}
