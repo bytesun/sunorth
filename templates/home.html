@@ -20,7 +20,7 @@
               <tr><td>
                     <h2> <a href="{% url 'blog_info' id=blog.id %}"> {{blog.subject}}</a></h2>
                     <span class="label label-success">{{blog.tags}}</span>{{blog.createtime|date:'Y-m-d'}}  {{blog.owner}}<br><br>
-                      {{blog.content|safe|slice:"0:20"}}<h3>...</h3>               
+                     <div> {{blog.content|safe|slice:"0:100"}}<h3>...</h3></div>               
             </td></tr>  
                 {% endfor %}
             <tr><td>
@@ -92,4 +92,16 @@
             
        </div>       
     </div>   
+{% endblock %}
+
+{% block script%}
+{{ block.super }}
+<script>
+
+$(document).ready(function(){
+    $("img").addClass("img-responsive");
+
+});
+
+</script>  
 {% endblock %}
