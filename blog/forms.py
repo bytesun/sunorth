@@ -8,6 +8,9 @@ class BlogForm(forms.ModelForm):
         model = Blog
         fields = ['subject','content','tags']
         # exclude = ["owner","create_time"]
+        labels = {
+            
+            }
         widgets = {
             'content' : CKEditorWidget(),
             

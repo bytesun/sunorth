@@ -7,8 +7,12 @@ class EventForm(forms.ModelForm):
         model = Event
         fields = ['subject','description','tags','do_time']
         # exclude = ["owner","create_time"]
+        labels = {
+            'subject':'Event',
+            'do_time': 'Date',
+        }
         widgets = {
             'description' : CKEditorWidget(),
-            
+            'do_time' : forms.TextInput(attrs={'type': 'date'}),
             # 'content': Textarea(attrs={'id':'ta_blog','class': 'richarea','rows': 20}),
         } 
