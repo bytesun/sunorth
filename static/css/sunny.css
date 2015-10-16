@@ -21,13 +21,16 @@
 }
 
 
-.jumbotron{
-    background : #33CC33;
-    background-image: url(../img/jumbotronbackground.png);    
-    color: white;
-}
-
 div .comment_form {
     display: none; 
     
+}
+
+.blog_content img{
+
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 100%;
+  max-width: 100%;
+
 }

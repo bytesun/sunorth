@@ -19,7 +19,7 @@
            </h1>
            <hr>    
               <span class="label label-success">{{blog.tags}}</span> {{blog.createtime|date:'Y-m-d H:i'}}  {{blog.owner}}<br><br>
-              {{blog.content|safe}}
+              <div class="blog_content">{{blog.content|safe}}</div>
             
             <!-- comments -->
             {% if comments %}

@@ -46,8 +46,8 @@
        </div><!-- BLOG LIST -->
        
        <div class="col-md-3">
-
-
+            <div class="row">
+            
           {% if not request.user.is_authenticated  %}
           <form class="form col-md-12 center-block" action='{% url "auth_login" %}' method='POST'>{% csrf_token %}
             <div class="form-group">
@@ -62,11 +62,32 @@
               <span><a href="{% url 'auth_password_reset' %}">Forgot password</a></span>
             </div>
           {% else %}
-          <a class="btn btn-success btn-lg btn-block" href="{% url 'blog_new' %}" >Post</a>  
+          <a class="btn btn-success btn-lg btn-block" href="{% url 'blog_new' %}" >Post Note</a>  
+          <a class="btn btn-success btn-lg btn-block" href="{% url 'event_new' %}" >New Event</a>  
           </form>          
            
           {% endif %}
-           
+           </div>
+           <div class="row">
+               <br>
+            <div class="panel panel-success">
+              <div class="panel-heading">Comming Events</div>
+              <div class="panel-body">
+                  <table class="table">
+                      {% if events %}
+        
+                          {% for e in events %}
+                              <tr>
+                              <td>
+                               <h3> <a href="{% url 'event_info' id=e.id %}">{{e.subject}}</a></h3>
+                                </td>
+                              </tr>
+                          {% endfor %}
+                      {% endif %}
+                  </table>  
+              </div>
+            </div>           
+          </div>
 
             
        </div>       

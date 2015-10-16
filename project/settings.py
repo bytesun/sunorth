@@ -58,7 +58,7 @@ INSTALLED_APPS = (
     'ckeditor_uploader',
     
     'blog',
-    # 'event',
+    'event',
 
 )
 
