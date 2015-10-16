@@ -56,7 +56,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'ckeditor',
     'ckeditor_uploader',
-    'social.apps.django_app.default',
+    # 'social.apps.django_app.default',
     'userprofile',
     'blog',
     'event',
@@ -72,7 +72,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
+    # 'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 
 )
 
@@ -91,8 +91,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social.apps.django_app.context_processors.backends',
-                'social.apps.django_app.context_processors.login_redirect',
+                # 'social.apps.django_app.context_processors.backends',
+                # 'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -217,44 +217,44 @@ CKEDITOR_CONFIGS = {
      },
 }
 
-AUTHENTICATION_BACKENDS = (
-    'social.backends.facebook.FacebookOAuth2',
-    'social.backends.google.GoogleOAuth2',
-    'social.backends.twitter.TwitterOAuth',
-    'django.contrib.auth.backends.ModelBackend',
-    )
+# AUTHENTICATION_BACKENDS = (
+#     'social.backends.facebook.FacebookOAuth2',
+#     'social.backends.google.GoogleOAuth2',
+#     'social.backends.twitter.TwitterOAuth',
+#     'django.contrib.auth.backends.ModelBackend',
+#     )
     
-SOCIAL_AUTH_FACEBOOK_KEY = '289120984598183'
-SOCIAL_AUTH_FACEBOOK_SECRET = 'ba254d8b043ac56ad0241cd3657031cc'
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-  'locale': 'ru_RU',
-  'fields': 'id, name, email, age_range'
-}
+# SOCIAL_AUTH_FACEBOOK_KEY = '289120984598183'
+# SOCIAL_AUTH_FACEBOOK_SECRET = 'ba254d8b043ac56ad0241cd3657031cc'
+# SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+# SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+#   'locale': 'ru_RU',
+#   'fields': 'id, name, email, age_range'
+# }
 
-SOCIAL_AUTH_TWITTER_KEY = 'foobar'
-SOCIAL_AUTH_TWITTER_SECRET = 'bazqux'
+# SOCIAL_AUTH_TWITTER_KEY = 'foobar'
+# SOCIAL_AUTH_TWITTER_SECRET = 'bazqux'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='876151127490-u1kt7kepcffhhqtfpj4snf5cajn7q7o5'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='atn-i34pMoMk-ry5V0wu8y4a'
-SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='876151127490-u1kt7kepcffhhqtfpj4snf5cajn7q7o5'
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='atn-i34pMoMk-ry5V0wu8y4a'
+# SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
-SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
-SOCIAL_AUTH_LOGIN_URL = '/'
-SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/'
-SOCIAL_AUTH_USER_MODEL = 'userprofile.UserProfile'
+# SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+# SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
+# SOCIAL_AUTH_LOGIN_URL = '/'
+# SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/'
+# SOCIAL_AUTH_USER_MODEL = 'userprofile.UserProfile'
 
-PIPELINE = (
-  'social.pipeline.social_auth.social_details',
-  'social.pipeline.social_auth.social_uid',
-  'social.pipeline.social_auth.auth_allowed',
-  'social.pipeline.social_auth.social_user',
-  'social.pipeline.user.get_username',
-  # 'social.pipeline.mail.mail_validation',
-  'social.pipeline.social_auth.associate_by_email',
-  'social.pipeline.user.create_user',
-  'social.pipeline.social_auth.associate_user',
-  'social.pipeline.social_auth.load_extra_data',
-  'social.pipeline.user.user_details'
-)
+# PIPELINE = (
+#   'social.pipeline.social_auth.social_details',
+#   'social.pipeline.social_auth.social_uid',
+#   'social.pipeline.social_auth.auth_allowed',
+#   'social.pipeline.social_auth.social_user',
+#   'social.pipeline.user.get_username',
+#   # 'social.pipeline.mail.mail_validation',
+#   'social.pipeline.social_auth.associate_by_email',
+#   'social.pipeline.user.create_user',
+#   'social.pipeline.social_auth.associate_user',
+#   'social.pipeline.social_auth.load_extra_data',
+#   'social.pipeline.user.user_details'
+# )
