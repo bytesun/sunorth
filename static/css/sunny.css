@@ -1,3 +1,9 @@
+img{
+    
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 500px;
+}
 .navbar-static-top{
     margin-bottom : 19px !important;
     background: #fff;
@@ -26,11 +32,3 @@ div .comment_form {
     
 }
 
-img{
-    
-  display: inline-block;
-  vertical-align: middle;
-  max-height: 500px;
-  
-
-}
