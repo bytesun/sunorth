@@ -59,7 +59,7 @@ INSTALLED_APPS = (
     # 'social.apps.django_app.default',
 
     'blog',
-    'event',
+    # 'event',
 
 )
 
