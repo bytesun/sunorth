@@ -1,7 +1,7 @@
 from django.core.mail import send_mail
 from django.shortcuts import render
 from django.shortcuts import redirect
-from django.core.urlresolvers import reverse
+
 from django.conf import settings
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from blog.models import Blog
