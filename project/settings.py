@@ -57,7 +57,7 @@ INSTALLED_APPS = (
     'ckeditor',
     'ckeditor_uploader',
     # 'social.apps.django_app.default',
-    'userprofile',
+
     'blog',
     'event',
 
