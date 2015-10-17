@@ -6,7 +6,7 @@ from django.conf import settings
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from blog.models import Blog
 from blog.forms import BlogForm
-from event.models import Event
+from activity.models import Activity
 
 def home(request):
     allblogs = Blog.objects.all().order_by('-createtime')[:100]
@@ -22,7 +22,7 @@ def home(request):
         blogs = paginator.page(paginator.num_pages)  
     context = {
             'blogs' : blogs,
-            'events' : Event.objects.filter(do_time__gte=date.today()).order_by('do_time')
+            'activities' : Activity.objects.filter(do_time__gte=date.today()).order_by('do_time')
 
         }
     return render(request, 'home.html', context)

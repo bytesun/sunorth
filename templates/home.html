@@ -68,7 +68,7 @@
             </div>
           {% else %}
           <a class="btn btn-success btn-lg btn-block" href="{% url 'blog_new' %}" >Post Note</a>  
-          <a class="btn btn-success btn-lg btn-block" href="{% url 'event_new' %}" >New Event</a>  
+          <a class="btn btn-success btn-lg btn-block" href="{% url 'activity_new' %}" >New Activity</a>  
           </form>          
 
           {% endif %}
@@ -82,15 +82,15 @@
                <div class="col-md-12">
                <br>
             <div class="panel panel-success">
-              <div class="panel-heading">Comming Events</div>
+              <div class="panel-heading">Comming activities</div>
               <div class="panel-body">
                   <table class="table">
-                      {% if events %}
+                      {% if activities %}
         
-                          {% for e in events %}
+                          {% for e in activities %}
                               <tr>
                               <td>
-                               <h3> <a href="{% url 'event_info' id=e.id %}">{{e.subject}}</a></h3>
+                               <h3> <a href="{% url 'activity_info' id=e.id %}">{{e.subject}}</a></h3>
                                 </td>
                               </tr>
                           {% endfor %}
