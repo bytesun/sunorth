@@ -67,8 +67,8 @@
               <span><a href="{% url 'auth_password_reset' %}">Forgot password</a></span>
             </div>
           {% else %}
-          <a class="btn btn-success btn-lg btn-block" href="{% url 'blog_new' %}" >Post Note</a>  
-          <a class="btn btn-success btn-lg btn-block" href="{% url 'activity_new' %}" >New Activity</a>  
+          <a class="btn btn-success btn-lg btn-block" href="{% url 'blog_new' %}" > <i class="fa fa-share-alt-square"></i> Share</a>  
+          <a class="btn btn-success btn-lg btn-block" href="{% url 'activity_new' %}" ><i class="fa fa-calendar"></i> Plan</a>  
           </form>          
 
           {% endif %}
