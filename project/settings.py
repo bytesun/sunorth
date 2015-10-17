@@ -35,7 +35,7 @@ if ON_PAAS and DEBUG:
 
 
 
-ALLOWED_HOSTS = ['www.sunorth.org','localhost','sun-python-bytesun.c9.io']
+ALLOWED_HOSTS = ['www.sunorth.org','sun-python-bytesun.c9.io','sunny-orcnsun.rhcloud.com','localhost','127.0.0.1']
 EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_HOST_USER = 'sun@sunorth.org'
 EMAIL_HOST_PASSWORD = 'sunadmin1'
