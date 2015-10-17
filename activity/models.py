@@ -1,0 +1,25 @@
+from django.db import models
+from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
+from django.utils import timezone
+from ckeditor_uploader.fields import RichTextUploadingField
+
+# Create your models here.
+class Activity(models.Model):
+    subject =  models.CharField(max_length=500)
+    tags = models.CharField(max_length=500)
+    description = RichTextUploadingField()
+    do_time = models.DateTimeField(editable=True)
+    owner = models.ForeignKey(User, null=True)
+    
+    def __unicode__(self):
+        return self.subject
+        
+    def get_absolute_url(self):
+        return reverse('activity_info',  kwargs={'id': self.pk})    
+        
+class Comment(models.Model):
+    comment = models.TextField()
+    create_time = models.DateTimeField(default=timezone.now,editable=True)
+    owner = models.ForeignKey(User,related_name='activity_owner')
+    activity = models.ForeignKey(Activity)          

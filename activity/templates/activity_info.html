@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+
+{% block content %}
+   <div class="row">
+       <div class="col-md-9">
+           <h1>{{activity.subject}}
+
+            {% if activity.owner == request.user.id %}
+             <small>
+                 
+             <a href="#" data-toggle="modal" data-target="#activityModal"><i class="fa fa-pencil"></i></a>
+             </small>
+             {% endif %}             
+           </h1>
+            <table class="table">
+                
+                <tr><td>Time</td><td>{{activity.do_time|date:'Y-m-d H:i'}}</td></tr>
+                <tr><td>Description</td><td>{{activity.description|safe}}</td></tr>
+                
+
+            </table>   
+            <!-- comments -->
+            {% if comments %}
+                {% for comment in comments %}  
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-2">
+                        <hr>
+                    </div>
+                </div>    
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-2">
+                        {{comment.owner}}
+                        
+                    </div>    
+                    <div class="col-md-8">
+                                <p>{{comment.comment|safe}}</p>
+                                <br>
+                                <div class="pull-right">
+                                    {{comment.create_time|date:'Y-m-d'}}     
+                                </div>    
+                     
+
+                    </div>    
+                  </div>
+
+                            {% endfor %}
+                        {% endif %}    
+                        
+                        {% if request.user.is_authenticated %}
+                        <div><br>
+                        <hr>    
+                        <span id="span_a_suggest"><a id="a_suggest" href="#"><i class="fa fa-commenting"></i> Comment</a></span>
+                        <div class="comment_form">
+                          <form method="POST" action="{% url 'activity_comment_new'  activity.id %}">
+                            {% csrf_token %}
+                            
+                            {{ comment_form|crispy }}
+                            <input class="btn btn-success pull-right" type="submit" name="Submit" value="Save"/>
+                          </form>      
+                        </div>
+                        </div>
+                        {% endif %}<!-- end of user authentication -->                    
+                
+       </div>
+       <!-- button -->
+       
+       <div class="col-md-3">
+           <div class="row">
+         <!-- Button trigger modal -->
+         <br> <br>
+         <!-- activity Modal -->
+         <div class="modal fade" id="activityModal"  role="dialog" aria-labelledby="myModalLabel">
+           <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <h4 class="modal-title" id="myModalLabel">Edit</h4>
+               </div>
+               <div class="modal-body">
+                  <form method="POST" action="{% url 'activity_edit' id=activity.id %}">
+                    {% csrf_token %}
+                    
+                    {{ activity_form|crispy }}
+                    
+                    <input class="btn btn-primary" type="submit" name="Submit" value="Save"/>
+                  </form>
+               </div>
+             </div>
+           </div>
+         </div>          
+
+         </div>
+
+        </div>  
+        </div>    
+       </div>       
+       
+     
+    </div>   
+{% endblock %}
+{% block script%}
+{{ block.super }}
+<script>
+
+$(document).ready(function(){
+    $("#a_suggest").click(function(e){
+        e.preventDefault();
+        $(".comment_form").show();
+        $("#span_a_suggest").hide();
+    });
+});
+
+</script>  
+{% endblock %}
