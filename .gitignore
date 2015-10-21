@@ -6,3 +6,4 @@ get-pip.py
 event/migrations/*
 activity/migrations/*
 blog/migrations/*
+userprofile/migrations/*
