@@ -11,43 +11,9 @@
   
 {% block content %}
    <div class="row">
-       <div class="col-md-9">
-
-           {% if blogs %}
-
-           <table class="table">
-               {% for blog in blogs %}
-              <tr><td>
-                    <h2> <a href="{% url 'blog_info' id=blog.id %}"> {{blog.subject}}</a></h2>
-                    <span class="label label-success">{{blog.tags}}</span>{{blog.createtime|date:'Y-m-d'}}  {{blog.owner}}  <a href="{% url 'blog_info' id=blog.id %}"> <i class="fa fa-commenting"></i></a><br><br>
-                     <p> {{blog.content|safe}}</p>               
-            </td></tr>  
-                {% endfor %}
-            <tr><td>
-                <nav>
-                  <ul class="pager">
-                    {% if blogs.has_previous %}
-                        <li class="previous">
-                            <a href="?page={{ blogs.previous_page_number }}"><span aria-hidden="true">&larr;</span> Older</a>
-                        </li>                    
-                    {% endif %}                  
-                        <li class="current">{{ blogs.number }} of {{ blogs.paginator.num_pages }}</li>                                                
-                    {% if blogs.has_next %}
-                        <li class="next"><a href="?page={{ blogs.next_page_number }}">Newer <span aria-hidden="true">&rarr;</span></a></li>                    
-                    {% endif %}
-                    
-                  </ul>
-                </nav>                       
-            </td>
-            </tr>
-           </table>            
-
-            {% endif %}
-       </div><!-- BLOG LIST -->
-       
-       <div class="col-md-3">
+     <div class="col-sm-3">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-sm-12">
 
         {% if not request.user.is_authenticated  %} 
                   <div class="panel panel-success">
@@ -79,7 +45,7 @@
            
            
            <div class="row">
-               <div class="col-md-12">
+               <div class="col-sm-12">
                <br>
             <div class="panel panel-success">
               <div class="panel-heading">Comming activities</div>
@@ -101,7 +67,45 @@
           </div>
         </div>
             
-       </div>       
+       </div>           
+       
+       
+      <!-- blog list-->
+       <div class="col-sm-9">
+
+           {% if blogs %}
+
+           <table class="table">
+               {% for blog in blogs %}
+              <tr><td>
+                    <h2> <a href="{% url 'blog_info' id=blog.id %}"> {{blog.subject}}</a></h2>
+                    <span class="label label-success">{{blog.tags}}</span>{{blog.createtime|date:'Y-m-d'}}  {{blog.owner}}  <a href="{% url 'blog_info' id=blog.id %}"> <i class="fa fa-commenting"></i></a><br><br>
+                     <div class="hidden-xs hidden-sm"> {{blog.content|safe}}</div>               
+            </td></tr>  
+                {% endfor %}
+            <tr><td>
+                <nav>
+                  <ul class="pager">
+                    {% if blogs.has_previous %}
+                        <li class="previous">
+                            <a href="?page={{ blogs.previous_page_number }}"><span aria-hidden="true">&larr;</span> Older</a>
+                        </li>                    
+                    {% endif %}                  
+                        <li class="current">{{ blogs.number }} of {{ blogs.paginator.num_pages }}</li>                                                
+                    {% if blogs.has_next %}
+                        <li class="next"><a href="?page={{ blogs.next_page_number }}">Newer <span aria-hidden="true">&rarr;</span></a></li>                    
+                    {% endif %}
+                    
+                  </ul>
+                </nav>                       
+            </td>
+            </tr>
+           </table>            
+
+            {% endif %}
+       </div><!-- BLOG LIST -->
+       
+     
     </div>   
 {% endblock %}
 
