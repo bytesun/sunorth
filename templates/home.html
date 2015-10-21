@@ -19,7 +19,7 @@
                {% for blog in blogs %}
               <tr><td>
                     <h2> <a href="{% url 'blog_info' id=blog.id %}"> {{blog.subject}}</a></h2>
-                    <span class="label label-success">{{blog.tags}}</span>{{blog.createtime|date:'Y-m-d'}}  {{blog.owner}}<br><br>
+                    <span class="label label-success">{{blog.tags}}</span>{{blog.createtime|date:'Y-m-d'}}  {{blog.owner}}  <a href="{% url 'blog_info' id=blog.id %}"> <i class="fa fa-commenting"></i></a><br><br>
                      <p> {{blog.content|safe}}</p>               
             </td></tr>  
                 {% endfor %}
