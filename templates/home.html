@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% load i18n %}
-
+{% load avatar_tags %}
 {% block jumbotron %}
   
       <!--<div class="jumbotron">-->
@@ -74,16 +74,20 @@
        <div class="col-sm-9">
 
            {% if blogs %}
-
-           <table class="table">
                {% for blog in blogs %}
-              <tr><td>
+                  <div class="row">
+                  <div class="col-xs-2 col-sm-1 blog_list_avatar "><span class="avatar"> {% avatar  blog.owner %}</span></div>     
+                  <div class="col-xs-10 col-sm-11 ">
                     <h2> <a href="{% url 'blog_info' id=blog.id %}"> {{blog.subject}}</a></h2>
-                    <span class="label label-success">{{blog.tags}}</span>{{blog.createtime|date:'Y-m-d'}}  {{blog.owner}}  <a href="{% url 'blog_info' id=blog.id %}"> <i class="fa fa-commenting"></i></a><br><br>
-                     <div class="hidden-xs hidden-sm"> {{blog.content|safe}}</div>               
-            </td></tr>  
+                    <span class="label label-success">{{blog.tags}}</span>  {{blog.createtime|date:'Y-m-d'}}   
+                    <a href="{% url 'blog_info' id=blog.id %}"> <i class="fa fa-commenting"></i></a><br><br>
+                    
+                    <div class="hidden-xs hidden-sm"> {{blog.content|safe}}</div> 
+                    </div>                             
+                </div>    
+                <hr>
                 {% endfor %}
-            <tr><td>
+
                 <nav>
                   <ul class="pager">
                     {% if blogs.has_previous %}
@@ -98,9 +102,7 @@
                     
                   </ul>
                 </nav>                       
-            </td>
-            </tr>
-           </table>            
+           
 
             {% endif %}
        </div><!-- BLOG LIST -->

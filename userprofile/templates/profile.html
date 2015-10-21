@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load avatar_tags %}
+
+  
+{% block content %}
+   <div class="row">
+     <div class="col-sm-3">
+            <div class="row">
+                <div class="col-sm-12">
+
+                <div class="list-group">
+                  <a href="#" class="list-group-item">
+                    Personal Information
+                  </a>
+                  <a href="{% url 'auth_password_change' %}" class="list-group-item">Change password</a>
+
+                </div>     
+
+               </div>   
+           </div>
+           
+
+            
+       </div>           
+       
+       
+      <!-- blog list-->
+       <div class="col-sm-9">
+            
+           
+       </div><!-- BLOG LIST -->
+       
+     
+    </div>   
+{% endblock %}
+
+{% block script%}
+{{ block.super }}
+ 
+{% endblock %}

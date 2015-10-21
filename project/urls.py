@@ -22,8 +22,10 @@ urlpatterns = [
     url(r'^$', 'project.views.home', name='home'),
     url(r'^blog/', include('blog.urls')),
     url(r'^activity/', include('activity.urls')),
+    url(r'^userprofile/', include('userprofile.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^avatar/', include('avatar.urls')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
