@@ -45,7 +45,9 @@
                   </div>
 
                             {% endfor %}
-                        {% endif %}                     
+                        {% endif %} 
+                        
+                        
                         {% if request.user.is_authenticated %}
                         <div><br>
                         <hr>    
@@ -59,6 +61,10 @@
                           </form>      
                         </div>
                         </div>
+                        {% else%}
+                            <div>
+                                <a href="{% url 'auth_login' %}">Login </a>to comment
+                            </div>
                         {% endif %}<!-- end of user authentication -->                  
                 </div>      
 
