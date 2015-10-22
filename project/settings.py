@@ -188,11 +188,10 @@ LOGIN_REDIRECT_URL = '/'
 
 if ON_PAAS:
     MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
-    # MEDIA_URL = '/static/media/'
+    MEDIA_URL = '/static/media/'
 else: 
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-    
-MEDIA_URL = '/media/'
+    MEDIA_URL = '/media/'
     
 
 
