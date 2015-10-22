@@ -173,7 +173,12 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR,"static"),
 )
-
+if ON_PAAS:
+    MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
+    MEDIA_URL = '/static/media/'
+else: 
+    MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+    MEDIA_URL = '/media/'
 
 #registration
 ACCOUNT_ACTIVATION_DAYS=7
@@ -185,14 +190,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 SITE_ID=1
 LOGIN_REDIRECT_URL = '/'
-
-if ON_PAAS:
-    MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
-    MEDIA_URL = '/static/media/'
-else: 
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-    MEDIA_URL = '/media/'
-    
 
 
 CKEDITOR_UPLOAD_PATH='uploads/'

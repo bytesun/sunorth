@@ -1,39 +1,54 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% load i18n %}
+{% load avatar_tags %}
 
 
 {% block content %}
-
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "03250919-9676-4ddd-859b-f1b015e931ed", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
    <div class="row">
        <div class="col-sm-9">
-           <h1>{{blog.subject}}
-
-            {% if blog.owner == request.user %}
-             <small>
-                 
-             <a href="#" data-toggle="modal" data-target="#blogModal"><i class="fa fa-pencil"></i></a>
-             </small>
-             {% endif %}   
-                               
-           </h1>
+           <div class="row">
+               <div class="col-md-12">
+               <h1>{{blog.subject}}
+    
+                {% if blog.owner == request.user %}
+                 <small>
+                     
+                 <a href="#" data-toggle="modal" data-target="#blogModal"><i class="fa fa-pencil"></i></a>
+                 </small>
+                 {% endif %}   
+                                   
+               </h1>
+               </div>
+           </div>
            <hr>    
-              <span class="label label-success">{{blog.tags}}</span> {{blog.createtime|date:'Y-m-d H:i'}}  {{blog.owner}}<br><br>
-              <div class="blog_content">{{blog.content|safe}}</div>
             
+              <h3><span class="label label-success">{{blog.tags}}</span> {{blog.createtime|date:'Y-m-d H:i'}}  {{blog.owner }}</h3>
+              <br><br>
+              <div class="blog_content">{{blog.content|safe}}</div>
+              <div class="pull-right">
+                <span class='st_facebook_large' displayText='Facebook'></span>
+                <span class='st_twitter_large' displayText='Tweet'></span>
+                <span class='st_linkedin_large' displayText='LinkedIn'></span>
+                <span class='st_googleplus_large' displayText='Google +'></span>
+                <span class='st_pinterest_large' displayText='Pinterest'></span>                   
+              </div>
             <!-- comments -->
             {% if comments %}
                 {% for comment in comments %}  
                 <div class="row">
-                    <div class="col-sm-10 col-sm-offset-2">
+                    <div class="col-sm-11 col-sm-offset-1">
                         <hr>
                     </div>
                 </div>  
                 <div class="row">
-                    <div class="col-sm-1 col-sm-offset-2">
+                    <div class="col-sm-1 col-sm-offset-1">
                         {{comment.owner}}
                     </div>    
-                    <div class="col-sm-8">
+                    <div class="col-sm-10">
                                 <p>{{comment.comment|safe}}</p>
                                 <br>
                                 <div class="pull-right">
