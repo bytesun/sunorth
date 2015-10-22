@@ -90,6 +90,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
                 # 'social.apps.django_app.context_processors.backends',
                 # 'social.apps.django_app.context_processors.login_redirect',
             ],
@@ -187,10 +188,13 @@ LOGIN_REDIRECT_URL = '/'
 
 if ON_PAAS:
     MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
-    MEDIA_URL = '/static/media/'
+    # MEDIA_URL = '/static/media/'
 else: 
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-    MEDIA_URL = '/media/'
+    
+MEDIA_URL = '/media/'
+    
+
 
 CKEDITOR_UPLOAD_PATH='uploads/'
 CKEDITOR_IMAGE_BACKEND='pillow'
@@ -215,4 +219,3 @@ CKEDITOR_CONFIGS = {
         ],        
      },
 }
-

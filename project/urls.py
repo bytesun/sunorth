@@ -27,5 +27,4 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^avatar/', include('avatar.urls')),
-
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
