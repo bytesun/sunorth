@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'ckeditor',
     'ckeditor_uploader',
+    
     'avatar',
     'userprofile',
     'blog',
@@ -72,6 +73,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'pybb.middleware.PybbMiddleware',
 
 )
 
@@ -90,7 +92,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+                'pybb.context_processors.processor',
                 # 'social.apps.django_app.context_processors.backends',
                 # 'social.apps.django_app.context_processors.login_redirect',
             ],

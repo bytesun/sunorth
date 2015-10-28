@@ -6,22 +6,43 @@
 {% block content %}
    <div class="row">
        <div class="col-sm-9">
-           <h1>{{activity.subject}}
-
-            {% if activity.owner == request.user.id %}
-             <small>
-                 
-             <a href="#" data-toggle="modal" data-target="#activityModal"><i class="fa fa-pencil"></i></a>
-             </small>
-             {% endif %}             
-           </h1>
-            <table class="table">
+           <div class="row">
+               <div class="col-sm-12">
+                   <h1>{{activity.subject}}
+        
+                    {% if activity.owner == request.user.id %}
+                     <small>
+                         
+                     <a href="#" data-toggle="modal" data-target="#activityModal"><i class="fa fa-pencil"></i></a>
+                     </small>
+                     {% endif %}             
+                   </h1>        
+                  <hr>
+               </div>
+             </div> 
+            <div class="row">
+                <div class="col-sm-2">
+                    Time
+                </div>
+                <div class="col-sm-10">
+                    {{activity.do_time|date:'Y-m-d H:i'}}
+                </div>
+            </div>
                 
-                <tr><td>Time</td><td>{{activity.do_time|date:'Y-m-d H:i'}}</td></tr>
-                <tr><td>Description</td><td>{{activity.description|safe}}</td></tr>
-                
+           <div class="row">
+               <div class="col-sm-12">
+                      <hr>
+                </div>
+            </div>                                   
+            <div class="row">
+                <div class="col-sm-2">
+                    Description
+                </div>
+                <div class="col-sm-10">
+                   {{activity.description|safe}}
+                </div>
+            </div>                
 
-            </table>   
             <!-- comments -->
             {% if comments %}
                 {% for comment in comments %}  

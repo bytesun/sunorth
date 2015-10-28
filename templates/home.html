@@ -92,12 +92,12 @@
                   <ul class="pager">
                     {% if blogs.has_previous %}
                         <li class="previous">
-                            <a href="?page={{ blogs.previous_page_number }}"><span aria-hidden="true">&larr;</span> Older</a>
+                            <a href="?page={{ blogs.previous_page_number }}"><span aria-hidden="true">&larr;</span> Newer</a>
                         </li>                    
                     {% endif %}                  
                         <li class="current">{{ blogs.number }} of {{ blogs.paginator.num_pages }}</li>                                                
                     {% if blogs.has_next %}
-                        <li class="next"><a href="?page={{ blogs.next_page_number }}">Newer <span aria-hidden="true">&rarr;</span></a></li>                    
+                        <li class="next"><a href="?page={{ blogs.next_page_number }}">Older <span aria-hidden="true">&rarr;</span></a></li>                    
                     {% endif %}
                     
                   </ul>
