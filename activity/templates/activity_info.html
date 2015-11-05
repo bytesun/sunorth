@@ -52,15 +52,12 @@
                     </div>
                 </div>    
                 <div class="row">
-                    <div class="col-sm-2 col-sm-offset-2">
-                        {{comment.owner}}
-                        
-                    </div>    
-                    <div class="col-sm-8">
+
+                    <div class="col-sm-10 col-sm-offset-2">
                                 <p>{{comment.comment|safe}}</p>
                                 <br>
                                 <div class="pull-right">
-                                    {{comment.create_time|date:'Y-m-d'}}     
+                                   {{comment.owner}}  {{comment.create_time|date:'Y-m-d'}}     
                                 </div>    
                     </div>    
                   </div>
