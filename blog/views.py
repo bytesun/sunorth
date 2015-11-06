@@ -11,9 +11,12 @@ from .forms import BlogForm,CommentForm
 
 def blog_info(request,id):
     blog = Blog.objects.get(pk=id)
+    
+    relblogs = Blog.objects.filter(tags__icontains=blog.tags).exclude(id=blog.id)
     comments = Comment.objects.filter(blog=id).order_by('create_time')
     context = {
         'blog': blog,
+        'relblogs' : relblogs,
         # 'owner':blog.owner,
         'comments':comments,
         'comment_form': CommentForm,

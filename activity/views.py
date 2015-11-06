@@ -12,6 +12,7 @@ def activity_info(request,id):
     comments = Comment.objects.filter(activity=id).order_by('create_time')
     context = {
         'activity': model_to_dict(activity),
+        'otheractivities' : Activity.objects.filter(do_time__gte=date.today()).exclude(id=activity.id).order_by('do_time'),
         'comments':comments,
         'comment_form': CommentForm,        
          }

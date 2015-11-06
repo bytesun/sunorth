@@ -90,7 +90,28 @@
        <div class="col-sm-3">
            <div class="row">
          <!-- Button trigger modal -->
-         <br> <br>
+         <br> 
+            <div class="panel panel-success">
+              <div class="panel-heading">其他近期活动</div>
+              <div class="panel-body">                 
+                  <table class="table">
+                      {% if otheractivities %}
+        
+                          {% for e in otheractivities %}
+                              <tr>
+                              <td>
+                               <h3> <a href="{% url 'activity_info' id=e.id %}">{{e.subject}}</a></h3>
+                                </td>
+                              </tr>
+                          {% endfor %}
+                      {% endif %}
+                  </table>             
+
+             </div>
+             </div>         
+         <br>
+         
+         
          <!-- activity Modal -->
          <div class="modal fade" id="activityModal"  role="dialog" aria-labelledby="myModalLabel">
            <div class="modal-dialog" role="document">

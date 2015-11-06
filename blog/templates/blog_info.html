@@ -88,16 +88,38 @@
                         {% endif %}<!-- end of user authentication -->                  
                 </div>      
 
-       </div>
+
        <!-- button -->
        
        <div class="col-sm-3">
            <div class="row">
-         <!-- Button trigger modal -->
-         <br>
+        
+                 <br>
+            <div class="panel panel-success">
+              <div class="panel-heading">相关日志</div>
+              <div class="panel-body">                 
+                  <table class="table">
+                      {% if relblogs %}
+        
+                          {% for e in relblogs %}
+                              <tr>
+                              <td>
+                               <h3> <a href="{% url 'blog_info' id=e.id %}">{{e.subject}}</a></h3>
+                                </td>
+                              </tr>
+                          {% endfor %}
+                      {% endif %}
+                  </table>             
 
-
-         <br>
+             </div>
+         </div>
+         </div>
+         </div>
+         
+        </div>  <!--end of right-->
+        </div>    
+       </div>       
+    
          
          <!-- blog Modal -->
          <div class="modal fade" id="blogModal"  role="dialog" aria-labelledby="myModalLabel">
@@ -116,13 +138,7 @@
                </div>
              </div>
            </div>
-         </div>          
-
-         </div>
-        </div>  
-        </div>    
-       </div>       
-    
+         </div>    
     </div>   
 {% endblock %}
 
