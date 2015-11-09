@@ -12,7 +12,7 @@ def home(request):
     allblogs = Blog.objects.all().order_by('-createtime')[:100]
     paginator = Paginator(allblogs, 10) 
     page = request.GET.get('page')
-    comments = Comment.objects.all().order_by('-create_time')[:5]
+    comments = Comment.objects.all().order_by('-create_time')[:10]
     try:
         blogs = paginator.page(page)
     except PageNotAnInteger:
