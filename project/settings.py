@@ -201,6 +201,7 @@ CKEDITOR_CONFIGS = {
     'default': {
         'height':'300',
         'width':'100%',
+        'selectMultiple':'true',
         'toolbar': 'sun',
         'toolbar_sun': [
               {'name': 'basicstyles',
