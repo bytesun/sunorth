@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^$', 'project.views.home', name='home'),
     url(r'^blog/', include('blog.urls')),
     url(r'^activity/', include('activity.urls')),
+    url(r'^gallery/', include('gallery.urls')),
     url(r'^userprofile/', include('userprofile.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),

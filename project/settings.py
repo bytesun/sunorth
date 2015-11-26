@@ -61,6 +61,7 @@ INSTALLED_APPS = (
     'userprofile',
     'blog',
     'activity',
+    'gallery',
 
 )
 

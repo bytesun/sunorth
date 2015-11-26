@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block content %}
+   <div class="row">
+       <div class="col-md-8 col-md-offset-2">
+          <br>
+           {% if request.user.is_authenticated %}          
+             
+            <form action="{% url 'photo_upload' %}" method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+                 {{ form|crispy }}
+                <input class="btn btn-success" type="submit" name="Submit" value="上传"/>
+            </form>
+           {% else %}
+               <p>{% trans "Not login? " %}  <a href="{% url 'auth_login' %}">{% trans "Login" %} </a> </p>
+               <p>{% trans "Not a member?" %} <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>.</p>
+           {% endif %}         
+       </div>
+    </div>   
+
+{% endblock %}
+
