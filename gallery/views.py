@@ -1,6 +1,24 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import GalleryForm
+from .models import Gallery
+from django.conf import settings
+
+def photo_list(request):
+    allphotos = Gallery.objects.all().order_by('-createtime')[:100]
+    paginator = Paginator(allphotos, 20) 
+    page = request.GET.get('page')    
+    try:
+        photos = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        photos = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        photos = paginator.page(paginator.num_pages)  
+        
+    return render(request,'photo_list.html',{'photos':photos,'media_url' : settings.MEDIA_URL})
 
 def photo_upload(request):
     if request.method == 'POST':
@@ -9,7 +27,7 @@ def photo_upload(request):
             instance = form.save(commit=False)
             instance.photographer = request.user
             instance.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/gallery/list')
     else:
         form = GalleryForm()
     return render(request, 'photo_upload.html', {'form': form})

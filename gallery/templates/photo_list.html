@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+  
+{% block content %}
+<!-- Add mousewheel plugin (this is optional) -->
+<script type="text/javascript" src="{% static 'lib/fancybox/jquery.mousewheel-3.0.6.pack.js' %}"></script>
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="{% static 'lib/fancybox/source/jquery.fancybox.css' %}" type="text/css" media="screen" />
+<script type="text/javascript" src="{% static 'lib/fancybox/source/jquery.fancybox.pack.js' %}"></script>
+
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet" href="{% static 'lib/fancybox/source/helpers/jquery.fancybox-buttons.css' %}" type="text/css" media="screen" />
+<script type="text/javascript" src="{% static 'lib/fancybox/source/helpers/jquery.fancybox-buttons.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/fancybox/source/helpers/jquery.fancybox-media.js' %}"></script>
+
+<link rel="stylesheet" href="{% static 'lib/fancybox/source/helpers/jquery.fancybox-thumbs.css' %}" type="text/css" media="screen" />
+<script type="text/javascript" src="{% static 'lib/fancybox/source/helpers/jquery.fancybox-thumbs.js' %}"></script>
+
+    <div class="row">
+         <div class="col-sm-12">
+          {% if  request.user.is_authenticated  %} 
+            <a class="btn btn-success btn-lg " href="{% url 'photo_upload' %}" > <i class="fa  fa-picture-o"></i> 分享照片故事</a>  
+
+          {% endif %}  
+          <hr>
+         </div>     
+    </div>
+        
+{% if photos %}
+
+
+   <div class="row">
+            {% for photo in photos %}  
+       
+            <div class="col-sm-3 photobox">
+            <a class="fancybox" rel="gallery1" href="{{media_url}}{{photo.photo}}" title="{{photo.story}}">
+                {% thumbnail photo.photo "300x230" crop="center"  as im %}
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" >
+                {% endthumbnail %} 
+                
+            </a></div>
+           {% endfor %}
+              
+    </div> 
+    <div class="row">
+                <nav>
+                  <ul class="pager">
+                    {% if photos.has_previous %}
+                        <li class="previous">
+                            <a href="?page={{ photos.previous_page_number }}"><span aria-hidden="true">&larr;</span> 前一页</a>
+                        </li>                    
+                    {% endif %}                  
+                        <li class="current">{{ photos.number }} of {{ photos.paginator.num_pages }}</li>                                                
+                    {% if photos.has_next %}
+                        <li class="next"><a href="?page={{ photos.next_page_number }}">下一页 <span aria-hidden="true">&rarr;</span></a></li>                    
+                    {% endif %}
+                    
+                  </ul>
+                </nav>         
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block script%}
+{{ block.super }}
+<script>
+
+$(document).ready(function(){
+    // $("img").addClass("img-responsive");
+	$(".fancybox").fancybox({
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
+});
+
+</script>  
+{% endblock %}

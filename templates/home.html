@@ -2,6 +2,7 @@
 {% load crispy_forms_tags %}
 {% load i18n %}
 {% load avatar_tags %}
+{% load thumbnail %}
 {% block jumbotron %}
   
       <!--<div class="jumbotron">-->
@@ -12,42 +13,15 @@
 {% block content %}
    <div class="row">
      <div class="col-sm-3">
-            <div class="row">
+       <div class="row">
                 <div class="col-sm-12">
 
-        {% if not request.user.is_authenticated  %} 
-                  <div class="panel panel-success">
-              <div class="panel-body">
-          <form class="form center-block" action='{% url "auth_login" %}' method='POST'>{% csrf_token %}
-            <div class="form-group">
-              <input type="text" class="form-control " name="username" placeholder="User name">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" name="password" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <button class="btn btn-success btn-block" type="submit">登录</button>
-              <span class="pull-right"><a href="{% url 'registration_register' %}">注册</a></span>
-              <span><a href="{% url 'auth_password_reset' %}">忘记密码</a></span>
-            </div>
-            </form>  
-             </div>
-           </div>                        
-          {% else %}
-          <a class="btn btn-success btn-lg btn-block" href="{% url 'photo_upload' %}" > <i class="fa  fa-picture-o"></i> 分享照片故事</a>  
-          <a class="btn btn-success btn-lg btn-block" href="{% url 'blog_new' %}" > <i class="fa fa-share-alt-square"></i> 分享日志</a>  
-          <a class="btn btn-success btn-lg btn-block" href="{% url 'activity_new' %}" ><i class="fa fa-calendar"></i> 计划下一次活动</a>  
-        
-
-          {% endif %}
 
            </div>
-           </div>
-           
-           
+           </div>           
            <div class="row">
                <div class="col-sm-12">
-               <br>
+
             <div class="panel panel-success">
               <div class="panel-heading">近期活动计划</div>
               <div class="panel-body">
@@ -84,7 +58,8 @@
                       {% endif %}
                   </table>  
               </div>
-            </div>            
+            </div>     
+            
           </div>
         </div>
             
@@ -107,7 +82,9 @@
               <div class="carousel-inner" role="listbox">
                 {% for photo in photos %}  
                 <div class="item {% if forloop.first %} active {% endif %}">
-                  <img src="{{media_url}}{{photo.photo}}" alt="...">
+                    {% thumbnail photo.photo "700x400" crop="center"  as im %}
+                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" >
+                    {% endthumbnail %} 
                   <div class="carousel-caption">
                     {{ photo.story }}
                   </div>
@@ -127,7 +104,12 @@
             </div>   
             
             
-          
+           <div class="row">
+               <div class="col-xs-12">
+                  
+                   <hr>
+               </div>
+           </div>
            {% if blogs %}
                {% for blog in blogs %}
                   <div class="row">
@@ -143,20 +125,7 @@
                 <hr>
                 {% endfor %}
 
-                <nav>
-                  <ul class="pager">
-                    {% if blogs.has_previous %}
-                        <li class="previous">
-                            <a href="?page={{ blogs.previous_page_number }}"><span aria-hidden="true">&larr;</span> 前一页</a>
-                        </li>                    
-                    {% endif %}                  
-                        <li class="current">{{ blogs.number }} of {{ blogs.paginator.num_pages }}</li>                                                
-                    {% if blogs.has_next %}
-                        <li class="next"><a href="?page={{ blogs.next_page_number }}">下一页 <span aria-hidden="true">&rarr;</span></a></li>                    
-                    {% endif %}
                     
-                  </ul>
-                </nav>                       
            
 
             {% endif %}

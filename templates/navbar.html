@@ -13,28 +13,58 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li ><a href=""></a></li>
-            <li ></li>
+            
+            <!--<li ><a href="">社区</a></li>-->
+            <!--<li class="dropdown">-->
+            <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
+            <!--    活动 <span class="caret"></span></a>-->
+            <!--  <ul class="dropdown-menu">-->
+            <!--    <li><a href="{% url 'activity_list' %}">--全部--</a></li>-->
+            <!--    <li><a href="{% url 'activity_list' %}">徒步</a></li>-->
+            <!--    <li><a href="{% url 'activity_list' %}">野营</a></li>-->
+            <!--    <li><a href="{% url 'activity_list' %}">帆船</a></li>-->
+            <!--    <li><a href="{% url 'activity_list' %}">滑雪</a></li>-->
+            <!--    <li><a href="{% url 'activity_list' %}">垂钓</a></li>                -->
+            <!--    <li><a href="{% url 'activity_list' %}">划艇</a></li>                -->
+            <!--  </ul>-->
+            <!--</li>            -->
+            <li ><a href="{% url 'photo_list' %}">影像</a></li>
+            <li ><a href="{% url 'blog_list' %}">日志</a></li>            
+            <!--<li class="dropdown">-->
+            <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
+            <!--    资料 <span class="caret"></span></a>-->
+            <!--  <ul class="dropdown-menu">-->
+            <!--    <li><a href="#">装备</a></li>-->
+            <!--    <li><a href="#">线路</a></li>-->
+              
+            <!--  </ul>-->
+            <!--</li> -->
+            
           </ul>
          
 
        
-      {% if request.user.is_authenticated %}         
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            {{request.user}}<span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li></li>
-            <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
-            <li role="separator" class="divider"></li>
-            
-            <li><a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
-          </ul>
-        </li>
-      </ul>   
-      {% endif %}        
+               
+          <ul class="nav navbar-nav navbar-right">
+           {% if request.user.is_authenticated %}               
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                {{request.user}}<span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li></li>
+                <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
+                <li role="separator" class="divider"></li>
+                
+                <li><a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
+              </ul>
+            </li>
+            {% else %}
+            <li><a href="{% url 'auth_login' %}">登录</a></li>
+            <li><a href="{% url 'registration_register' %}">注册</a></li>
+            {% endif %}              
+          </ul>   
+      
 
          
         </div><!--/.nav-collapse -->

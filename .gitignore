@@ -7,3 +7,4 @@ event/migrations/*
 activity/migrations/*
 blog/migrations/*
 userprofile/migrations/*
+gallery/migrations/*

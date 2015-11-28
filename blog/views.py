@@ -1,14 +1,30 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.forms.models import model_to_dict
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.conf import settings
 from .models import Blog,Comment
 from .forms import BlogForm,CommentForm
 
 
+def blog_list(request):
+    allblogs = Blog.objects.all().order_by('-createtime')[:100]
+    paginator = Paginator(allblogs, 10) 
+    page = request.GET.get('page')
+    try:
+        blogs = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        blogs = paginator.page(1)
+    except EmptyPage:
+        blogs = paginator.page(paginator.num_pages)  
+        
+    context = {
+            'blogs' : blogs,
+        }
+    return render(request, 'blog_list.html', context)
     
-
+    
 def blog_info(request,id):
     blog = Blog.objects.get(pk=id)
     

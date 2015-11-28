@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load avatar_tags %}
+{% block jumbotron %}
+  
+      <!--<div class="jumbotron">-->
+
+      <!--</div>-->
+{% endblock %}
+  
+{% block content %}
+   <div class="row">
+       <div class="col-sm-3">
+          {% if  request.user.is_authenticated  %} 
+              <a class="btn btn-success btn-lg btn-block" href="{% url 'blog_new' %}" > <i class="fa fa-share-alt-square"></i> 分享日志</a>  
+
+          {% endif %} 
+          <BR>
+                <ul class="list-group">
+                  <li class="list-group-item">徒步</li>
+                  <li class="list-group-item">露营</li>
+                  <li class="list-group-item">帆船</li>
+                  <li class="list-group-item">划船</li>
+                  <li class="list-group-item">滑雪</li>
+                  <li class="list-group-item">更多...</li>
+                </ul>             
+       </div>           
+       
+       
+      <!-- blog list-->
+       <div class="col-sm-9">
+           {% if blogs %}
+               {% for blog in blogs %}
+                  <div class="row">
+                  <div class="col-xs-2 col-sm-1 blog_list_avatar "><span class="avatar"> {% avatar  blog.owner %}</span></div>     
+                  <div class="col-xs-10 col-sm-11 ">
+                    <h2> <a href="{% url 'blog_info' id=blog.id %}"> {{blog.subject}}</a></h2>
+                    <span class="label label-success">{{blog.tags}}</span>  {{blog.createtime|date:'Y-m-d'}}   
+                    <a href="{% url 'blog_info' id=blog.id %}"> <i class="fa fa-commenting"></i></a><br><br>
+                    
+                    <!--<div class="hidden-xs hidden-sm"> {{blog.content|safe}}</div> -->
+                    </div>                             
+                </div>    
+                <hr>
+                {% endfor %}
+
+                <nav>
+                  <ul class="pager">
+                    {% if blogs.has_previous %}
+                        <li class="previous">
+                            <a href="?page={{ blogs.previous_page_number }}"><span aria-hidden="true">&larr;</span> 前一页</a>
+                        </li>                    
+                    {% endif %}                  
+                        <li class="current">{{ blogs.number }} of {{ blogs.paginator.num_pages }}</li>                                                
+                    {% if blogs.has_next %}
+                        <li class="next"><a href="?page={{ blogs.next_page_number }}">下一页 <span aria-hidden="true">&rarr;</span></a></li>                    
+                    {% endif %}
+                    
+                  </ul>
+                </nav>                       
+           
+
+            {% endif %}
+       </div><!-- BLOG LIST -->
+       
+     
+    </div>   
+{% endblock %}
+
+{% block script%}
+{{ block.super }}
+<script>
+
+$(document).ready(function(){
+    $("img").addClass("img-responsive");
+
+});
+
+</script>  
+{% endblock %}

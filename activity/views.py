@@ -1,11 +1,27 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.forms.models import model_to_dict
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import date
 from django.conf import settings
 from .models import Activity,Comment
 from .forms import ActivityForm,CommentForm
 
+
+def activity_list(request):
+    allactivities = Activity.objects.all().order_by('do_time')[:100]
+    paginator = Paginator(allactivities, 20) 
+    page = request.GET.get('page')    
+    try:
+        activities = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        activities = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        activities = paginator.page(paginator.num_pages)  
+        
+    return render(request,'activity_list.html',{'activities':activities})
   
 def activity_info(request,id):
     activity =Activity.objects.get(pk=id)
