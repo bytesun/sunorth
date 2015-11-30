@@ -9,7 +9,7 @@ from .forms import ActivityForm,CommentForm
 
 
 def activity_list(request):
-    allactivities = Activity.objects.all().order_by('do_time')[:100]
+    allactivities = Activity.objects.all().order_by('-do_time')[:100]
     paginator = Paginator(allactivities, 20) 
     page = request.GET.get('page')    
     try:

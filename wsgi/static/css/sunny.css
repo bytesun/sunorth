@@ -55,3 +55,7 @@ div .comment_form {
     margin: 0; /* external margin is lacking */
     border-radius: 50%; /* read above */
 }
+
+.photobox {
+    margin-bottom : 10px;
+}
