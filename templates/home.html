@@ -12,62 +12,7 @@
   
 {% block content %}
    <div class="row">
-     <div class="col-sm-3">
-       <div class="row">
-                <div class="col-sm-12">
-
-
-           </div>
-           </div>           
-           <div class="row">
-               <div class="col-sm-12">
-
-            <div class="panel panel-success">
-              <div class="panel-heading">近期活动计划</div>
-              <div class="panel-body">
-                  <table class="table">
-                      {% if activities %}
-        
-                          {% for e in activities %}
-                              <tr>
-                              <td>
-                               <h3> <a href="{% url 'activity_info' id=e.id %}">{{e.subject}}</a></h3>
-                                </td>
-                              </tr>
-                          {% endfor %}
-                      {% endif %}
-                  </table>  
-              </div>
-            </div> 
-            
-            <!-- the latest comments -->
-            
-            <div class="panel panel-success">
-              <div class="panel-heading">最新回复</div>
-              <div class="panel-body">
-                  <table class="table">
-                      {% if comments %}
-        
-                          {% for e in comments %}
-                              <tr>
-                              <td>
-                               <h3> <a href="{% url 'blog_info' id=e.blog.id %}">{{e.comment}}</a></h3>
-                                </td>
-                              </tr>
-                          {% endfor %}
-                      {% endif %}
-                  </table>  
-              </div>
-            </div>     
-            
-          </div>
-        </div>
-            
-       </div>           
-       
-       
-      <!-- blog list-->
-       <div class="col-sm-9">
+          <div class="col-sm-12">
            {% if photos %}
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
               <!-- Indicators -->
@@ -82,8 +27,8 @@
               <div class="carousel-inner" role="listbox">
                 {% for photo in photos %}  
                 <div class="item {% if forloop.first %} active {% endif %}">
-                    {% thumbnail photo.photo "700x400" crop="center"  as im %}
-                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" >
+                    {% thumbnail photo.photo "800x250" crop="center"  as im %}
+                        <a href="{% url 'photo_list' %}"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" ></a>
                     {% endthumbnail %} 
                   <div class="carousel-caption">
                     {{ photo.story }}
@@ -101,7 +46,44 @@
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
               </a>
-            </div>   
+            </div>            
+          </div>
+   </div>      
+   <div class="row">
+     <div class="col-sm-3">
+       
+           <div class="row">
+               <div class="col-sm-12">
+                <BR>
+                <div class="panel panel-success">
+                  <div class="panel-heading">近期活动计划</div>
+                  <div class="panel-body">
+                      <table class="table">
+                          {% if activities %}
+            
+                              {% for e in activities %}
+                                  <tr>
+                                  <td>
+                                   <h3> <a href="{% url 'activity_info' id=e.id %}">{{e.subject}}</a></h3>
+                                    </td>
+                                  </tr>
+                              {% endfor %}
+                          {% endif %}
+                      </table>  
+                  </div>
+                </div> 
+            
+  
+            
+          </div>
+        </div>
+            
+       </div>           
+       
+       
+      <!-- blog list-->
+       <div class="col-sm-9">
+ 
             
             
            <div class="row">

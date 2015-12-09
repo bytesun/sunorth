@@ -18,9 +18,10 @@ def blog_list(request):
         blogs = paginator.page(1)
     except EmptyPage:
         blogs = paginator.page(paginator.num_pages)  
-        
+    comments = Comment.objects.all().order_by('-create_time')[:5]        
     context = {
             'blogs' : blogs,
+            'comments' : comments,
         }
     return render(request, 'blog_list.html', context)
     

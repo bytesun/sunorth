@@ -17,15 +17,35 @@
 
           {% endif %} 
           <BR>
-                <ul class="list-group">
-                  <li class="list-group-item">徒步</li>
-                  <li class="list-group-item">露营</li>
-                  <li class="list-group-item">帆船</li>
-                  <li class="list-group-item">划船</li>
-                  <li class="list-group-item">滑雪</li>
-                  <li class="list-group-item">更多...</li>
-                </ul>             
+                <!--<ul class="list-group">-->
+                <!--  <li class="list-group-item">徒步</li>-->
+                <!--  <li class="list-group-item">露营</li>-->
+                <!--  <li class="list-group-item">帆船</li>-->
+                <!--  <li class="list-group-item">划船</li>-->
+                <!--  <li class="list-group-item">滑雪</li>-->
+                <!--  <li class="list-group-item">更多...</li>-->
+                <!--</ul>   -->
+                
+            <!-- the latest comments -->
+            <div class="panel panel-success">
+              <div class="panel-heading">最新回复</div>
+              <div class="panel-body">
+                  <table class="table">
+                      {% if comments %}
+        
+                          {% for e in comments %}
+                              <tr>
+                              <td>
+                               <h3> <a href="{% url 'blog_info' id=e.blog.id %}">{{e.comment}}</a></h3>
+                                </td>
+                              </tr>
+                          {% endfor %}
+                      {% endif %}
+                  </table>  
+              </div>
+            </div>                   
        </div>           
+       
        
        
       <!-- blog list-->
