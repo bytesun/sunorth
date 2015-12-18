@@ -14,6 +14,8 @@ class Activity(models.Model):
     
     def __unicode__(self):
         return self.subject
+    def __str__(self):
+        return self.subject          
         
     def get_absolute_url(self):
         return reverse('activity_info',  kwargs={'id': self.pk})    
@@ -22,4 +24,7 @@ class Comment(models.Model):
     comment = models.TextField()
     create_time = models.DateTimeField(default=timezone.now,editable=True)
     owner = models.ForeignKey(User,related_name='activity_owner')
-    activity = models.ForeignKey(Activity)          
+    activity = models.ForeignKey(Activity)  
+    
+    def __str__(self):
+        return self.comment      

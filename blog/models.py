@@ -19,10 +19,16 @@ class Blog(models.Model):
     def get_absolute_url(self):
         return reverse('blog_info',  kwargs={'id': self.pk})    
         
+    def __str__(self):
+        return self.subject    
+        
 class Comment(models.Model):
     comment = models.TextField()
     create_time = models.DateTimeField(default=timezone.now,editable=True)
     owner = models.ForeignKey(User)
-    blog = models.ForeignKey(Blog)    
+    blog = models.ForeignKey(Blog)   
+    
+    def __str__(self):
+        return self.comment       
 
 

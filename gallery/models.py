@@ -10,3 +10,8 @@ class Gallery(models.Model):
     rate = models.IntegerField(default=0)
     createtime = models.DateTimeField(default=timezone.now,editable=True)
     photographer = models.ForeignKey(User)
+
+    def __unicode__(self):
+            return self.story
+    def __str__(self):
+        return self.story
