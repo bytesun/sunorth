@@ -44,7 +44,11 @@
                     </td>
                     <td>
                        <a href="{% url 'activity_info' id=activity.id %}"> {{activity.subject}}</a>
-                    </td>    
+                    </td> 
+                    <td>
+                        {{activity.tags}}
+                    </td>
+                    
                   </tr>    
                 {% endfor %}
                </table>        
