@@ -9,10 +9,10 @@
 {% endblock %}
   
 {% block content %}
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.0/fullcalendar.min.css' />
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.0/fullcalendar.min.js'></script>
 
-
-<!-- Add fancyBox -->
-<!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.css" type="text/css" media="screen" />-->
 
    <div class="row">
        <div class="col-sm-3">
@@ -35,6 +35,7 @@
       <!-- blog list-->
        <div class="col-sm-9">
            <br>
+           <div id='calendar'></div>            
            {% if activities %}
                <table class="table">
                {% for activity in activities %}
@@ -78,15 +79,18 @@
 {% block script%}
 {{ block.super }}
 
-<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>-->
-<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>-->
-<!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>-->
-
 <script>
 $(document).ready(function(){
-    // $('#calendar').fullCalendar({
-    //     // put your options and callbacks here
-    // })
+    $('#calendar').fullCalendar({
+    // events: [
+    //     {
+    //         title: 'All Day Event',
+    //         start: new Date(),
+    //         description: 'long description',
+    //         id: 1
+    //     },
+    //   ],
+    })
 });
 </script>
 {% endblock %}

@@ -30,7 +30,8 @@ def activity_info(request,id):
         'activity': model_to_dict(activity),
         'otheractivities' : Activity.objects.filter(do_time__gte=date.today()).exclude(id=activity.id).order_by('do_time'),
         'comments':comments,
-        'comment_form': CommentForm,        
+        'comment_form': CommentForm,    
+        
          }
     #init forms for case owner
     if activity.owner == request.user:
