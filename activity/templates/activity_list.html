@@ -81,15 +81,21 @@
 
 <script>
 $(document).ready(function(){
+    var date = new Date();
+    var m = date.getMonth();
     $('#calendar').fullCalendar({
-    // events: [
-    //     {
-    //         title: 'All Day Event',
-    //         start: new Date(),
-    //         description: 'long description',
-    //         id: 1
-    //     },
-    //   ],
+        events: {
+            url: '/api/activity/list',
+            type: 'GET',
+            data: {
+                month: m,
+            },
+            error: function() {
+               // alert('there was an error while fetching events!');
+            },
+            color: 'green',   // a non-ajax option
+            textColor: 'black' // a non-ajax option
+        }
     })
 });
 </script>

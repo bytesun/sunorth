@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     url(r'^$', 'project.views.home', name='home'),
     url(r'^blog/', include('blog.urls')),
@@ -28,4 +29,6 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^avatar/', include('avatar.urls')),
+    
+    url(r'^api/', include('rest_framework.urls', namespace='rest_framework'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

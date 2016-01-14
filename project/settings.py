@@ -57,6 +57,7 @@ INSTALLED_APPS = (
     'ckeditor',
     'ckeditor_uploader',
     'sorl.thumbnail',
+    'rest_framework',
     'avatar',
     'userprofile',
     'blog',
@@ -235,4 +236,11 @@ CKEDITOR_CONFIGS = {
                 # 'elementspath'
             ]),        
      },
+}
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
 }
