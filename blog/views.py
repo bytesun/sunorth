@@ -29,7 +29,7 @@ def blog_list(request):
 def blog_info(request,id):
     blog = Blog.objects.get(pk=id)
     
-    relblogs = Blog.objects.filter(tags__icontains=blog.tags).exclude(id=blog.id)
+    relblogs = Blog.objects.filter(tags__icontains=blog.tags).exclude(id=blog.id)[:10]
     comments = Comment.objects.filter(blog=id).order_by('create_time')
     context = {
         'blog': blog,
