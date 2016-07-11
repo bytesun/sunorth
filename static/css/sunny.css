@@ -1,3 +1,4 @@
+body { padding-top: 70px; }
 img{
     
   display: inline-block;
@@ -6,7 +7,7 @@ img{
    width:100%;
 }
 .navbar-static-top{
-    margin-bottom : 19px !important;
+    margin-bottom : 25px !important;
     background: #fff;
     border-color:#33CC33;
     color : #33CC33;
