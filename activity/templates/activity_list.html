@@ -53,21 +53,33 @@
                     
                   </tr>    
                 {% endfor %}
-               </table>        
-                <nav>
-                  <ul class="pager">
-                    {% if activities.has_previous %}
-                        <li class="previous">
-                            <a href="?page={{ activities.previous_page_number }}"><span aria-hidden="true">&larr;</span> 前一页</a>
-                        </li>                    
-                    {% endif %}                  
-                        <li class="current">{{ activities.number }} of {{ activities.paginator.num_pages }}</li>                                                
-                    {% if activities.has_next %}
-                        <li class="next"><a href="?page={{ activities.next_page_number }}">下一页 <span aria-hidden="true">&rarr;</span></a></li>                    
-                    {% endif %}
+               </table>   
+               <div class="text-center">
+                     <nav aria-label="Page navigation">
+                      <ul class="pagination">
+                        {% if activities.has_previous %}
+                          <li><a href="?page={{ activities.previous_page_number }}">&laquo;</a></li>
+                        {% else %}
+                          <li class="disabled"><a href="#">&laquo;</a></li>
+                        {% endif %}
                     
-                  </ul>
-                </nav>                       
+                        {% for num in activities.paginator.page_range %}
+                          {% ifequal num activities.number %}
+                            <li class="active"><a href="#">{{ num }}<span class="sr-only">(current)</span></a></li>
+                          {% else %}
+                            <li><a href="?page={{ num }}">{{ num }}</a></li>
+                          {% endifequal %}
+                        {% endfor %}
+                    
+                        {% if activities.has_next %}
+                          <li><a href="?page={{ activities.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                          <li class="disabled"><a href="#">&raquo;</a></li>
+                        {% endif %}
+                      <ul>
+                    </nav>                   
+               </div>
+                                    
            
 
             {% endif %}
