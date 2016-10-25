@@ -1,6 +1,12 @@
 {% load avatar_tags %}
+{% load i18n %}
+<nav  class="navbar navbar-default bg-primary navbar-fixed-top hidden-md hidden-lg">
+  <div class="container">
+          <a class="navbar-brand col-xs-12 text-center" href="/"> {% trans "Sunorth" %} 462.700-71.9  </a>
+  </div>
+</nav>
   <!-- Static navbar -->
-    <nav  class="navbar navbar-default navbar-static-top  navbar-fixed-top">
+    <nav  class="navbar navbar-default navbar-static-top  navbar-fixed-top hidden-sm hidden-xs">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -11,7 +17,7 @@
           </button>
           <a class="navbar-brand" href="/"><strong>云舒天外</strong></a> 
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div id="navbar" class="navbar-collapse collapse hidden-sm hidden-xs">
           <ul class="nav navbar-nav">
             
             <!--<li ><a href="">社区</a></li>-->

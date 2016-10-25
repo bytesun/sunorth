@@ -15,7 +15,7 @@
 
 
    <div class="row">
-       <div class="col-sm-3">
+       <div class="col-sm-3 hidden-sm hidden-xs">
           {% if  request.user.is_authenticated  %} 
               <a class="btn btn-success btn-lg btn-block" href="{% url 'activity_new' %}" ><i class="fa fa-calendar"></i> 计划下一次活动</a>  
 
@@ -36,7 +36,7 @@
       <!-- blog list-->
        <div class="col-sm-9">
            <br>
-           <div id='calendar'></div>            
+           <div id='calendar' class="hidden-sm hidden-xs"></div>            
            {% if activities %}
                <table class="table">
                {% for activity in activities %}

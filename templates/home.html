@@ -7,7 +7,7 @@
 {% block jumbotron %}
   
       <!--<div class="jumbotron">-->
-   <div class="row">
+   <div class="row hidden-xs hidden-sm">
           <div class="col-sm-12">
            {% if photos %}
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -51,7 +51,7 @@
 {% block content %}
       
    <div class="row">
-     <div class="col-sm-3">
+     <div class="col-md-3 hidden-xs hidden-sm">
        
            <div class="row">
                <div class="col-sm-12">
@@ -110,7 +110,7 @@
            {% if blogs %}
                {% for blog in blogs %}
                   <div class="row">
-                  <div class="col-xs-2 col-sm-1 blog_list_avatar "><span class="avatar"> {% avatar  blog.owner %}</span></div>     
+                  <div class="col-xs-2 col-sm-1 blog_list_avatar hidden-sm hidden-xs"><span class="avatar"> {% avatar  blog.owner %}</span></div>     
                   <div class="col-xs-10 col-sm-11 ">
                     <h2> <a href="{% url 'blog_info' id=blog.id %}"> {{blog.subject}}</a></h2>
                     <span class="label label-success">{{blog.tags}}</span>  {{blog.createtime|date:'Y-m-d'}}   
