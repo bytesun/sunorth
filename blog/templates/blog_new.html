@@ -7,11 +7,11 @@
        <div class="col-md-8 col-md-offset-2">
           <br>
            {% if request.user.is_authenticated %}          
-              <h1>分享我的日志</h1>
+              <h1>{% trans "Share My Story" %}</h1>
              <form method="POST" action="{% url 'blog_new' %}">
                {% csrf_token %}
                {{ form|crispy }}
-               <input class="btn btn-success" type="submit" name="Submit" value="Save"/>
+               <input class="btn btn-success" type="submit" name="Submit" value="{% trans 'Save' %}"/>
              </form>
            {% else %}
                <p>{% trans "Not login? " %}  <a href="{% url 'auth_login' %}">{% trans "Login" %} </a> </p>

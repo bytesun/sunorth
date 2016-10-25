@@ -24,7 +24,8 @@
     <div class="row">
          <div class="col-sm-12">
           {% if  request.user.is_authenticated  %} 
-            <a class="btn btn-success btn-lg hidden-xs hidden-sm" href="{% url 'photo_upload' %}" > <i class="fa  fa-picture-o"></i> 分享照片故事</a>  
+            <a class="btn btn-success btn-lg hidden-xs hidden-sm" href="{% url 'photo_upload' %}" > 
+            <i class="fa  fa-picture-o"></i> {% trans "Share My Photo" %}</a>  
 
           {% endif %}  
           <hr>

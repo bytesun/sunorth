@@ -15,7 +15,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/"><strong>云舒天外</strong></a> 
+          <a class="navbar-brand" href="/"><strong>{% trans "Sunorth" %}</strong></a> 
         </div>
         <div id="navbar" class="navbar-collapse collapse hidden-sm hidden-xs">
           <ul class="nav navbar-nav">
@@ -34,9 +34,9 @@
             <!--    <li><a href="{% url 'activity_list' %}">划艇</a></li>                -->
             <!--  </ul>-->
             <!--</li>            -->
-            <li ><a href="{% url 'blog_list' %}">记忆</a></li>
-            <li ><a href="{% url 'photo_list' %}">影像</a></li>
-            <li ><a href="{% url 'activity_list' %}">活动</a></li>
+            <li ><a href="{% url 'blog_list' %}">{% trans "Blog" %}</a></li>
+            <li ><a href="{% url 'photo_list' %}">{% trans "Photo" %}</a></li>
+            <li ><a href="{% url 'activity_list' %}">{% trans "Event" %}</a></li>
             <!--<li class="dropdown">-->
             <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
             <!--    资料 <span class="caret"></span></a>-->
@@ -60,15 +60,15 @@
               </a>
               <ul class="dropdown-menu">
                 <li></li>
-                <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
+                <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> {% trans "Profile" %}</a></li>
                 <li role="separator" class="divider"></li>
                 
-                <li><a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                <li><a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out"></i>{% trans "Logout" %}</a></li>
               </ul>
             </li>
             {% else %}
-            <li><a href="{% url 'auth_login' %}">登录</a></li>
-            <li><a href="{% url 'registration_register' %}">注册</a></li>
+            <li><a href="{% url 'auth_login' %}">{% trans "Login" %}</a></li>
+            <li><a href="{% url 'registration_register' %}">{% trans "Registration" %}</a></li>
             {% endif %}              
           </ul>   
       

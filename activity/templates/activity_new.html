@@ -7,11 +7,11 @@
        <div class="col-md-8 col-md-offset-2">
           <br>
            {% if request.user.is_authenticated %}          
-              <h1>Create a new activity</h1>
+              <h1>{% trans "Create a new activity" %}</h1>
              <form method="POST" action="{% url 'activity_new' %}">
                {% csrf_token %}
                {{ form|crispy }}
-               <input class="btn btn-success" type="submit" name="Submit" value="Save"/>
+               <input class="btn btn-success" type="submit" name="Submit" value="{% trans 'Save' %}"/>
              </form>
            {% else %}
                <p>{% trans "Not login? " %}  <a href="{% url 'auth_login' %}">{% trans "Login" %} </a> </p>

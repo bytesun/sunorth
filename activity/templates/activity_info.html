@@ -94,7 +94,7 @@
          <!-- Button trigger modal -->
          <br> 
             <div class="panel panel-success hidden-xs hidden-sm">
-              <div class="panel-heading">其他近期活动</div>
+              <div class="panel-heading">{% trans "Recent Activities" %}</div>
               <div class="panel-body">                 
                   <table class="table">
                       {% if otheractivities %}
@@ -133,7 +133,7 @@
                     
                     {{ activity_form|crispy }}
                     
-                    <input class="btn btn-primary" type="submit" name="Submit" value="Save"/>
+                    <input class="btn btn-primary" type="submit" name="Submit" value="{% trans 'Save' %}"/>
                   </form>
                </div>
              </div>

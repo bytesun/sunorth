@@ -57,19 +57,19 @@
                         {% if request.user.is_authenticated %}
                         <div><br>
                         <hr>    
-                        <span id="span_a_suggest"><a id="a_suggest" href="#"><i class="fa fa-commenting"></i> Comment</a></span>
+                        <span id="span_a_suggest"><a id="a_suggest" href="#"><i class="fa fa-commenting"></i> {% trans "Comment" %}</a></span>
                         <div class="comment_form">
                           <form method="POST" action="{% url 'blog_comment_new'  blog.id %}">
                             {% csrf_token %}
                             
                             {{ comment_form|crispy }}
-                            <input class="btn btn-success pull-right" type="submit" name="Submit" value="Save"/>
+                            <input class="btn btn-success pull-right" type="submit" name="Submit" value="{% trans 'Save' %}"/>
                           </form>      
                         </div>
                         </div>
                         {% else%}
                             <div>
-                                <a href="{% url 'auth_login' %}">Login </a>to comment
+                                <a href="{% url 'auth_login' %}">{% trans "Login" %} </a>{% trans "to comment" %}
                             </div>
                         {% endif %}<!-- end of user authentication --> 
                         <br><br>
@@ -83,7 +83,7 @@
         
                  <br>
             <div class="panel panel-success hidden-xs hidden-sm">
-              <div class="panel-heading">相关日志</div>
+              <div class="panel-heading">{% trans "Related Blogs" %}</div>
               <div class="panel-body">                 
                   <table class="table">
                       {% if relblogs %}
@@ -123,13 +123,13 @@
              <div class="modal-content">
                <div class="modal-header">
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                 <h4 class="modal-title" id="myModalLabel">Edit</h4>
+                 <h4 class="modal-title" id="myModalLabel">{% trans "Edit" %}</h4>
                </div>
                <div class="modal-body">
                   <form method="POST" action="{% url 'blog_edit' id=blog.id %}">
                     {% csrf_token %}
                     {{ blog_form|crispy }}
-                    <input class="btn btn-success" type="submit" name="Submit" value="Save"/>
+                    <input class="btn btn-success" type="submit" name="Submit" value="{% trans 'Save' %}"/>
                   </form>
                </div>
              </div>

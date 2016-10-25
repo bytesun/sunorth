@@ -11,7 +11,7 @@
             <form action="{% url 'photo_upload' %}" method="post" enctype="multipart/form-data">
                  {% csrf_token %}
                  {{ form|crispy }}
-                <input class="btn btn-success" type="submit" name="Submit" value="上传"/>
+                <input class="btn btn-success" type="submit" name="Submit" value="{% trans 'Upload' %}"/>
             </form>
            {% else %}
                <p>{% trans "Not login? " %}  <a href="{% url 'auth_login' %}">{% trans "Login" %} </a> </p>
