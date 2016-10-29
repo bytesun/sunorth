@@ -24,3 +24,5 @@ def home(request):
         }
     return render(request, 'home.html', context)
     
+def club(request):
+    return render(request, 'club.html', {});

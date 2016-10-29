@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block content %}
+      
+   <div class="row">
+     <div class="col-md-3 hidden-xs hidden-sm">
+        <div class="list-group">
+          <a href="#" class="list-group-item active">
+            {% trans "Outdoor Activities" %}
+          </a>
+          <a href="#" class="list-group-item">{% trans "Boating" %}</a>
+          <a href="#" class="list-group-item">{% trans "Hiking" %}</a>
+          <a href="#" class="list-group-item">{% trans "Skiing" %}</a>
+          <a href="#" class="list-group-item">{% trans "Camping" %}</a>
+          <a href="#" class="list-group-item">{% trans "Biking" %}</a>
+          <a href="#" class="list-group-item">{% trans "Fishing" %}</a>
+          
+        </div>       
+     </div>
+     <div class="col-md-9 hidden-xs hidden-sm">
+       
+     </div>     
+    </div>   
+{% endblock %}
+
+{% block script%}
+{{ block.super }}
+<script>
+
+$(document).ready(function(){
+    $("img").addClass("img-responsive");
+
+});
+
+</script>  
+{% endblock %}

@@ -26,7 +26,7 @@ urlpatterns = patterns('',
     url(r'^i18n/', include('django.conf.urls.i18n')),
 )
 urlpatterns += i18n_patterns('',
-
+    url(r'^club$', 'project.views.club', name='club'),
     url(r'^blog/', include('blog.urls')),
     url(r'^activity/', include('activity.urls')),
     url(r'^gallery/', include('gallery.urls')),
