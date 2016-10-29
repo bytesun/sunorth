@@ -3,8 +3,4 @@ vpython27
 db.sqlite3
 media/*
 get-pip.py
-event/migrations/*
-activity/migrations/*
-blog/migrations/*
-userprofile/migrations/*
-gallery/migrations/*
+
