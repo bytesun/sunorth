@@ -11,7 +11,7 @@ class Activity(models.Model):
     description = RichTextUploadingField()
     do_time = models.DateTimeField(editable=True)
     owner = models.ForeignKey(User, null=True)
-    language = models.CharField(max_length=10,default='zh-cn')
+    # language = models.CharField(max_length=10,default='zh-cn')
     
     def __unicode__(self):
         return self.subject

@@ -12,7 +12,7 @@ class Blog(models.Model):
     content = RichTextUploadingField()
     createtime = models.DateTimeField(default=timezone.now,editable=True)
     owner = models.ForeignKey(User, null=True)
-    language = models.CharField(max_length=10,default='zh-cn')
+    # language = models.CharField(max_length=10,default='zh-cn')
     
     def __unicode__(self):
         return self.subject
