@@ -18,10 +18,10 @@ def blog_list(request):
         blogs = paginator.page(1)
     except EmptyPage:
         blogs = paginator.page(paginator.num_pages)  
-    comments = Comment.objects.all().order_by('-create_time')[:5]        
+    # comments = Comment.objects.all().order_by('-create_time')[:5]        
     context = {
             'blogs' : blogs,
-            'comments' : comments,
+            # 'comments' : comments,
         }
     return render(request, 'blog_list.html', context)
     
@@ -54,6 +54,7 @@ def blog_new(request):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.owner=request.user
+        instance.language=request.LANGUAGE_CODE
         instance.save()
         return redirect(instance)
     else:    

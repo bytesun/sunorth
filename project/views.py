@@ -20,7 +20,7 @@ def home(request):
     context = {
             'photos': photos,
             'blogs' : blogs,
-            'activities' : Activity.objects.filter(do_time__gte=date.today()).order_by('do_time'),
+            'activities' : Activity.objects.filter(do_time__gte=date.today(),language=request.LANGUAGE_CODE).order_by('do_time'),
             'media_url' : settings.MEDIA_URL,
         }
     return render(request, 'home.html', context)

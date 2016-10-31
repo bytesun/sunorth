@@ -28,23 +28,23 @@
                 <!--</ul>   -->
                 
             <!-- the latest comments -->
-            <div class="panel panel-success">
-              <div class="panel-heading">{% trans "Latest Comments" %}</div>
-              <div class="panel-body">
-                  <table class="table">
-                      {% if comments %}
+            <!--<div class="panel panel-success">-->
+            <!--  <div class="panel-heading">{% trans "Latest Comments" %}</div>-->
+            <!--  <div class="panel-body">-->
+            <!--      <table class="table">-->
+            <!--          {% if comments %}-->
         
-                          {% for e in comments %}
-                              <tr>
-                              <td>
-                               <h3> <a href="{% url 'blog_info' id=e.blog.id %}">{{e.comment}}</a></h3>
-                                </td>
-                              </tr>
-                          {% endfor %}
-                      {% endif %}
-                  </table>  
-              </div>
-            </div>                   
+            <!--              {% for e in comments %}-->
+            <!--                  <tr>-->
+            <!--                  <td>-->
+            <!--                   <h3> <a href="{% url 'blog_info' id=e.blog.id %}">{{e.comment}}</a></h3>-->
+            <!--                    </td>-->
+            <!--                  </tr>-->
+            <!--              {% endfor %}-->
+            <!--          {% endif %}-->
+            <!--      </table>  -->
+            <!--  </div>-->
+            <!--</div>                   -->
        </div>           
        
        

@@ -46,6 +46,7 @@ def activity_new(request):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.owner=request.user
+        instance.language=request.LANGUAGE_CODE
         instance.save()
         return redirect(instance)
     else:    
