@@ -8,8 +8,7 @@ from .forms import BlogForm,CommentForm
 
 
 def blog_list(request):
-    allblogs = Blog.objects.all().order_by('-createtime')[:100]
-    # allblogs = Blog.objects.filter(language=request.LANGUAGE_CODE).order_by('-createtime')[:100]
+    allblogs = Blog.objects.filter(language=request.LANGUAGE_CODE).order_by('-createtime')[:100]
     paginator = Paginator(allblogs, 10) 
     page = request.GET.get('page')
     try:
