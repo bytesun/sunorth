@@ -29,7 +29,7 @@ else:
 # SECURITY WARNING: don't run with debug turned on in production!
 # adjust to turn off when on Openshift, but allow an environment variable to override on PAAS
 DEBUG = not ON_PAAS
-DEBUG = DEBUG or os.getenv("debug","false").lower() == "true"
+# DEBUG = DEBUG or os.getenv("debug","false").lower() == "true"
 
 if ON_PAAS and DEBUG:
     print("*** Warning - Debug mode is on ***")
@@ -55,6 +55,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'registration',
     'crispy_forms',
+    'django_select2',
     'ckeditor',
     'ckeditor_uploader',
     'sorl.thumbnail',

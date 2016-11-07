@@ -8,7 +8,12 @@ from .forms import BlogForm,CommentForm
 
 
 def blog_list(request):
-    allblogs = Blog.objects.filter(language=request.LANGUAGE_CODE).order_by('-createtime')[:100]
+    tag = request.GET.get('tag')
+    allblogs = None
+    if tag is not None:
+        allblogs = Blog.objects.filter(tags__name__icontains=tag,language=request.LANGUAGE_CODE).order_by('-createtime')[:100]
+    else:
+        allblogs = Blog.objects.filter(language=request.LANGUAGE_CODE).order_by('-createtime')[:100]
     paginator = Paginator(allblogs, 10) 
     page = request.GET.get('page')
     try:
@@ -29,10 +34,11 @@ def blog_list(request):
 def blog_info(request,id):
     blog = Blog.objects.get(pk=id)
     
-    relblogs = Blog.objects.filter(tags__icontains=blog.tags).exclude(id=blog.id)[:10]
+    relblogs = None #= Blog.objects.filter(tags__name__in=blog.tags__name).exclude(id=blog.id)[:10]
     comments = Comment.objects.filter(blog=id).order_by('create_time')
     context = {
         'blog': blog,
+        'tags': blog.tags.all(),
         'relblogs' : relblogs,
         # 'owner':blog.owner,
         'comments':comments,
@@ -56,6 +62,7 @@ def blog_new(request):
         instance.owner=request.user
         instance.language=request.LANGUAGE_CODE
         instance.save()
+        form.save_m2m()
         return redirect(instance)
     else:    
         context = {
