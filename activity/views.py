@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from django import forms
 from django.shortcuts import redirect
 from django.forms.models import model_to_dict
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import date
+from datetime import datetime, timedelta, time
 from django.conf import settings
 from .models import ATag,Activity,Comment
 from .forms import ActivityForm,CommentForm
@@ -10,11 +12,13 @@ from .forms import ActivityForm,CommentForm
 
 def activity_list(request):
     tag = request.GET.get('tag')
+    today = datetime.now().date()
+    today_start = datetime.combine(today, time())
     allactivities = None
     if tag is not None:
-        allactivities = Activity.objects.filter(tags__name__icontains=tag,language=request.LANGUAGE_CODE).order_by('-do_time')[:100]
+        allactivities = Activity.objects.filter(tags__name__icontains=tag,language=request.LANGUAGE_CODE).order_by('do_time')[:100]
     else:    
-        allactivities = Activity.objects.filter(language=request.LANGUAGE_CODE).order_by('-do_time')[:100]
+        allactivities = Activity.objects.filter(do_time__gte=today_start,language=request.LANGUAGE_CODE).order_by('do_time')[:100]
         
     tags = ATag.objects.all()[:20]
     paginator = Paginator(allactivities, 20) 
@@ -43,7 +47,10 @@ def activity_info(request,id):
          }
     #init forms for case owner
     if activity.owner == request.user:
-        context['activity_form'] = ActivityForm(model_to_dict(activity))
+        form = ActivityForm(model_to_dict(activity))
+        form.fields['do_time'].initial = activity.do_time
+        form.fields['do_time'].widget = forms.DateInput()        
+        context['activity_form'] = form
 
     return render(request, 'activity_info.html', context)
   

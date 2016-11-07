@@ -14,7 +14,7 @@ class Activity(models.Model):
     subject =  models.CharField(max_length=500)
     tags = models.ManyToManyField(ATag)
     description = RichTextUploadingField()
-    do_time = models.DateTimeField(editable=True)
+    do_time = models.DateField()
     owner = models.ForeignKey(User, null=True)
     language = models.CharField(max_length=10,default='zh-cn')
     
