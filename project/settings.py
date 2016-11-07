@@ -34,7 +34,7 @@ DEBUG = not ON_PAAS
 if ON_PAAS and DEBUG:
     print("*** Warning - Debug mode is on ***")
 
-
+# DEBUG=False
 
 ALLOWED_HOSTS = ['sunorth.org','www.sunorth.org','sun-python-bytesun.c9.io','sunny-orcnsun.rhcloud.com','localhost','127.0.0.1']
 EMAIL_HOST = 'smtp.mailgun.org'

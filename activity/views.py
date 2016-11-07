@@ -4,7 +4,7 @@ from django.forms.models import model_to_dict
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import date
 from django.conf import settings
-from .models import Activity,Comment
+from .models import ATag,Activity,Comment
 from .forms import ActivityForm,CommentForm
 
 
@@ -15,6 +15,8 @@ def activity_list(request):
         allactivities = Activity.objects.filter(tags__name__icontains=tag,language=request.LANGUAGE_CODE).order_by('-do_time')[:100]
     else:    
         allactivities = Activity.objects.filter(language=request.LANGUAGE_CODE).order_by('-do_time')[:100]
+        
+    tags = ATag.objects.all()[:20]
     paginator = Paginator(allactivities, 20) 
     page = request.GET.get('page')    
     try:
@@ -26,7 +28,7 @@ def activity_list(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         activities = paginator.page(paginator.num_pages)  
         
-    return render(request,'activity_list.html',{'activities':activities})
+    return render(request,'activity_list.html',{'activities':activities,'tags':tags})
   
 def activity_info(request,id):
     activity =Activity.objects.get(pk=id)

@@ -29,7 +29,14 @@
                   <li class="list-group-item">{% trans "Skiing" %}</li>
                   <li class="list-group-item">{% trans "Fishing" %}</li>
                   <li class="list-group-item">{% trans "..." %}</li>
-                </ul>             
+                </ul>    
+                
+                
+                <ul class="list-group">
+                    {% for tag in tags %}
+                  <a href="{% url 'activity_list' %}?tag={{tag.name}}" class="list-group-item">{{tag.name}}</a>
+                  {% endfor %}
+                </ul>                   
        </div>           
        
        

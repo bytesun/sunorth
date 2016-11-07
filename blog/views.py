@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.forms.models import model_to_dict
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.conf import settings
-from .models import Blog,Comment
+from .models import Tag, Blog,Comment
 from .forms import BlogForm,CommentForm
 
 
@@ -14,6 +14,8 @@ def blog_list(request):
         allblogs = Blog.objects.filter(tags__name__icontains=tag,language=request.LANGUAGE_CODE).order_by('-createtime')[:100]
     else:
         allblogs = Blog.objects.filter(language=request.LANGUAGE_CODE).order_by('-createtime')[:100]
+        
+    tags = Tag.objects.all()[:20]  
     paginator = Paginator(allblogs, 10) 
     page = request.GET.get('page')
     try:
@@ -26,6 +28,7 @@ def blog_list(request):
     # comments = Comment.objects.all().order_by('-create_time')[:5]        
     context = {
             'blogs' : blogs,
+            'tags':tags,
             # 'comments' : comments,
         }
     return render(request, 'blog_list.html', context)

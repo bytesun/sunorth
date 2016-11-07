@@ -18,14 +18,11 @@
 
           {% endif %} 
           <BR>
-                <!--<ul class="list-group">-->
-                <!--  <li class="list-group-item">徒步</li>-->
-                <!--  <li class="list-group-item">露营</li>-->
-                <!--  <li class="list-group-item">帆船</li>-->
-                <!--  <li class="list-group-item">划船</li>-->
-                <!--  <li class="list-group-item">滑雪</li>-->
-                <!--  <li class="list-group-item">更多...</li>-->
-                <!--</ul>   -->
+                <ul class="list-group">
+                  {% for tag in tags %}
+                  <a href="{% url 'blog_list' %}?tag={{tag.name}}" class="list-group-item">{{tag.name}}</a>
+                  {% endfor %}
+                </ul>   
                 
             <!-- the latest comments -->
             <!--<div class="panel panel-success">-->
@@ -57,7 +54,9 @@
                   <div class="col-xs-2 col-sm-1 blog_list_avatar hidden-sm hidden-xs"><span class="avatar"> {% avatar  blog.owner %}</span></div>     
                   <div class="col-xs-10 col-sm-11 ">
                     <h2> <a href="{% url 'blog_info' id=blog.id %}"> {{blog.subject}}</a></h2>
-                    <!--<span class="label label-success">{{blog.tags}}</span>  -->
+                    {% for tag in blog.tags.all %}
+                    <a href="{% url 'blog_list' %}?tag={{tag.name}}"><span class="label label-success">{{tag.name}}</span>  
+                    {% endfor %}
                     {{blog.createtime|date:'Y-m-d'}}   
                     <a href="{% url 'blog_info' id=blog.id %}"> <i class="fa fa-commenting"></i></a><br><br>
                     
