@@ -9,7 +9,12 @@ from .forms import ActivityForm,CommentForm
 
 
 def activity_list(request):
-    allactivities = Activity.objects.filter(language=request.LANGUAGE_CODE).order_by('-do_time')[:100]
+    tag = request.GET.get('tag')
+    allactivities = None
+    if tag is not None:
+        allactivities = Activity.objects.filter(tags__name__icontains=tag,language=request.LANGUAGE_CODE).order_by('-do_time')[:100]
+    else:    
+        allactivities = Activity.objects.filter(language=request.LANGUAGE_CODE).order_by('-do_time')[:100]
     paginator = Paginator(allactivities, 20) 
     page = request.GET.get('page')    
     try:
@@ -30,6 +35,7 @@ def activity_info(request,id):
         'activity': model_to_dict(activity),
         'otheractivities' : Activity.objects.filter(do_time__gte=date.today()).exclude(id=activity.id).order_by('do_time'),
         'comments':comments,
+        'tags':activity.tags.all(),
         'comment_form': CommentForm,    
         
          }
@@ -48,6 +54,7 @@ def activity_new(request):
         instance.owner=request.user
         instance.language=request.LANGUAGE_CODE
         instance.save()
+        form.save_m2m()
         return redirect(instance)
     else:    
         context = {

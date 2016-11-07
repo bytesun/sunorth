@@ -4,10 +4,15 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from ckeditor_uploader.fields import RichTextUploadingField
 
+class ATag(models.Model):
+    name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.name
+        
 # Create your models here.
 class Activity(models.Model):
     subject =  models.CharField(max_length=500)
-    tags = models.CharField(max_length=500)
+    tags = models.ManyToManyField(ATag)
     description = RichTextUploadingField()
     do_time = models.DateTimeField(editable=True)
     owner = models.ForeignKey(User, null=True)
