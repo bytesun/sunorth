@@ -18,6 +18,7 @@
                      </small>
                      {% endif %}             
                    </h1>  
+                   <i class="fa fa-tag" aria-hidden="true"></i>
                    {% for tag in tags %}
                    <a href="{% url 'activity_list' %}?tag={{tag.name}}" class="label label-success">{{tag.name}}</a>
                    {% endfor %}

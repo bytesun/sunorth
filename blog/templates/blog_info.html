@@ -25,7 +25,7 @@
             
               <h3>
                   
-                  
+                  <i class="fa fa-tag" aria-hidden="true"></i>
                   {% for tag in tags %}
                   <a href="{% url 'blog_list' %}?tag={{tag.name}}"><span class="label label-success"> {{tag.name}}</span></a>
                   {% endfor %}
