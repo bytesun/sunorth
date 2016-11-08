@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-25 03:48+0000\n"
+"POT-Creation-Date: 2016-11-08 00:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,21 +17,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: activity/templates/activity_info.html:97
+#: activity/templates/activity_info.html:101
 msgid "Recent Activities"
 msgstr "近期活动"
 
-#: activity/templates/activity_info.html:136
-#: activity/templates/activity_new.html:14 blog/templates/blog_info.html:66
-#: blog/templates/blog_info.html.py:132 blog/templates/blog_new.html:14
+#: activity/templates/activity_info.html:140
+#: activity/templates/activity_new.html:14 blog/templates/blog_info.html:73
+#: blog/templates/blog_info.html.py:131 blog/templates/blog_new.html:14
 msgid "Save"
 msgstr "保存"
 
-#: activity/templates/activity_list.html:25
+#: activity/templates/activity_list.html:20
+msgid "Post an activity"
+msgstr "发起活动"
+
+#: activity/templates/activity_list.html:25 templates/club.html:14
 msgid "Hiking"
 msgstr "徒步"
 
-#: activity/templates/activity_list.html:26
+#: activity/templates/activity_list.html:26 templates/club.html:16
 msgid "Camping"
 msgstr "露营"
 
@@ -43,17 +47,17 @@ msgstr "帆船"
 msgid "Rowing"
 msgstr "划艇"
 
-#: activity/templates/activity_list.html:29
+#: activity/templates/activity_list.html:29 templates/club.html:15
 msgid "Skiing"
 msgstr "滑雪"
 
-#: activity/templates/activity_list.html:30
+#: activity/templates/activity_list.html:30 templates/club.html:18
 msgid "Fishing"
 msgstr "钓鱼"
 
 #: activity/templates/activity_list.html:31
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: activity/templates/activity_new.html:10
 msgid "Create a new activity"
@@ -64,9 +68,9 @@ msgstr "发起活动"
 msgid "Not login? "
 msgstr "没有登录？"
 
-#: activity/templates/activity_new.html:17 blog/templates/blog_info.html:72
+#: activity/templates/activity_new.html:17 blog/templates/blog_info.html:79
 #: blog/templates/blog_new.html:17 gallery/templates/photo_info.html:17
-#: gallery/templates/photo_upload.html:17 templates/navbar.html:70
+#: gallery/templates/photo_upload.html:17 templates/navbar.html:94
 msgid "Login"
 msgstr "登录"
 
@@ -78,23 +82,23 @@ msgstr "不是会员"
 
 #: activity/templates/activity_new.html:18 blog/templates/blog_new.html:18
 #: gallery/templates/photo_info.html:18 gallery/templates/photo_upload.html:18
-#: templates/registration/login.html:21
+#: templates/navbar.html:95 templates/registration/login.html:21
 msgid "Register"
 msgstr "注册"
 
-#: blog/templates/blog_info.html:60
+#: blog/templates/blog_info.html:67
 msgid "Comment"
 msgstr "回复"
 
-#: blog/templates/blog_info.html:72
+#: blog/templates/blog_info.html:79
 msgid "to comment"
 msgstr "去回复"
 
-#: blog/templates/blog_info.html:86
+#: blog/templates/blog_info.html:93
 msgid "Related Blogs"
 msgstr "相关日志"
 
-#: blog/templates/blog_info.html:126
+#: blog/templates/blog_info.html:125
 msgid "Edit"
 msgstr "编辑"
 
@@ -102,7 +106,7 @@ msgstr "编辑"
 msgid "Share Blog"
 msgstr "分享日志"
 
-#: blog/templates/blog_list.html:32
+#: blog/templates/blog_list.html:30
 msgid "Latest Comments"
 msgstr "最新回复"
 
@@ -119,25 +123,56 @@ msgstr "上传"
 msgid "Share My Photo"
 msgstr "分享我的照片"
 
-#: project/settings.py:169
+#: project/settings.py:170
 msgid "English"
 msgstr "英语"
 
-#: project/settings.py:170
+#: project/settings.py:171
 msgid "Simple Chinese"
 msgstr "简体中文"
 
-#: project/settings.py:171
+#: project/settings.py:172
 msgid "Traditional Chinese"
 msgstr "繁体中文"
 
+#: templates/400.html:9
+msgid "Sorry, there is something wrong! ^_^"
+msgstr "对不起！访问错误！请重试！^_^"
+
+#: templates/403.html:9
+msgid "Sorry, you can't access this ! ^_^"
+msgstr "对不起！您无权访问该页面！"
+
+#: templates/404.html:9
+msgid "Sorry, you are trying to access the wrong page! ^_^"
+msgstr "对不起！您访问的页面不存在！"
+
+#: templates/500.html:9
+msgid "Sorry, my bad, check back later! ^_^"
+msgstr "对不起！服务故障！"
+
 #: templates/base.html:10
-msgid "Vancouver Outdoor Activities"
+msgid "Outdoor Activities in Vancouver"
 msgstr "温哥华户外活动"
 
 #: templates/base.html:13
-msgid "Vancouver Outdoor Activities-462.700 "
-msgstr "温哥华户外活动-462.700"
+
+msgid "Sunorth - Vancouver Outdoor Activities-462.700 "
+msgstr "运输天外 - 温哥华户外活动-462.700"
+
+#: templates/club.html:11
+#, fuzzy
+#| msgid "Vancouver Outdoor Activities"
+msgid "Outdoor Activities"
+msgstr "温哥华户外活动"
+
+#: templates/club.html:13
+msgid "Boating"
+msgstr ""
+
+#: templates/club.html:17
+msgid "Biking"
+msgstr "自行车"
 
 #: templates/footer.html:8 templates/navbar.html:37
 msgid "Blog"
@@ -159,7 +194,7 @@ msgstr "照片"
 msgid "Gallery"
 msgstr "画廊"
 
-#: templates/footer.html:22
+#: templates/footer.html:22 templates/navbar.html:39
 msgid "Activity"
 msgstr "活动"
 
@@ -175,9 +210,6 @@ msgstr "前一页"
 msgid "Next"
 msgstr "下一页"
 
-#: templates/home.html:61
-msgid "Enjoy the life, and contribute the society"
-msgstr "享受人生，贡献社区"
 
 #: templates/home.html:64
 msgid "Recent Plans"
@@ -203,20 +235,24 @@ msgstr ""
 msgid "Sunorth"
 msgstr "云舒天外"
 
-#: templates/navbar.html:39
-msgid "Event"
-msgstr "活动"
+#: templates/navbar.html:40
+msgid "Club"
+msgstr ""
 
-#: templates/navbar.html:63
+#: templates/navbar.html:41
+msgid "Equipments"
+msgstr ""
+
+#: templates/navbar.html:42
+msgid "Resource"
+msgstr ""
+
+#: templates/navbar.html:87
 msgid "Profile"
 msgstr ""
 
-#: templates/navbar.html:66
+#: templates/navbar.html:90
 msgid "Logout"
-msgstr ""
-
-#: templates/navbar.html:71
-msgid "Registration"
 msgstr ""
 
 #: templates/registration/activate.html:5
@@ -441,4 +477,7 @@ msgstr ""
 
 #: userprofile/templates/profile.html:21
 msgid "Personal Information"
-msgstr ""
+msgstr "个人信息"
+
+#~ msgid "Event"
+#~ msgstr "活动"
