@@ -158,7 +158,7 @@ msgstr "温哥华户外活动"
 #: templates/base.html:13
 
 msgid "Sunorth - Vancouver Outdoor Activities-462.700 "
-msgstr "运输天外 - 温哥华户外活动-462.700"
+msgstr "云舒天外 - 温哥华户外活动-462.700"
 
 #: templates/club.html:11
 #, fuzzy

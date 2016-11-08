@@ -19,37 +19,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse hidden-sm hidden-xs">
           <ul class="nav navbar-nav">
-            
-            <!--<li ><a href="">社区</a></li>-->
-            <!--<li class="dropdown">-->
-            <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
-            <!--    活动 <span class="caret"></span></a>-->
-            <!--  <ul class="dropdown-menu">-->
-            <!--    <li><a href="{% url 'activity_list' %}">--全部--</a></li>-->
-            <!--    <li><a href="{% url 'activity_list' %}">徒步</a></li>-->
-            <!--    <li><a href="{% url 'activity_list' %}">野营</a></li>-->
-            <!--    <li><a href="{% url 'activity_list' %}">帆船</a></li>-->
-            <!--    <li><a href="{% url 'activity_list' %}">滑雪</a></li>-->
-            <!--    <li><a href="{% url 'activity_list' %}">垂钓</a></li>                -->
-            <!--    <li><a href="{% url 'activity_list' %}">划艇</a></li>                -->
-            <!--  </ul>-->
-            <!--</li>            -->
             <li ><a href="{% url 'blog_list' %}">{% trans "Blog" %}</a></li>
             <li ><a href="{% url 'photo_list' %}">{% trans "Photo" %}</a></li>
             <li ><a href="{% url 'activity_list' %}">{% trans "Activity" %}</a></li>
-            <!--<li ><a href="{% url 'club' %}">{% trans "Club" %}</a></li>-->
-            <!--<li ><a href="{% url 'club' %}">{% trans "Equipments" %}</a></li>-->
-            <!--<li ><a href="{% url 'club' %}">{% trans "Resource" %}</a></li>-->
-            <!--<li class="dropdown">-->
-            <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
-            <!--    资料 <span class="caret"></span></a>-->
-            <!--  <ul class="dropdown-menu">-->
-            <!--    <li><a href="#">装备</a></li>-->
-            <!--    <li><a href="#">线路</a></li>-->
-              
-            <!--  </ul>-->
-            <!--</li> -->
-            
           </ul>
          
 
@@ -92,7 +64,7 @@
             </li>
             {% else %}
             <li><a href="{% url 'auth_login' %}">{% trans "Login" %}</a></li>
-            <li><a href="{% url 'registration_register' %}">{% trans "Register" %}</a></li>
+            <!--<li><a href="{% url 'registration_register' %}">{% trans "Register" %}</a></li>-->
             {% endif %}              
           </ul>   
       

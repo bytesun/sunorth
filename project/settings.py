@@ -153,7 +153,7 @@ else:
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 # LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'zh-hans'
+LANGUAGE_CODE = 'zh-cn'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
