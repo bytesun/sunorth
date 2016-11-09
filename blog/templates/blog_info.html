@@ -21,16 +21,17 @@
                </h1>
                </div>
            </div>
-           <hr>    
+              
             
-              <h3>
+              <h4>
                   
-                  <i class="fa fa-tag" aria-hidden="true"></i>
+                 
                   {% for tag in tags %}
-                  <a href="{% url 'blog_list' %}?tag={{tag.name}}"><span class="label label-success"> {{tag.name}}</span></a>
+                  <a href="{% url 'blog_list' %}?tag={{tag.name}}"><span> #{{tag.name}}</span></a>
                   {% endfor %}
                   
-               {{blog.createtime|date:'Y-m-d H:i'}}  {{blog.owner }}</h3>
+               {{blog.createtime|date:'Y-m-d H:i'}}  {{blog.owner }}</h4>
+               <hr> 
               <br><br>
               <div class="blog_content">{{blog.content|safe}}
               
