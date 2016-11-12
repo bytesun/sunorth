@@ -155,7 +155,7 @@ else:
 # LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'America/Sao_Paulo'
+TIME_ZONE = 'America/Vancouver'
 
 USE_I18N = True
 
