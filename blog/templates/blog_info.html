@@ -30,11 +30,14 @@
                   <a href="{% url 'blog_list' %}?tag={{tag.name}}"><span> #{{tag.name}}</span></a>
                   {% endfor %}
                   
-               {{blog.createtime|date:'Y-m-d H:i'}}  {{blog.owner }}</h4>
+               </h4>
                <hr> 
               <br><br>
-              <div class="blog_content">{{blog.content|safe}}
-              
+              <div class="blog_content">
+                  {{blog.content|safe}}
+              <div class="pull-right">
+                   {{blog.createtime|date:'Y-m-d H:i'}}
+              </div>       
               </div>
 
             <!-- comments -->

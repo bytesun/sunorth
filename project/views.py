@@ -14,13 +14,13 @@ def home(request):
     photos = Gallery.objects.all().order_by('-createtime')[:10]
     #fetch logs
     
-    # blogs = Blog.objects.filter(language=request.LANGUAGE_CODE).order_by('-createtime')[:10]
-    blogs = Blog.objects.filter(language='zh-CN').order_by('-createtime')[:10]
+    blogs = Blog.objects.filter(language=request.LANGUAGE_CODE).order_by('-createtime')[:10]
+    # blogs = Blog.objects.filter(language='zh-CN').order_by('-createtime')[:10]
 
     context = {
             'photos': photos,
             'blogs' : blogs,
-            'activities' : Activity.objects.filter(do_time__gte=date.today(),language=request.LANGUAGE_CODE).order_by('do_time'),
+            # 'activities' : Activity.objects.filter(do_time__gte=date.today(),language=request.LANGUAGE_CODE).order_by('do_time'),
             'media_url' : settings.MEDIA_URL,
         }
     return render(request, 'home.html', context)
