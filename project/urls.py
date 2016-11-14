@@ -26,11 +26,13 @@ urlpatterns = patterns('',
     url(r'^api/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^select2/', include('django_select2.urls')),
+
+)
+urlpatterns += i18n_patterns('',
     url(r'^registform/', registform, name='registform'),
     url(r'^signin/', signin, name='signin'),
     url(r'^resetpwd/', resetpwd, name='resetpwd'),
-)
-urlpatterns += i18n_patterns('',
+    url(r'^chpwd/', chpwd, name='chpwd'),
     url(r'^club$', 'project.views.club', name='club'),
     url(r'^blog/', include('blog.urls')),
     url(r'^activity/', include('activity.urls')),

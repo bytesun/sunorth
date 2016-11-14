@@ -149,6 +149,28 @@ def activate(request):
     else:
         return render(request, 'login.html',{'message':_('Your password is wrong, you can reset password using "forget password" function as below.')})
         
+        
+@login_required    
+def chpwd(request):
+    user = request.user
+    message = ''
+    title = _('Change Password')
+    # user = User.objects.get(username__iexact=request.user.username)        
+    if request.method == 'POST':
+        newpwd = request.POST.get('newpwd')
+        cfpwd = request.POST.get('cfpwd')
+
+        if newpwd != cfpwd:
+           message=_('Your confirm password is not same with New Password!')
+           title = _('Reset Password')
+        else:    
+            user.set_password(newpwd)
+            update_session_auth_hash(request, user)
+            user.save()
+            return redirect('profile')
+
+    return render(request, 'chpwd.html',{'message':message,'title':title})
+    
 def club(request):
     return render(request, 'club.html', {});
     
