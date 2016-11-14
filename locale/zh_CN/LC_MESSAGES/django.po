@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-08 00:14+0000\n"
+"POT-Creation-Date: 2016-11-14 17:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,13 +17,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: activity/templates/activity_info.html:101
+#: activity/templates/activity_info.html:91
 msgid "Recent Activities"
 msgstr "近期活动"
 
-#: activity/templates/activity_info.html:140
-#: activity/templates/activity_new.html:14 blog/templates/blog_info.html:73
-#: blog/templates/blog_info.html.py:131 blog/templates/blog_new.html:14
+#: activity/templates/activity_info.html:130
+#: activity/templates/activity_new.html:14 blog/templates/blog_info.html:77
+#: blog/templates/blog_info.html.py:135 blog/templates/blog_new.html:14
 msgid "Save"
 msgstr "保存"
 
@@ -68,9 +68,9 @@ msgstr "发起活动"
 msgid "Not login? "
 msgstr "没有登录？"
 
-#: activity/templates/activity_new.html:17 blog/templates/blog_info.html:79
+#: activity/templates/activity_new.html:17 blog/templates/blog_info.html:83
 #: blog/templates/blog_new.html:17 gallery/templates/photo_info.html:17
-#: gallery/templates/photo_upload.html:17 templates/navbar.html:94
+#: gallery/templates/photo_upload.html:17 templates/navbar.html:61
 msgid "Login"
 msgstr "登录"
 
@@ -82,23 +82,23 @@ msgstr "不是会员"
 
 #: activity/templates/activity_new.html:18 blog/templates/blog_new.html:18
 #: gallery/templates/photo_info.html:18 gallery/templates/photo_upload.html:18
-#: templates/navbar.html:95 templates/registration/login.html:21
+#: templates/navbar.html:62 templates/registration/login.html:21
 msgid "Register"
 msgstr "注册"
 
-#: blog/templates/blog_info.html:67
+#: blog/templates/blog_info.html:71
 msgid "Comment"
 msgstr "回复"
 
-#: blog/templates/blog_info.html:79
+#: blog/templates/blog_info.html:83
 msgid "to comment"
 msgstr "去回复"
 
-#: blog/templates/blog_info.html:93
+#: blog/templates/blog_info.html:97
 msgid "Related Blogs"
 msgstr "相关日志"
 
-#: blog/templates/blog_info.html:125
+#: blog/templates/blog_info.html:129
 msgid "Edit"
 msgstr "编辑"
 
@@ -152,11 +152,10 @@ msgid "Sorry, my bad, check back later! ^_^"
 msgstr "对不起！服务故障！"
 
 #: templates/base.html:10
-msgid "Outdoor Activities in Vancouver"
-msgstr "温哥华户外活动"
+msgid "hiking,camping,sailing,rowing,skiing,fishing..."
+msgstr "徒步，露营，帆船，滑雪，垂钓，划船。。。"
 
 #: templates/base.html:13
-
 msgid "Sunorth - Vancouver Outdoor Activities-462.700 "
 msgstr "云舒天外 - 温哥华户外活动-462.700"
 
@@ -168,13 +167,13 @@ msgstr "温哥华户外活动"
 
 #: templates/club.html:13
 msgid "Boating"
-msgstr ""
+msgstr "划船"
 
 #: templates/club.html:17
 msgid "Biking"
 msgstr "自行车"
 
-#: templates/footer.html:8 templates/navbar.html:37
+#: templates/footer.html:8 templates/navbar.html:17
 msgid "Blog"
 msgstr "日志"
 
@@ -186,7 +185,7 @@ msgstr "浏览"
 msgid "New"
 msgstr "发表"
 
-#: templates/footer.html:15 templates/navbar.html:38
+#: templates/footer.html:15 templates/navbar.html:18
 msgid "Photo"
 msgstr "照片"
 
@@ -194,7 +193,7 @@ msgstr "照片"
 msgid "Gallery"
 msgstr "画廊"
 
-#: templates/footer.html:22 templates/navbar.html:39
+#: templates/footer.html:22 templates/navbar.html:19
 msgid "Activity"
 msgstr "活动"
 
@@ -210,6 +209,9 @@ msgstr "前一页"
 msgid "Next"
 msgstr "下一页"
 
+#: templates/home.html:61
+msgid "Enjoy the life, and contribute the society"
+msgstr ""
 
 #: templates/home.html:64
 msgid "Recent Plans"
@@ -231,29 +233,17 @@ msgstr "温哥华户外线路"
 msgid "UBC Sailing Club"
 msgstr ""
 
-#: templates/navbar.html:5 templates/navbar.html.py:18
+#: templates/navbar.html:13
 msgid "Sunorth"
 msgstr "云舒天外"
 
-#: templates/navbar.html:40
-msgid "Club"
-msgstr ""
-
-#: templates/navbar.html:41
-msgid "Equipments"
-msgstr ""
-
-#: templates/navbar.html:42
-msgid "Resource"
-msgstr ""
-
-#: templates/navbar.html:87
+#: templates/navbar.html:54
 msgid "Profile"
-msgstr ""
+msgstr "个人设置"
 
-#: templates/navbar.html:90
+#: templates/navbar.html:57
 msgid "Logout"
-msgstr ""
+msgstr "注销"
 
 #: templates/registration/activate.html:5
 msgid "Account activation failed."
@@ -479,5 +469,4 @@ msgstr ""
 msgid "Personal Information"
 msgstr "个人信息"
 
-#~ msgid "Event"
-#~ msgstr "活动"
+
