@@ -28,7 +28,7 @@
               {% csrf_token %}
                {% get_current_language as LANGUAGE_CODE %}
                 {% if LANGUAGE_CODE == 'en-us' %}
-                    <input name="language" type="hidden" value="zh-hans"/>
+                    <input name="language" type="hidden" value="zh-cn"/>
                 {% else %}
                     <input name="language" type="hidden" value="en"/>
                 {% endif %}  
