@@ -30,6 +30,7 @@ urlpatterns = patterns('',
 )
 urlpatterns += i18n_patterns('',
     url(r'^registform/', registform, name='registform'),
+    url(r'^activate/', activate, name='activate'),
     url(r'^signin/', signin, name='signin'),
     url(r'^resetpwd/', resetpwd, name='resetpwd'),
     url(r'^chpwd/', chpwd, name='chpwd'),
