@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import *
 
 urlpatterns = patterns('',
     url(r'^$', 'project.views.home', name='home'),
@@ -25,6 +26,9 @@ urlpatterns = patterns('',
     url(r'^api/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^select2/', include('django_select2.urls')),
+    url(r'^registform/', registform, name='registform'),
+    url(r'^signin/', signin, name='signin'),
+    url(r'^resetpwd/', resetpwd, name='resetpwd'),
 )
 urlpatterns += i18n_patterns('',
     url(r'^club$', 'project.views.club', name='club'),

@@ -37,11 +37,18 @@ if ON_PAAS and DEBUG:
 # DEBUG=False
 
 ALLOWED_HOSTS = ['sunorth.org','www.sunorth.org','sun-python-bytesun.c9.io','sunny-orcnsun.rhcloud.com','localhost','127.0.0.1']
-EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_HOST_USER = 'postmaster@mg.sunorth.org'
-EMAIL_HOST_PASSWORD = 'd6f9a8e420525fd8284c07571e2e5041'
+# EMAIL_HOST = 'smtp.mailgun.org'
+# EMAIL_HOST_USER = 'postmaster@mg.sunorth.org'
+# EMAIL_HOST_PASSWORD = 'd6f9a8e420525fd8284c07571e2e5041'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'sunorth'
+EMAIL_HOST_PASSWORD = 'Sunadmin1'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'noreply@sunorth.org'
 
 # Application definition
 

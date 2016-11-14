@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load static %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+        <div class="row">
+        	{% if message %}
+        	<div class="alert alert-info" role="alert">
+        		{{message}}
+        	</div>
+        	{% endif %}
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<h3>{% trans "Reset Password" %}</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form" action="{% url 'resetpwd' %}" method="post" role="form" style="display: block;">
+									{% csrf_token %}
+
+									<div class="form-group">
+										<input type="email" name="email"  tabindex="2" class="form-control" placeholder="{% trans 'Email...' %}"  required autofocus>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="{% trans 'Send' %}">
+											</div>
+										</div>
+									</div>
+
+								</form>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}
+
+
