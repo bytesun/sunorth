@@ -3,6 +3,7 @@ from django import forms
 from django.shortcuts import redirect
 from django.forms.models import model_to_dict
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import login_required
 from datetime import date
 from datetime import datetime, timedelta, time
 from django.conf import settings
@@ -60,7 +61,7 @@ def activity_info(request,id):
 
     return render(request, 'activity_info.html', context)
   
-#new case form    
+@login_required     
 def activity_new(request):
 
     form = ActivityForm(request.POST or None)
@@ -78,7 +79,7 @@ def activity_new(request):
             }
         return render(request, 'activity_new.html', context)
         
-        
+@login_required            
 def activity_edit(request,id):
     activity = Activity.objects.get(pk=id)
     if request.method == 'POST':
@@ -87,7 +88,8 @@ def activity_edit(request,id):
            form.save()
   
     return redirect(activity)
-    
+
+@login_required        
 def comment_new(request,activityid):
     activity = Activity.objects.get(pk=activityid)
     form = CommentForm(request.POST or None)

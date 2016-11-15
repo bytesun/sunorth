@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.forms.models import model_to_dict
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.conf import settings
 from .models import Tag, Blog,Comment
@@ -57,7 +58,7 @@ def blog_info(request,id):
 
     return render(request, 'blog_info.html', context)
   
-#new case form    
+@login_required      
 def blog_new(request):
 
     form = BlogForm(request.POST or None)
@@ -75,7 +76,7 @@ def blog_new(request):
             }
         return render(request, 'blog_new.html', context)
         
-        
+@login_required           
 def blog_edit(request,id):
     blog = Blog.objects.get(pk=id)
     if request.method == 'POST':
@@ -84,7 +85,8 @@ def blog_edit(request,id):
            form.save()
   
     return redirect(blog)
-    
+
+@login_required       
 def comment_new(request,blogid):
     blog = Blog.objects.get(pk=blogid)
     form = CommentForm(request.POST or None)

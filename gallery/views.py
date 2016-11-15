@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import GalleryForm
 from .models import Gallery
@@ -25,6 +26,7 @@ def photo_list(request):
     }    
     return render(request,'photo_list.html',context)
 
+@login_required   
 def photo_upload(request):
     if request.method == 'POST':
         form = GalleryForm(request.POST, request.FILES)
