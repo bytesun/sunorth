@@ -60,7 +60,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'registration',
     'crispy_forms',
     'django_select2',
     'ckeditor',
@@ -201,11 +200,6 @@ else:
     MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
     MEDIA_URL = '/media/'
 
-#registration
-ACCOUNT_ACTIVATION_DAYS=7
-REGISTRATION_DEFAULT_FROM_EMAIL='sun@sunorth.org'
-REGISTRATION_EMAIL_HTML=True
-REGISTRATION_AUTO_LOGIN=True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 

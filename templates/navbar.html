@@ -54,12 +54,11 @@
                 <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> {% trans "Profile" %}</a></li>
                 <li role="separator" class="divider"></li>
                 
-                <li><a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out"></i>{% trans "Logout" %}</a></li>
+                <li><a href="{% url 'logoff' %}"><i class="fa fa-sign-out"></i>{% trans "Logout" %}</a></li>
               </ul>
             </li>
             {% else %}
             <li><a href="{% url 'signin' %}">{% trans "Login" %}</a></li>
-            <!--<li><a href="{% url 'registration_register' %}">{% trans "Register" %}</a></li>-->
             {% endif %}              
           </ul>   
       

@@ -170,6 +170,11 @@ def chpwd(request):
             return redirect('profile')
 
     return render(request, 'chpwd.html',{'message':message,'title':title})
+
+@login_required  
+def logoff(request):
+    logout(request)
+    return redirect('home')
     
 def club(request):
     return render(request, 'club.html', {});

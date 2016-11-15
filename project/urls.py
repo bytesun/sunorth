@@ -26,6 +26,7 @@ urlpatterns = patterns('',
     url(r'^api/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^select2/', include('django_select2.urls')),
+    url(r'^logoff/', logoff, name='logoff'),
 
 )
 urlpatterns += i18n_patterns('',
@@ -39,8 +40,6 @@ urlpatterns += i18n_patterns('',
     url(r'^activity/', include('activity.urls')),
     url(r'^gallery/', include('gallery.urls')),
     url(r'^userprofile/', include('userprofile.urls')),
-
-    url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^avatar/', include('avatar.urls')),
     
