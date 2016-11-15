@@ -18,7 +18,12 @@ def photo_list(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         photos = paginator.page(paginator.num_pages)  
         
-    return render(request,'photo_list.html',{'photos':photos,'media_url' : settings.MEDIA_URL})
+    context = {
+        'photos':photos,
+        'media_url' : settings.MEDIA_URL,
+        'page':'photo'
+    }    
+    return render(request,'photo_list.html',context)
 
 def photo_upload(request):
     if request.method == 'POST':
@@ -30,6 +35,6 @@ def photo_upload(request):
             return HttpResponseRedirect('/gallery/list')
     else:
         form = GalleryForm()
-    return render(request, 'photo_upload.html', {'form': form})
+    return render(request, 'photo_upload.html', {'form': form,'page':'photo'})
     
    

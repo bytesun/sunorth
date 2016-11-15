@@ -32,7 +32,12 @@ def activity_list(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         activities = paginator.page(paginator.num_pages)  
         
-    return render(request,'activity_list.html',{'activities':activities,'tags':tags})
+    context = {
+        'activities':activities,
+        'tags':tags,
+        'page':'activity'
+    }    
+    return render(request,'activity_list.html',context)
   
 def activity_info(request,id):
     activity =Activity.objects.get(pk=id)
@@ -42,7 +47,8 @@ def activity_info(request,id):
         'otheractivities' : Activity.objects.filter(do_time__gte=date.today()).exclude(id=activity.id).order_by('do_time'),
         'comments':comments,
         'tags':activity.tags.all(),
-        'comment_form': CommentForm,    
+        'comment_form': CommentForm, 
+        'page':'activity'
         
          }
     #init forms for case owner
@@ -68,6 +74,7 @@ def activity_new(request):
     else:    
         context = {
                 "form" : form,
+                'page':'activity'
             }
         return render(request, 'activity_new.html', context)
         

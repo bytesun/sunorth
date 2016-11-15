@@ -14,9 +14,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse ">
           <ul class="nav navbar-nav">
-            <li ><a href="{% url 'blog_list' %}">{% trans "Blog" %}</a></li>
-            <li ><a href="{% url 'photo_list' %}">{% trans "Photo" %}</a></li>
-            <li ><a href="{% url 'activity_list' %}">{% trans "Activity" %}</a></li>
+            <li {% if page == 'blog' %} class="active" {% endif %}><a href="{% url 'blog_list' %}">{% trans "Blog" %}</a></li>
+            <li {% if page == 'photo' %} class="active" {% endif %} ><a href="{% url 'photo_list' %}">{% trans "Photo" %}</a></li>
+            <li {% if page == 'activity' %} class="active" {% endif %}><a href="{% url 'activity_list' %}">{% trans "Activity" %}</a></li>
           </ul>
          
 

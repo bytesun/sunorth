@@ -29,6 +29,7 @@ def blog_list(request):
     context = {
             'blogs' : blogs,
             'tags':tags,
+            'page':'blog'
             # 'comments' : comments,
         }
     return render(request, 'blog_list.html', context)
@@ -46,7 +47,7 @@ def blog_info(request,id):
         # 'owner':blog.owner,
         'comments':comments,
         'comment_form': CommentForm,
-
+        'page':'blog'
          }
     # if blog.owner == request.user:
     context['blog_form'] = BlogForm(model_to_dict(blog))         
@@ -70,6 +71,7 @@ def blog_new(request):
     else:    
         context = {
                 "form" : form,
+                'page':'blog'
             }
         return render(request, 'blog_new.html', context)
         
