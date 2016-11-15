@@ -59,11 +59,11 @@ def registform(request):
             template_text = 'email_template.txt'        
             to = username
             from_email = settings.DEFAULT_FROM_EMAIL           
-            subject = _('Activate your Vansday account')
-            text = _(' Thanks for you register Vansday.net, please click or copy the link to activate your Vansday account : http://'+Site.objects.get_current().domain+'/activate?id='+username+"&code="+password)
+            subject = _('Activate your sunorth account')
+            text = _(' Thanks for you register sunorth.org, please click or copy the link to activate your sunorth account : http://'+Site.objects.get_current().domain+'/activate?id='+username+"&code="+password)
     
-            text_content = loader.render_to_string(template_text, {"subject": subject,"greeting":_("Hello!"),"text": text,"signature":_("Vansday Team"),"domain":Site.objects.get_current().domain})
-            html_content = loader.render_to_string(template_html, {"subject": subject,"greeting":_("Hello!"),"text": text,"signature":_("Vansday Team"),"domain":Site.objects.get_current().domain})
+            text_content = loader.render_to_string(template_text, {"subject": subject,"greeting":_("Hello!"),"text": text,"signature":_("sunorth Team"),"domain":Site.objects.get_current().domain})
+            html_content = loader.render_to_string(template_html, {"subject": subject,"greeting":_("Hello!"),"text": text,"signature":_("sunorth Team"),"domain":Site.objects.get_current().domain})
     
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
@@ -111,8 +111,8 @@ def resetpwd(request):
             subject = _('Reset Password')
             text =  _('Please click the link to reset your password: https://'+Site.objects.get_current().domain+'/resetpwd')+"?id="+email+"&code="+password
     
-            text_content = loader.render_to_string(template_text, {"subject": subject,"greeting":_("Hello!"),"text": text,"signature":_("Vansday Team"),"domain":Site.objects.get_current().domain})
-            html_content = loader.render_to_string(template_html, {"subject": subject,"greeting":_("Hello!"),"text": text,"signature":_("Vansday Team"),"domain":Site.objects.get_current().domain})
+            text_content = loader.render_to_string(template_text, {"subject": subject,"greeting":_("Hello!"),"text": text,"signature":_("sunorth Team"),"domain":Site.objects.get_current().domain})
+            html_content = loader.render_to_string(template_html, {"subject": subject,"greeting":_("Hello!"),"text": text,"signature":_("sunorth Team"),"domain":Site.objects.get_current().domain})
     
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
