@@ -77,7 +77,12 @@
                       </table>  
                   </div>
                 </div> 
-              
+                <ul class="list-group">
+                  {% for tag in tags %}
+                  
+                  <a href="{% url 'blog_list' %}?tag={{tag.name}}" class="list-group-item"># {{tag.name}}</a>
+                  {% endfor %}
+                </ul>                
           </div>
         </div>
             

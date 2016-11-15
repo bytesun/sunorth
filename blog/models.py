@@ -7,6 +7,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 class Tag(models.Model):
     name = models.CharField(max_length=50)
+    language = models.CharField(max_length=10,default='zh-cn')
     def __str__(self):
         return self.name
         

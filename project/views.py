@@ -12,7 +12,7 @@ from datetime import date
 from django.conf import settings
 from django.utils.translation import ugettext as _
 
-from blog.models import Blog,Comment
+from blog.models import Tag,Blog,Comment
 from blog.forms import BlogForm
 from activity.models import Activity
 from gallery.models import Gallery
@@ -28,6 +28,7 @@ def home(request):
     context = {
             'photos': photos,
             'blogs' : blogs,
+            'tags': Tag.objects.filter(language=request.LANGUAGE_CODE)[:10],
             # 'activities' : Activity.objects.filter(do_time__gte=date.today(),language=request.LANGUAGE_CODE).order_by('do_time'),
             'media_url' : settings.MEDIA_URL,
         }
