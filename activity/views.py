@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django import forms
 from django.shortcuts import redirect
+import json
+from django.http import HttpResponse
 from django.forms.models import model_to_dict
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
@@ -100,3 +102,15 @@ def comment_new(request,activityid):
         instance.save()
         
     return redirect(activity)     
+    
+    
+    
+#------------------------api--------------------------    
+def activity_list_api(request):
+    start = request.GET.get('start')
+    end = request.GET.get('end')
+    activities = Activity.objects.filter(do_time__gte = start, do_time__lte = end, language=request.LANGUAGE_CODE)
+    json_list = []
+    for a in activities:
+        json_list.append({'id':a.id,'title': a.subject ,'start': str(a.do_time),'url':'/activity/'+str(a.id)+"/"})
+    return HttpResponse(json.dumps(json_list), content_type='application/json')  

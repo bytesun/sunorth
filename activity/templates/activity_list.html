@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% load i18n %}
 {% block jumbotron %}
   
@@ -9,87 +9,88 @@
 {% endblock %}
   
 {% block content %}
-<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.0/fullcalendar.min.css' />
-<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js'></script>
-<script src='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.0/fullcalendar.min.js'></script>
-
+<link rel='stylesheet' href='{% static "css/fullcalendar.min.css" %}' />
+<script src='{% static "lib/moment.min.js" %}'></script>
+<script src='{% static "lib/fullcalendar.min.js" %}'></script>
+<script src='{% static "lib/zh-cn.js" %}'></script>
 
    <div class="row">
-       <div class="col-sm-3 hidden-sm hidden-xs">
-          <a class="btn btn-success btn-lg btn-block" href="{% url 'activity_new' %}" ><i class="fa fa-calendar"></i> {% trans 'Post an activity' %}</a>  
-          <BR>
-                <ul class="list-group">
-                  <li class="list-group-item">{% trans "Hiking" %}</li>
-                  <li class="list-group-item">{% trans "Camping" %}</li>
-                  <li class="list-group-item">{% trans "Sailing" %}</li>
-                  <li class="list-group-item">{% trans "Rowing" %}</li>
-                  <li class="list-group-item">{% trans "Skiing" %}</li>
-                  <li class="list-group-item">{% trans "Fishing" %}</li>
-                  <li class="list-group-item">{% trans "..." %}</li>
-                </ul>    
+       <!--<div class="col-sm-3 hidden-sm hidden-xs">-->
+          
+       <!--   <BR>-->
+       <!--         <ul class="list-group">-->
+       <!--           <li class="list-group-item">{% trans "Hiking" %}</li>-->
+       <!--           <li class="list-group-item">{% trans "Camping" %}</li>-->
+       <!--           <li class="list-group-item">{% trans "Sailing" %}</li>-->
+       <!--           <li class="list-group-item">{% trans "Rowing" %}</li>-->
+       <!--           <li class="list-group-item">{% trans "Skiing" %}</li>-->
+       <!--           <li class="list-group-item">{% trans "Fishing" %}</li>-->
+       <!--           <li class="list-group-item">{% trans "..." %}</li>-->
+       <!--         </ul>    -->
                 
                 
-                <ul class="list-group">
-                    {% for tag in tags %}
-                  <a href="{% url 'activity_list' %}?tag={{tag.name}}" class="list-group-item"># {{tag.name}}</a>
-                  {% endfor %}
-                </ul>    
+       <!--         <ul class="list-group">-->
+       <!--             {% for tag in tags %}-->
+       <!--           <a href="{% url 'activity_list' %}?tag={{tag.name}}" class="list-group-item"># {{tag.name}}</a>-->
+       <!--           {% endfor %}-->
+       <!--         </ul>    -->
                 
-       </div>           
+       <!--</div>           -->
        
        
       <!-- blog list-->
-       <div class="col-sm-9">
-           <br>
+       <div class="col-sm-12">
+           <a class="btn btn-success btn-lg " href="{% url 'activity_new' %}" ><i class="fa fa-calendar"></i> {% trans 'Post an activity' %}</a>  
+           <hr>
            <div id='calendar' class="hidden-sm hidden-xs"></div>            
-           {% if activities %}
-               <table class="table">
-               {% for activity in activities %}
-                  <tr>
-                    <td>
-                        {{activity.do_time|date:'Y-m-d'}}
-                    </td>
-                    <td>
-                       <a href="{% url 'activity_info' id=activity.id %}"> {{activity.subject}}</a>
-                    </td> 
-                    <td> 
-                        {% for tag in activity.tags.all %}
-                        <a href="{% url 'activity_list' %}?tag={{tag.name}}" ># {{tag.name}}</a>
-                        {% endfor %}
-                    </td>
+           <!--{% if activities %}-->
+           <!--    <table class="table">-->
+           <!--    {% for activity in activities %}-->
+           <!--       <tr>-->
+           <!--         <td>-->
+           <!--             {{activity.do_time|date:'Y-m-d'}}-->
+           <!--         </td>-->
+           <!--         <td>-->
+           <!--            <a href="{% url 'activity_info' id=activity.id %}"> {{activity.subject}}</a>-->
+           <!--         </td> -->
+           <!--         <td> -->
+           <!--             {% for tag in activity.tags.all %}-->
+           <!--             <a href="{% url 'activity_list' %}?tag={{tag.name}}" ># {{tag.name}}</a>-->
+           <!--             {% endfor %}-->
+           <!--         </td>-->
                     
-                  </tr>    
-                {% endfor %}
-               </table>   
-               <div class="text-center">
-                     <nav aria-label="Page navigation">
-                      <ul class="pagination">
-                        {% if activities.has_previous %}
-                          <li><a href="?page={{ activities.previous_page_number }}">&laquo;</a></li>
-                        {% else %}
-                          <li class="disabled"><a href="#">&laquo;</a></li>
-                        {% endif %}
+           <!--       </tr>    -->
+           <!--     {% endfor %}-->
+           <!--    </table>   -->
+           <!--    <div class="text-center">-->
+           <!--          <nav aria-label="Page navigation">-->
+           <!--           <ul class="pagination">-->
+           <!--             {% if activities.has_previous %}-->
+           <!--               <li><a href="?page={{ activities.previous_page_number }}">&laquo;</a></li>-->
+           <!--             {% else %}-->
+           <!--               <li class="disabled"><a href="#">&laquo;</a></li>-->
+           <!--             {% endif %}-->
                     
-                        {% for num in activities.paginator.page_range %}
-                          {% ifequal num activities.number %}
-                            <li class="active"><a href="#">{{ num }}<span class="sr-only">(current)</span></a></li>
-                          {% else %}
-                            <li><a href="?page={{ num }}">{{ num }}</a></li>
-                          {% endifequal %}
-                        {% endfor %}
+           <!--             {% for num in activities.paginator.page_range %}-->
+           <!--               {% ifequal num activities.number %}-->
+           <!--                 <li class="active"><a href="#">{{ num }}<span class="sr-only">(current)</span></a></li>-->
+           <!--               {% else %}-->
+           <!--                 <li><a href="?page={{ num }}">{{ num }}</a></li>-->
+           <!--               {% endifequal %}-->
+           <!--             {% endfor %}-->
                     
-                        {% if activities.has_next %}
-                          <li><a href="?page={{ activities.next_page_number }}">&raquo;</a></li>
-                        {% else %}
-                          <li class="disabled"><a href="#">&raquo;</a></li>
-                        {% endif %}
-                      <ul>
-                    </nav>                   
-               </div>
+           <!--             {% if activities.has_next %}-->
+           <!--               <li><a href="?page={{ activities.next_page_number }}">&raquo;</a></li>-->
+           <!--             {% else %}-->
+           <!--               <li class="disabled"><a href="#">&raquo;</a></li>-->
+           <!--             {% endif %}-->
+           <!--           <ul>-->
+           <!--         </nav>                   -->
+           <!--    </div>-->
                                     
            
 
-            {% endif %}
+           <!-- {% endif %}-->
        </div><!-- activity LIST -->
        
      
@@ -105,7 +106,7 @@ $(document).ready(function(){
     var m = date.getMonth();
     $('#calendar').fullCalendar({
         events: {
-            url: '/api/activity/list',
+            url: '/api/activities/',
             type: 'GET',
             data: {
                 month: m,
@@ -113,8 +114,8 @@ $(document).ready(function(){
             error: function() {
                // alert('there was an error while fetching events!');
             },
-            color: 'green',   // a non-ajax option
-            textColor: 'black' // a non-ajax option
+            // color: 'green',   // a non-ajax option
+            // textColor: 'black' // a non-ajax option
         }
     })
 });
