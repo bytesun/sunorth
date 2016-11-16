@@ -105,6 +105,11 @@ $(document).ready(function(){
     var date = new Date();
     var m = date.getMonth();
     $('#calendar').fullCalendar({
+        header:{
+            left:   'prevYear,nextYear',
+            center: 'title',
+            right:  'today,listWeek,month,agendaWeek,prev,next'                
+        },        
         events: {
             url: '/api/activities/',
             type: 'GET',
