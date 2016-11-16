@@ -29,7 +29,7 @@ def home(request):
             'photos': photos,
             'blogs' : blogs,
             'tags': Tag.objects.filter(language=request.LANGUAGE_CODE)[:10],
-            # 'activities' : Activity.objects.filter(do_time__gte=date.today(),language=request.LANGUAGE_CODE).order_by('do_time'),
+            'activities' : Activity.objects.filter(do_time__gte=date.today(),language=request.LANGUAGE_CODE).order_by('do_time'),
             'media_url' : settings.MEDIA_URL,
         }
     return render(request, 'home.html', context)
