@@ -39,3 +39,9 @@ class Comment(models.Model):
         return self.comment       
 
 
+class News(models.Model):
+    title = models.CharField(max_length=300)
+    content =  RichTextUploadingField()
+    createtime = models.DateTimeField(default=timezone.now,editable=True)
+    owner = models.ForeignKey(User, null=True)
+    language = models.CharField(max_length=10,default='zh-cn')
