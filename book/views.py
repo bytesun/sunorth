@@ -20,7 +20,7 @@ def book_list(request):
     else:
         allbooks = Book.objects.filter(language=request.LANGUAGE_CODE).order_by('-createtime')[:100]
         
-    tags = BTag.objects.all()[:20]  
+    tags = BTag.objects.filter(language=request.LANGUAGE_CODE)  
     paginator = Paginator(allbooks, 10) 
     page = request.GET.get('page')
     try:
