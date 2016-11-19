@@ -71,6 +71,7 @@ INSTALLED_APPS = (
     'blog',
     'activity',
     'gallery',
+    'book',
 
 )
 

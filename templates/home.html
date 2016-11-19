@@ -101,24 +101,22 @@
        
       <!-- blog list-->
        <div class="col-sm-9">
- 
-            
             
            <div class="row">
                <div class="col-xs-12">
-                  
                    <hr>
+                   {% for n in news %}
+                       <h3>{{n.title}}</h3>
+                       <h5>{{n.createtime|date:'Y-m-d'}}</h5>    
+                       <p>
+                           {{n.content|safe}}
+                       </p>
+                       <hr>
+                   {% endfor %}                   
                </div>
            </div>
            
-           {% for n in news %}
-               <h3>{{n.title}}</h3>
-               <h5>{{n.createtime|date:'Y-m-d'}}</h5>    
-               <p>
-                   {{n.content|safe}}
-               </p>
-               <hr>
-           {% endfor %}
+
            
            {% if blogs %}
                {% for blog in blogs %}

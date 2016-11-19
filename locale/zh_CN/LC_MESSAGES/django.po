@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 07:02+0000\n"
+"POT-Creation-Date: 2016-11-19 05:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,15 +21,13 @@ msgstr ""
 msgid "Recent Activities"
 msgstr "近期活动"
 
-#: activity/templates/activity_info.html:130
+#: activity/templates/activity_info.html:137
 #: activity/templates/activity_new.html:14 blog/templates/blog_info.html:77
-#: blog/templates/blog_info.html.py:135 blog/templates/blog_new.html:14
+#: blog/templates/blog_info.html.py:145 blog/templates/blog_new.html:14
+#: book/templates/book_info.html:77 book/templates/book_info.html.py:145
+#: book/templates/book_new.html:13
 msgid "Save"
 msgstr "保存"
-
-#: activity/templates/activity_list.html:19
-msgid "Post an activity"
-msgstr "发起活动"
 
 #: activity/templates/activity_list.html:22 templates/club.html:14
 msgid "Hiking"
@@ -59,6 +57,10 @@ msgstr "钓鱼"
 msgid "..."
 msgstr "..."
 
+#: activity/templates/activity_list.html:43
+msgid "Post an activity"
+msgstr "发起活动"
+
 #: activity/templates/activity_new.html:10
 msgid "Create a new activity"
 msgstr "发起活动"
@@ -69,9 +71,9 @@ msgid "Not login? "
 msgstr "没有登录？"
 
 #: activity/templates/activity_new.html:17 blog/templates/blog_info.html:83
-#: blog/templates/blog_new.html:17 gallery/templates/photo_info.html:17
-#: gallery/templates/photo_upload.html:17 templates/login.html:20
-#: templates/login.html.py:47 templates/navbar.html:61
+#: blog/templates/blog_new.html:17 book/templates/book_info.html:83
+#: gallery/templates/photo_info.html:17 gallery/templates/photo_upload.html:17
+#: templates/login.html:20 templates/login.html.py:47 templates/navbar.html:62
 msgid "Login"
 msgstr "登录"
 
@@ -86,19 +88,19 @@ msgstr "不是会员"
 msgid "Register"
 msgstr "注册"
 
-#: blog/templates/blog_info.html:71
+#: blog/templates/blog_info.html:71 book/templates/book_info.html:71
 msgid "Comment"
 msgstr "回复"
 
-#: blog/templates/blog_info.html:83
+#: blog/templates/blog_info.html:83 book/templates/book_info.html:83
 msgid "to comment"
 msgstr "去回复"
 
-#: blog/templates/blog_info.html:97
+#: blog/templates/blog_info.html:100
 msgid "Related Blogs"
 msgstr "相关日志"
 
-#: blog/templates/blog_info.html:129
+#: blog/templates/blog_info.html:139 book/templates/book_info.html:139
 msgid "Edit"
 msgstr "编辑"
 
@@ -110,6 +112,30 @@ msgstr "分享日志"
 msgid "Share My Story"
 msgstr "分享我的故事"
 
+#: book/forms.py:45
+msgid "Title"
+msgstr "标题"
+
+#: book/forms.py:46
+msgid "Content"
+msgstr "内容"
+
+#: book/forms.py:47
+msgid "Category"
+msgstr "分类"
+
+#: book/templates/book_info.html:100
+msgid "Related Books"
+msgstr "相关路书"
+
+#: book/templates/book_list.html:16
+msgid "Share Knowledge"
+msgstr "分享经验"
+
+#: book/templates/book_new.html:9
+msgid "Share My Knowledge"
+msgstr "分享我的经验"
+
 #: gallery/templates/photo_info.html:14 gallery/templates/photo_upload.html:14
 #: templates/footer.html:18
 msgid "Upload"
@@ -119,80 +145,81 @@ msgstr "上传"
 msgid "Share My Photo"
 msgstr "分享我的照片"
 
-#: project/settings.py:176
+#: project/settings.py:177
 msgid "English"
 msgstr "英语"
 
-#: project/settings.py:177
+#: project/settings.py:178
 msgid "Simple Chinese"
 msgstr "简体中文"
 
-#: project/settings.py:178
+#: project/settings.py:179
 msgid "Traditional Chinese"
 msgstr "繁体中文"
 
-#: project/views.py:45
+#: project/views.py:48
 msgid "The user account is existed! You can login now."
 msgstr "用户帐号已经存在，请登录!"
 
-#: project/views.py:62
+#: project/views.py:65
 msgid "Activate your sunorth account"
 msgstr "激活您的 【云舒天外】 帐号"
 
-#: project/views.py:63
+#: project/views.py:66
 msgid ""
 " Thanks for you register sunorth.org, please click or copy the link to "
 "activate your sunorth account : http://"
-msgstr "谢谢您注册 【云舒天外】户外组织，请点击或者拷贝链接激活您的帐号 https://"
+msgstr ""
+"谢谢您注册 【云舒天外】户外组织，请点击或者拷贝链接激活您的帐号 https://"
 
-#: project/views.py:65 project/views.py:66 project/views.py:114
-#: project/views.py:115
+#: project/views.py:68 project/views.py:69 project/views.py:117
+#: project/views.py:118
 msgid "Hello!"
 msgstr "你好！"
 
-#: project/views.py:65 project/views.py:66 project/views.py:114
-
+#: project/views.py:68 project/views.py:69 project/views.py:117
+#: project/views.py:118
 msgid "sunorth Team"
 msgstr "云舒天外户外团队"
 
-#: project/views.py:72
+#: project/views.py:75
 msgid ""
 "Thanks for your registration! Please check your email to activate your "
 "account."
 msgstr "谢谢您的注册，请检查邮箱激活您的帐号！"
 
-#: project/views.py:91
+#: project/views.py:94
 msgid "Your username or password is wrong, please try again!"
 msgstr "您的用户名或密码错误，请重试！"
 
-#: project/views.py:111 project/views.py:132 project/views.py:135
-#: project/views.py:166 templates/resetpwd.html:18
+#: project/views.py:114 project/views.py:135 project/views.py:138
+#: project/views.py:169 templates/resetpwd.html:18
 msgid "Reset Password"
 msgstr "重置密码"
 
-#: project/views.py:112
+#: project/views.py:115
 msgid "Please click the link to reset your password: https://"
 msgstr "请点击或拷贝链接重置密码 https://"
 
-#: project/views.py:122
+#: project/views.py:125
 msgid "Please check your email for reseting password!"
 msgstr "请检查邮箱去重置密码"
 
-#: project/views.py:124
+#: project/views.py:127
 msgid "This user is not existed!"
 msgstr "该用户不存在！"
 
-#: project/views.py:151
+#: project/views.py:154
 msgid ""
 "Your password is wrong, you can reset password using \"forget password\" "
 "function as below."
 msgstr "您的密码错误，你可以使用“忘记密码”功能重置密码"
 
-#: project/views.py:158 templates/chpwd.html:18
+#: project/views.py:161 templates/chpwd.html:18
 msgid "Change Password"
 msgstr "修改密码"
 
-#: project/views.py:165
+#: project/views.py:168
 msgid "Your confirm password is not same with New Password!"
 msgstr "您的确认密码与新密码不一致！"
 
@@ -312,11 +339,15 @@ msgstr "邀请码"
 msgid "Sunorth"
 msgstr "云舒天外"
 
-#: templates/navbar.html:54
+#: templates/navbar.html:20
+msgid "Book"
+msgstr "路书"
+
+#: templates/navbar.html:55
 msgid "Profile"
 msgstr "个人设置"
 
-#: templates/navbar.html:57
+#: templates/navbar.html:58
 msgid "Logout"
 msgstr "注销"
 
@@ -335,4 +366,3 @@ msgstr "个人信息"
 #: userprofile/templates/profile.html:23
 msgid "Change password"
 msgstr "修改密码"
-

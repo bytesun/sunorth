@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block content %}
+   <div class="row">
+       <div class="col-md-8 col-md-offset-2">
+          <br>
+              <h1>{% trans "Share My Knowledge" %}</h1>
+             <form method="POST" action="{% url 'book_new' %}">
+               {% csrf_token %}
+               {{ form|crispy }}
+               <input class="btn btn-success" type="submit" name="Submit" value="{% trans 'Save' %}"/>
+             </form>
+       </div>
+    </div>   
+
+{% endblock %}
+
