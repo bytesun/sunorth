@@ -22,9 +22,6 @@
     
 
 {% endblock %} 
-
-
-{% block script %}
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -33,7 +30,6 @@
     <script src='{% static "lib/bootstrap.min.js" %}'></script>
 
 
-{% endblock %}  
   </head>
 
   <body>
@@ -51,5 +47,8 @@
 
  {% include 'footer.html' %}
     
+{% block script %}
+
+{% endblock %}      
   </body>
 </html>
