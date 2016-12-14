@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+      
+   <div class="row">
+     <div class="col-md-3 hidden-xs hidden-sm">
+        <div class="list-group">
+          <a href="#" class="list-group-item active">
+            {% trans "Treking" %}
+          </a>
+          <a href="https://twitter.com/thehikingfool" class="list-group-item" target="_blank">{% trans "Dana Meise" %}</a>
+          <a href="https://thegreattrail.ca/stories/sarah-jackson-blazing-a-trail/"  target="_blank" class="list-group-item">{% trans "Sarah Jackson" %}</a>
+          <a href="https://thegreattrail.ca/stories/a-filmmakers-take-on-the-trail/" class="list-group-item" target="_blank">{% trans "Dianne Whelan" %}</a>
+
+        </div>      
+     </div>
+     <div class="col-md-9 hidden-xs hidden-sm">
+       <h3 class="text-center">{% trans "Trans Canada Tral" %} -<small> {% trans "The Great Tral" %}</small></h3>
+       <p class="text-center">
+           24,000km  Coast to Coast to Coast
+       </p>
+       <a href="https://thegreattrail.ca/" title="Trans Canada Trail" target="_blank"><img src="{% static 'img/tct.png' %}"></a>
+     </div>     
+    </div>   
+{% endblock %}
+
+{% block script%}
+{{ block.super }}
+<script>
+
+$(document).ready(function(){
+    $("img").addClass("img-responsive");
+
+});
+
+</script>  
+{% endblock %}

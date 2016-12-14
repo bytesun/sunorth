@@ -45,6 +45,7 @@ urlpatterns += i18n_patterns('',
     url(r'^activity/', include('activity.urls')),
     url(r'^gallery/', include('gallery.urls')),
     url(r'^book/', include('book.urls')),
+    url(r'^tct/$', 'project.views.tct', name='tct'),
     url(r'^userprofile/', include('userprofile.urls')),
     
     

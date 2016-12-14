@@ -184,3 +184,5 @@ def club(request):
     return render(request, 'club.html', {});
     
     
+def tct(request):
+    return render(request, 'tct.html', {});
