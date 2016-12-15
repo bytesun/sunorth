@@ -180,8 +180,7 @@ def logoff(request):
     logout(request)
     return redirect('home')
     
-def club(request):
-    return render(request, 'club.html', {});
+
     
     
 def tct(request):
