@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-19 05:33+0000\n"
+"POT-Creation-Date: 2016-12-15 04:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,27 +29,33 @@ msgstr "近期活动"
 msgid "Save"
 msgstr "保存"
 
-#: activity/templates/activity_list.html:22 templates/club.html:14
+#: activity/templates/activity_list.html:22 club/models.py:11
+#: club/templates/club.html:17 club/templates/club.html.py:32
 msgid "Hiking"
 msgstr "徒步"
 
-#: activity/templates/activity_list.html:23 templates/club.html:16
+#: activity/templates/activity_list.html:23 club/models.py:12
+#: club/templates/club.html:19 club/templates/club.html.py:34
 msgid "Camping"
 msgstr "露营"
 
-#: activity/templates/activity_list.html:24
+#: activity/templates/activity_list.html:24 club/models.py:13
+#: club/templates/club.html:36
 msgid "Sailing"
 msgstr "帆船"
 
-#: activity/templates/activity_list.html:25
+#: activity/templates/activity_list.html:25 club/models.py:14
+#: club/templates/club.html:38
 msgid "Rowing"
 msgstr "划艇"
 
-#: activity/templates/activity_list.html:26 templates/club.html:15
+#: activity/templates/activity_list.html:26 club/models.py:15
+#: club/templates/club.html:18 club/templates/club.html.py:40
 msgid "Skiing"
 msgstr "滑雪"
 
-#: activity/templates/activity_list.html:27 templates/club.html:18
+#: activity/templates/activity_list.html:27 club/models.py:17
+#: club/templates/club.html:21 club/templates/club.html.py:44
 msgid "Fishing"
 msgstr "钓鱼"
 
@@ -73,7 +79,7 @@ msgstr "没有登录？"
 #: activity/templates/activity_new.html:17 blog/templates/blog_info.html:83
 #: blog/templates/blog_new.html:17 book/templates/book_info.html:83
 #: gallery/templates/photo_info.html:17 gallery/templates/photo_upload.html:17
-#: templates/login.html:20 templates/login.html.py:47 templates/navbar.html:62
+#: templates/login.html:20 templates/login.html.py:47 templates/navbar.html:64
 msgid "Login"
 msgstr "登录"
 
@@ -136,6 +142,47 @@ msgstr "分享经验"
 msgid "Share My Knowledge"
 msgstr "分享我的经验"
 
+#: club/forms.py:14
+msgid "Name"
+msgstr "名称"
+
+#: club/forms.py:15
+msgid "Type"
+msgstr "类型"
+
+#: club/forms.py:16
+msgid "Description"
+msgstr "详细介绍"
+
+#: club/forms.py:17
+msgid "Website"
+msgstr "网址"
+
+#: club/models.py:16 club/templates/club.html:20
+#: club/templates/club.html.py:42
+msgid "Biking"
+msgstr "自行车"
+
+#: club/models.py:18 club/templates/club.html:30
+msgid "Other"
+msgstr "其他"
+
+#: club/templates/club.html:10 club/templates/club.html.py:60
+msgid "Add Club"
+msgstr "添加俱乐部信息"
+
+#: club/templates/club.html:14
+msgid "Outdoor Activities"
+msgstr "户外活动"
+
+#: club/templates/club.html:16
+msgid "Boating"
+msgstr "划船"
+
+#: club/templates/club.html:66
+msgid "Add"
+msgstr "添加"
+
 #: gallery/templates/photo_info.html:14 gallery/templates/photo_upload.html:14
 #: templates/footer.html:18
 msgid "Upload"
@@ -145,15 +192,15 @@ msgstr "上传"
 msgid "Share My Photo"
 msgstr "分享我的照片"
 
-#: project/settings.py:177
+#: project/settings.py:178
 msgid "English"
 msgstr "英语"
 
-#: project/settings.py:178
+#: project/settings.py:179
 msgid "Simple Chinese"
 msgstr "简体中文"
 
-#: project/settings.py:179
+#: project/settings.py:180
 msgid "Traditional Chinese"
 msgstr "繁体中文"
 
@@ -259,18 +306,6 @@ msgstr "确认密码"
 msgid "Change"
 msgstr "修改"
 
-#: templates/club.html:11
-msgid "Outdoor Activities"
-msgstr "户外活动"
-
-#: templates/club.html:13
-msgid "Boating"
-msgstr "划船"
-
-#: templates/club.html:17
-msgid "Biking"
-msgstr "自行车"
-
 #: templates/footer.html:8 templates/navbar.html:17
 msgid "Blog"
 msgstr "日志"
@@ -340,14 +375,22 @@ msgid "Sunorth"
 msgstr "云舒天外"
 
 #: templates/navbar.html:20
+msgid "Club"
+msgstr "俱乐部"
+
+#: templates/navbar.html:21
 msgid "Book"
 msgstr "路书"
 
-#: templates/navbar.html:55
+#: templates/navbar.html:22
+msgid "TCT"
+msgstr ""
+
+#: templates/navbar.html:57
 msgid "Profile"
 msgstr "个人设置"
 
-#: templates/navbar.html:58
+#: templates/navbar.html:60
 msgid "Logout"
 msgstr "注销"
 
@@ -358,6 +401,30 @@ msgstr "邮箱..."
 #: templates/resetpwd.html:32
 msgid "Send"
 msgstr "发送"
+
+#: templates/tct.html:12
+msgid "Treking"
+msgstr "远足"
+
+#: templates/tct.html:14
+msgid "Dana Meise"
+msgstr ""
+
+#: templates/tct.html:15
+msgid "Sarah Jackson"
+msgstr ""
+
+#: templates/tct.html:16
+msgid "Dianne Whelan"
+msgstr ""
+
+#: templates/tct.html:21
+msgid "Trans Canada Trail"
+msgstr ""
+
+#: templates/tct.html:21
+msgid "The Great Trail"
+msgstr ""
 
 #: userprofile/templates/profile.html:21
 msgid "Personal Information"
