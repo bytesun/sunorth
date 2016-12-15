@@ -107,7 +107,7 @@
                    <hr>
                    {% for n in news %}
                        <h3>{{n.title}}</h3>
-                       <h5>{{n.createtime|date:'Y-m-d'}}</h5>    
+                       <h5>{{n.createtime|date:'M d'}}</h5>    
                        <p>
                            {{n.content|safe}}
                        </p>
@@ -129,7 +129,7 @@
                     <a href="{% url 'blog_list' %}?tag={{tag.name}}">#{{tag.name}}</a>  
                     {% endfor %}
                     <span class="pull-right">
-                    {{blog.createtime|date:'Y-m-d'}}   
+                    {{blog.createtime|date:'M d'}}   
                     </span>
                     </h4>
                     <!--<div class="hidden-xs hidden-sm"> {{blog.content|safe}}</div> -->
