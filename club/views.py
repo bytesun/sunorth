@@ -11,7 +11,7 @@ from .forms import ClubForm
 
 def list(request):
     form = ClubForm()
-    clubs = Club.objects.filter(language=request.LANGUAGE_CODE)
+    clubs = Club.objects.filter(language=request.LANGUAGE_CODE).order_by('-createdate')
     context = {
         'form':form,
         'clubs':clubs

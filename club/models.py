@@ -17,6 +17,17 @@ class Club(models.Model):
         (7,_("Fishing")),
         (0,_("Other"))
         )
+        
+    CLUB_CITY_CHOICES=(
+        (1,_("Vancouver")),
+        (2,_("Burnaby")),
+        (3,_("Richmond")),
+        (4,_("Coquitlam")),
+        (5,_("Skiing")),
+        (6,_("Biking")),
+        (7,_("Fishing")),
+        (0,_("Other"))
+        )        
     name = models.CharField(max_length=100)
     ctype = models.IntegerField(choices=CLUB_TYPES_CHOICES,default=0)
     description = RichTextUploadingField()
