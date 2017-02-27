@@ -36,15 +36,16 @@ def is_int(s):
 class ActivityForm(forms.ModelForm):
     class Meta:
         model = Activity
-        fields = ['subject','description','tags','do_time']
+        fields = ['subject','start','end','tags','organizer','description']
         # exclude = ["owner","create_time"]
         labels = {
             'subject':'Activity',
-            'do_time': 'Date',
+            
         }
         widgets = {
             'description' : CKEditorWidget(),
-            'do_time' : forms.DateInput(attrs={'type': 'date'},format=('%d-%m-%Y')),
+            'start' : forms.DateInput(attrs={'type': 'datetime_local'},format=('%d-%m-%Y')),
+            'end' : forms.DateInput(attrs={'type': 'datetime_local'},format=('%d-%m-%Y')),
             'tags':TaglSelect2TagWidget,
             # 'content': Textarea(attrs={'id':'ta_blog','class': 'richarea','rows': 20}),
         } 
