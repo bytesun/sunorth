@@ -14,7 +14,7 @@ class ATag(models.Model):
 # Create your models here.
 class Activity(models.Model):
     subject =  models.CharField(max_length=500)
-    tags = models.ManyToManyField(ATag)
+    tags = models.ManyToManyField(ATag,null=True)
     description = RichTextUploadingField(null=True)
     do_time = models.DateField(null=True) # xxxx
     start = models.DateTimeField(default=timezone.now)

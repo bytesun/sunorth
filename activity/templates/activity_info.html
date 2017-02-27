@@ -23,7 +23,7 @@
                    <a href="{% url 'activity_list' %}?tag={{tag.name}}" >#{{tag.name}}</a>
                    {% endfor %}
                    
-                   <h3>{{activity.do_time|date:'Y-m-d'}}</h3>
+                   <h3>{{activity.start|date:'Y-m-d h:i'}} ~ {{activity.end|date:'h:i'}}</h3>
                   <hr>
                </div>
              </div> 

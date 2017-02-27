@@ -69,7 +69,7 @@
                           
                           <div class="form-group">
                             <label for="exampleTextarea">{% trans "Description" %}</label>
-                            <textarea class="form-control" id="desc" rows="5"></textarea>
+                            <textarea class="form-control" id="description" rows="10"></textarea>
                           </div>
                           {% if request.user.is_authenticated %}   
                             <input type="hidden" id="email" value="{{request.user.email}}">
@@ -149,6 +149,26 @@
 {{ block.super }}
 
 <script>
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
 $(document).ready(function(){
     var date = new Date();
     var m = date.getMonth();
@@ -179,6 +199,14 @@ $(document).ready(function(){
             $('#calendarModal').modal();
         }
     })
+    var csrftoken = getCookie('csrftoken');
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });    
     
     $("#publishActivity").click(function(){
         var title = $("#title").val();
@@ -187,10 +215,33 @@ $(document).ready(function(){
         var desc = $("#description").val();
         var email = $("#email").val();
         
-        console.log(start);
+        $.ajax({
+    		type: "POST",
+	    	url: "{% url 'activity_api_new' %}",
+		    data: {
+		        'subject':title,
+		        'start':start,
+		        'end':end,
+		        'description':desc,
+		        'email':email
+		    },
+
+            		    
+    	    success: function(msg){
+	            console.log(msg);
+	            $('#calendarModal').modal('hide');
+	            $('#calendar').fullCalendar( 'refetchEvents' );
+ 	        },
+	        error: function(){
+			    console.log("failure");
+		    }
+      		});        
     })
+    
     
 
 });
+// using jQuery
+
 </script>
 {% endblock %}

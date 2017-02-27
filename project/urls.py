@@ -31,6 +31,7 @@ urlpatterns = patterns('',
     url(r'^logoff/', logoff, name='logoff'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^avatar/', include('avatar.urls')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
 
 )

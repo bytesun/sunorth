@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^new/$', views.activity_new, name='activity_new'),
     url(r'^edit/(?P<id>\d+)/$', views.activity_edit, name='activity_edit'),
     url(r'^comment/(?P<activityid>\d+)/$', views.comment_new, name='activity_comment_new'),
+    url(r'^api/new/$', views.ActivityApiView.as_view(), name='activity_api_new'),
 ]
