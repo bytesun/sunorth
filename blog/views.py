@@ -14,7 +14,8 @@ def blog_list(request):
     if tag is not None:
         allblogs = Blog.objects.filter(tags__name__icontains=tag,language=request.LANGUAGE_CODE).order_by('-createtime')[:100]
     else:
-        allblogs = Blog.objects.filter(language=request.LANGUAGE_CODE).order_by('-createtime')[:100]
+        # allblogs = Blog.objects.filter(language=request.LANGUAGE_CODE).order_by('-createtime')[:100]
+        allblogs = Blog.objects.all().order_by('-createtime')[:100]
         
     tags = Tag.objects.all()[:20]  
     paginator = Paginator(allblogs, 10) 
