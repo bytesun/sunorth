@@ -2,9 +2,11 @@ django-admin.py makemessages -l zh_CN
 django-admin compilemessages
 
 
-book
-    information
-    trails
-    gears
-    
-club    
+OPENSHIFT_REPO_DIR
+OPENSHIFT_SECRET_TOKEN
+OPENSHIFT_APP_NAME
+OPENSHIFT_MYSQL_DB_USERNAME
+OPENSHIFT_MYSQL_DB_PASSWORD
+OPENSHIFT_MYSQL_DB_HOST
+OPENSHIFT_MYSQL_DB_PORT
+OPENSHIFT_DATA_DIR

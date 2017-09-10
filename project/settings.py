@@ -36,19 +36,8 @@ if ON_PAAS and DEBUG:
 
 # DEBUG=False
 
-ALLOWED_HOSTS = ['sunorth.org','www.sunorth.org','sun-python-bytesun.c9.io','sunny-orcnsun.rhcloud.com','localhost','127.0.0.1']
-# EMAIL_HOST = 'smtp.mailgun.org'
-# EMAIL_HOST_USER = 'postmaster@mg.sunorth.org'
-# EMAIL_HOST_PASSWORD = 'd6f9a8e420525fd8284c07571e2e5041'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
+ALLOWED_HOSTS = ['sunorth.org','www.sunorth.org','test.sunorth.org','localhost','127.0.0.1']
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'sunorth'
-EMAIL_HOST_PASSWORD = 'Sunadmin1'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'noreply@sunorth.org'
 
 # Application definition
 
@@ -117,33 +106,16 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 if ON_PAAS:
 
-
-    # determine if we are on MySQL or POSTGRESQL
-    if "OPENSHIFT_POSTGRESQL_DB_USERNAME" in os.environ: 
-    
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql_psycopg2',  
-                'NAME':     os.environ['OPENSHIFT_APP_NAME'],
-                'USER':     os.environ['OPENSHIFT_POSTGRESQL_DB_USERNAME'],
-                'PASSWORD': os.environ['OPENSHIFT_POSTGRESQL_DB_PASSWORD'],
-                'HOST':     os.environ['OPENSHIFT_POSTGRESQL_DB_HOST'],
-                'PORT':     os.environ['OPENSHIFT_POSTGRESQL_DB_PORT'],
-            }
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME':     os.environ['OPENSHIFT_APP_NAME'],
+            'USER':     os.environ['OPENSHIFT_MYSQL_DB_USERNAME'],
+            'PASSWORD': os.environ['OPENSHIFT_MYSQL_DB_PASSWORD'],
+            'HOST':     os.environ['OPENSHIFT_MYSQL_DB_HOST'],
+            'PORT':     os.environ['OPENSHIFT_MYSQL_DB_PORT'],
         }
-        
-    elif "OPENSHIFT_MYSQL_DB_USERNAME" in os.environ: 
-    
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.mysql',
-                'NAME':     os.environ['OPENSHIFT_APP_NAME'],
-                'USER':     os.environ['OPENSHIFT_MYSQL_DB_USERNAME'],
-                'PASSWORD': os.environ['OPENSHIFT_MYSQL_DB_PASSWORD'],
-                'HOST':     os.environ['OPENSHIFT_MYSQL_DB_HOST'],
-                'PORT':     os.environ['OPENSHIFT_MYSQL_DB_PORT'],
-            }
-        }
+    }
     
 
         
