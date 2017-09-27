@@ -18,7 +18,7 @@ from django.utils.translation import ugettext_lazy as _
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-ON_PAAS = 'OPENSHIFT_REPO_DIR' in os.environ
+ON_PAAS = 'SUNORTH_IN_PRODUCTION' in os.environ
 
 if ON_PAAS:
     SECRET_KEY = os.environ['OPENSHIFT_SECRET_TOKEN']
@@ -141,7 +141,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = False
+USE_TZ = True
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
