@@ -130,8 +130,8 @@ try:
     if 'DATABASES' not in locals():
         DATABASES = {}
 
-    if 'DATABASE_URL' in os.environ:
-        url = urlparse.urlparse(os.environ['DATABASE_URL'])
+    if 'CLEARDB_DATABASE_URL' in os.environ:
+        url = urlparse.urlparse(os.environ['CLEARDB_DATABASE_URL'])
 
         # Ensure default database exists.
         DATABASES['default'] = DATABASES.get('default', {})
@@ -149,7 +149,7 @@ try:
         if url.scheme == 'mysql':
             DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
 except Exception:
-    print 'Unexpected error:', sys.exc_info()
+    print ('Unexpected error:', sys.exc_info())
         
 # else:
 #     # stock django, local development.
