@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import sys
+import urlparse
 import socket
 from django.utils.translation import ugettext_lazy as _
 
@@ -106,18 +108,48 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 # if ON_PAAS:
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':     os.environ['OPENSHIFT_APP_NAME'],
-        'USER':     os.environ['OPENSHIFT_MYSQL_DB_USERNAME'],
-        'PASSWORD': os.environ['OPENSHIFT_MYSQL_DB_PASSWORD'],
-        'HOST':     os.environ['OPENSHIFT_MYSQL_DB_HOST'],
-        'PORT':     os.environ['OPENSHIFT_MYSQL_DB_PORT'],
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME':     os.environ['OPENSHIFT_APP_NAME'],
+#         'USER':     os.environ['OPENSHIFT_MYSQL_DB_USERNAME'],
+#         'PASSWORD': os.environ['OPENSHIFT_MYSQL_DB_PASSWORD'],
+#         'HOST':     os.environ['OPENSHIFT_MYSQL_DB_HOST'],
+#         'PORT':     os.environ['OPENSHIFT_MYSQL_DB_PORT'],
+#     }
+# }
+
+# Register database schemes in URLs.
+urlparse.uses_netloc.append('mysql')
+
+try:
+
+    # Check to make sure DATABASES is set in settings.py file.
+    # If not default to {}
+
+    if 'DATABASES' not in locals():
+        DATABASES = {}
+
+    if 'DATABASE_URL' in os.environ:
+        url = urlparse.urlparse(os.environ['DATABASE_URL'])
+
+        # Ensure default database exists.
+        DATABASES['default'] = DATABASES.get('default', {})
+
+        # Update with environment configuration.
+        DATABASES['default'].update({
+            'NAME': url.path[1:],
+            'USER': url.username,
+            'PASSWORD': url.password,
+            'HOST': url.hostname,
+            'PORT': url.port,
+        })
 
 
+        if url.scheme == 'mysql':
+            DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
+except Exception:
+    print 'Unexpected error:', sys.exc_info()
         
 # else:
 #     # stock django, local development.
