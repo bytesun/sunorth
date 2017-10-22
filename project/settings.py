@@ -36,7 +36,7 @@ if ON_PAAS and DEBUG:
 
 # DEBUG=False
 
-ALLOWED_HOSTS = ['sunorth.org','www.sunorth.org','test.sunorth.org','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
